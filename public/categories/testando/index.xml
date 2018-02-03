@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testando on Rodrigo Volmir Anderle</title>
+    <link>/categories/testando/</link>
+    <description>Recent content in Testando on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/testando/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Olá Novo Mundo</title>
+      <link>/ol%C3%A1-novo-mundo/02/2018/</link>
+      <pubDate>Sat, 03 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/ol%C3%A1-novo-mundo/02/2018/</guid>
+      <description>Um pequeno teste Este é um pequeno teste para mim e um grande teste… bem para mim também.
+Vamos ver o que acontece se eu salvar este post? Aparentemente criou um novo post sem maiores problemas, então acho que é isto.
+Agora vou tentar publicar o site no netfly.
+Por algum motivo ainda não consigo disponibilizar a foto de fundo.
+Outro fato interessante é que para fazer parágrafos preciso dar dois enter.</description>
+    </item>
+    
+  </channel>
+</rss>

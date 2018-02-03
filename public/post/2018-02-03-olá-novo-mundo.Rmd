@@ -1,0 +1,20 @@
+---
+title: Olá Novo Mundo
+author: Rodrigo
+date: '2018-02-03'
+slug: olá-novo-mundo
+categories:
+  - Testando
+tags:
+  - RStudio
+  - Blogdown
+---
+# Um pequeno teste
+
+  Este é um pequeno teste para mim e um grande teste... bem para mim também.<br>
+  Vamos ver o que acontece se eu salvar este post?
+  Aparentemente criou um novo post sem maiores problemas, então acho que é isto.<br>
+  Agora vou tentar publicar o site no netfly.<br>
+  Por algum motivo ainda não consigo disponibilizar a foto de fundo.<br>
+
+  Outro fato interessante é que para fazer parágrafos preciso dar dois enter. Colocando `<br>` no final parece resolver.
