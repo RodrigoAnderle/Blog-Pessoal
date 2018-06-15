@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Rodrigo Volmir Anderle</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Classes</title>
+      <link>/tags/classes/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/classes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Desigualdade</title>
+      <link>/tags/desigualdade/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/desigualdade/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
