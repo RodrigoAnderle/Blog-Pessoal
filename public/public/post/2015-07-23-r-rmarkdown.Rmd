@@ -1,0 +1,33 @@
+---
+title: "Sobre o Blog"
+author: "Rodrigo Volmir Anderle"
+date: 2018-06-22T21:13:14-05:00
+categories: ["Blog"]
+tags: ["Pessoal", "Economia", "Academia", "Diversos"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Por que este blog?
+
+  
+   Olá, meu nome é Rodrigo Volmir Anderle e este *post* é sobre o que está por trás deste blog. Este não é o meu primeiro blog. Tecnicamente diria que é o segundo, mas na prática já fiz várias outras tentativas. Todas frustradas pelas dificuldades encontradas, além do medo de se comprometer tanto na rede mundial de computadores.   
+   
+   O blog que considero o meu primeiro foi o [economiaSG](https://economiasg.wordpress.com/) que foi a experiência mais intensa que tive nestas tentativas. Afinal estava em um ano sabático, estudando para conseguir entrar no doutorado, ao mesmo tempo que buscava alguma alternativa de renda (já que estava exaurindo minhas reservas com essa coisa do sabático). Havia ainda a possibilidade de não conseguir entrar no doutorado. Então, também fazia isto num esforço prático de produzir algo, além de meus estudos. Felizmente consegui entrar no doutorado de economia aplicada da UFBA, curso que iniciei em junho de 2016. E, infelizmente, não foi possível retomar o blog. Esforço que faço só agora.  
+   
+   A ideia é aos poucos transferir alguns dos *posts* do blog antigo para este[^1], mas não todos, pois entendo que minha perspectiva mudou, bem como os objetivos deste blog também. Até por isto pretendo desativar o blog antigo em algum momento no futuro. De uma forma geral, alguns objetivos se mantiveram, enquanto outros surgiram: exercitar minha escrita, argumentação, análise de dados, fazer discussões mais próximas do mundo real e ter um ponto de divulgação e de discussão das minhas temáticas.  
+   
+   Diferente do meu blog antigo, meu interesse aqui não é cliques nem *likes*, mas sim de atender estes objetivos que mencionei. Por isto estou iniciando um blog novo e por isto ele pessoal (em meu nome). No [economiaSG](https://economiasg.wordpress.com/), por exemplo, eu me mantive anônimo por muito tempo, com receio do julgamento alheio e do meu próprio. De fato, até minha perspectiva teórica sofreu alterações neste meio tempo. Apesar do meu antigo interesse por questões heterodoxas, minha formação estava consolidada na ortodoxia.
+   
+   Outra motivação para este novo blog é a prática do R (*software*) que já utilizado desde o mestrado. Faz algum tempo que quero fazer esta transição, pois existe um pacote ([Blogdown](https://bookdown.org/yihui/blogdown/)) no R que permite produzir *posts* diretamente do R, particularmente do RStudio[^2]. Isto facilita a produção de gráficos e de análises. Antes tinha que gerar as análises, transcrever tabelas, ou salvar imagens... Além de tudo, tenho o ganho do exercício frequente da ferramenta que acredito, deverá fazer parte da minha vida acadêmica por muito tempo ainda.  
+   
+   Acho que consegui dar uma boa ideia do para quê serve este blog. Ou, pelo menos, quais meus objetivos com ele. Obviamente este é um ponto de partida, ao longo do tempo muitas coisas vão acontecendo e algumas realidades se impondo as outras. De toda forma é importante estabelecer estas diretrizes iniciais.  
+
+
+
+***
+  [^1]: O *post* [Sobre Abelhas e Classes](http://anderlerv.netlify.com/sobre-abelhas-e-classes/06/2018/) foi o primeiro que fiz isto.
+  [^2]: Caso não conheça muito a respeito, dá uma pesquisada no Google ou no Youtube, já existe bastante material, inclusive em portugês.
+  
