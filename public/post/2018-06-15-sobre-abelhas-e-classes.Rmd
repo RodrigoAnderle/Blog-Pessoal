@@ -2,7 +2,7 @@
 title: Sobre Abelhas e Classes
 author: Rodrigo Volmir Anderle
 date: '2018-06-15'
-thumbnailImage: SobreAbelhaseClasses.jpg
+thumbnailImage: https://upload.wikimedia.org/wikipedia/commons/a/a8/Bees_Collecting_Pollen_2004-08-14.jpg
 thumbnailImagePosition: left
 coverImage: https://upload.wikimedia.org/wikipedia/commons/a/a8/Bees_Collecting_Pollen_2004-08-14.jpg
 slug: sobre-abelhas-e-classes
@@ -14,7 +14,7 @@ tags:
 ---
 # Sobre Abelhas e Classes
 
-    Este texto foi originalmente publicado em meu blog anterior "economiaSG", no dia 3 de Dezembro de 2016. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria "economiaSG" `
+  `Este texto foi originalmente publicado em meu blog anterior "economiaSG", no dia 3 de Dezembro de 2016. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria "economiaSG" `
 
 <!--more-->
  Tenho tido um interesse na criação de abelhas. Na verdade, faz tempo que tenho este interesse, em particular  nas abelhas nativas sem ferrão. Sempre fui um biólogo frustrado, então estes interesses excêntricos fazem parte do meu dia a dia. Desde criança me perguntava a respeito da organização de classes dentro das abelhas (e das formigas também) e como elas são definidas. Em parte por que sempre imaginava que, enquanto seres vivos, deveríamos reproduzir tipos semelhantes de organização social. Obviamente, isto denota algum tipo de naturalismo em minha forma de pensar.  Não tenho como negar que este naturalismo esteja na minha cabeça, mas com a consciência dele, ainda acho que a analogia com as abelhas faz sentido. Embora, não mais como a busca de um modelo ideal.  
