@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Jun 2018 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Academia</title>
       <link>/tags/academia/</link>
-      <pubDate>Fri, 22 Jun 2018 21:13:14 -0500</pubDate>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/academia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Artigo</title>
+      <link>/tags/artigo/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/artigo/</guid>
       <description></description>
     </item>
     
@@ -26,6 +35,15 @@
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/classes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Crescimento</title>
+      <link>/tags/crescimento/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/crescimento/</guid>
       <description></description>
     </item>
     
@@ -41,7 +59,7 @@
     <item>
       <title>Diversos</title>
       <link>/tags/diversos/</link>
-      <pubDate>Fri, 22 Jun 2018 21:13:14 -0500</pubDate>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/diversos/</guid>
       <description></description>
@@ -50,16 +68,25 @@
     <item>
       <title>Economia</title>
       <link>/tags/economia/</link>
-      <pubDate>Fri, 22 Jun 2018 21:13:14 -0500</pubDate>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/economia/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Efeito Espacial</title>
+      <link>/tags/efeito-espacial/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/efeito-espacial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pessoal</title>
       <link>/tags/pessoal/</link>
-      <pubDate>Fri, 22 Jun 2018 21:13:14 -0500</pubDate>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pessoal/</guid>
       <description></description>
