@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reprodução on Rodrigo Volmir Anderle</title>
+    <link>/tags/reprodu%C3%A7%C3%A3o/</link>
+    <description>Recent content in Reprodução on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/reprodu%C3%A7%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reprodução de Artigo: Crescimento da Produtividade dos Municípios Nordestinos</title>
+      <link>/reprodu%C3%A7%C3%A3o-de-artigo-crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos/09/2018/</link>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/reprodu%C3%A7%C3%A3o-de-artigo-crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos/09/2018/</guid>
+      <description>BPAMC1991 &amp;lt;-read.csv(&amp;quot;https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv&amp;quot;) library(tidyverse) library(knitr) library(kableExtra) BPAMC1991 %&amp;gt;% group_by()  ## # A tibble: 1,451 x 39 ## X MUN lng9110 lng9100 lng0010 lnProd1991 lnProd2000 lnProd2010 ## &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 210010 210010 1.02 0.200 0.822 2.13 2.33 3.15 ## 2 210020 210020 1.00 0.231 0.770 2.60 2.83 3.60 ## 3 210030 210030 0.455 0.0495 0.405 2.62 2.67 3.08 ## 4 210040 210040 0.212 -0.303 0.</description>
+    </item>
+    
+  </channel>
+</rss>
