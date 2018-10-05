@@ -1,0 +1,2869 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</title>
+    <meta name="author" content="Rodrigo Volmir Anderle">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+    <meta name="description" content="ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.">
+    <meta property="og:description" content="ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada">
+    <meta property="og:url" content="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+    <meta property="og:site_name" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:description" content="ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.">
+    
+      <meta name="twitter:creator" content="@rodrigoanderle">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-121614138-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Rodrigo Volmir Anderle</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=90" alt="Foto do autor" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+        </a>
+        <h4 class="sidebar-profile-name">Rodrigo Volmir Anderle</h4>
+        
+          <h5 class="sidebar-profile-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista e aspirante a pesquisador</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Início</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categorias</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Arquivo</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/sobre-o-blog">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Sobre</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/rodrigovolmir.anderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.instagram.com/rodrigovanderle/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-instagram"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/rodrigo-volmir-anderle-a8251920/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-10-05T00:00:00Z">
+        
+  
+  
+  
+  
+    5 Outubro 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>em</span>
+    
+      <a class="category-link" href="/categories/publica%c3%a7%c3%b5es">Publicações</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <div id="apresentacao" class="section level1">
+<h1>Apresentação</h1>
+<p>Estou prometendo disponibilizar os <em>scripts</em> para reprodução do <a href="https://www.revistaaber.org.br/rberu/article/view/233">artigo</a> baseado em minha <a href="https://repositorio.ufpe.br/handle/123456789/13903">dissertação</a>, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três <em>posts</em> contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.</p>
+<div id="base-de-dados" class="section level2">
+<h2>Base de dados</h2>
+<p>Para fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010. Há um problema de se trabalhar com municípios que é que eles mudam ao longo do tempo. Há emancipações e até extinções. Uma sugestão de <a href="https://www.ufmg.br/rededemuseus/crch/simposio/REIS_EUSTAQUIO_JOSE_R_ET_AL.pdf">Reis et al.</a>, acatada na pesquisa, é de trabalhar com áreas mínimas comparáveis. Nesse sentido o que chamo de municípios são, na verdade, áreas mínimas comparáveis (AMC) do nordeste brasileiro. Para fazer isso com os dados do censo é necessário agregar municípios, o que dá algum trabalho. Neste momento não vou disponibilizar os procedimentos para ganhar em objetividade, talvez mais para frente. Assim, vou disponibilizar a base que utilizei. Para tanto coloquei ela no <a href="%22http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv%22">github</a>. O arquivo conta com os códigos municípais com seis dígitos. As taxas de crescimento da produtividade, em logarítmo, para os diferentes períodos: 1991-2010, 1991-2000, 2000-2010. Também estão ali as produtividades em logaritmo dos anos de 1991 e 2000. Para essa variável foi considerado o salário médio do município, por hora trabalhada. Além disso estão disponíveis as variáveis de controle para os anos de 1991 e 2000. As variáveis de controle são Escolaridade, percentual da população com ensino médio completo, grau de urbanização, percentual de analfabetos na população, população em logaritmo, horas trabalhadas, salário e <em>dummys</em> para os estados. Não vou detalhar tudo, mas para maiores informações você pode olhar a dissertação, o artigo, ou deixar um comentário.</p>
+<pre class="r"><code>BASE &lt;- read.csv(&quot;http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv&quot;, header = T)
+stargazer(head(BASE), type = &quot;html&quot;)</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+N
+</td>
+<td>
+Mean
+</td>
+<td>
+St. Dev.
+</td>
+<td>
+Min
+</td>
+<td>
+Pctl(25)
+</td>
+<td>
+Pctl(75)
+</td>
+<td>
+Max
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+X
+</td>
+<td>
+6
+</td>
+<td>
+210,035.000
+</td>
+<td>
+18.708
+</td>
+<td>
+210,010
+</td>
+<td>
+210,022.5
+</td>
+<td>
+210,047.5
+</td>
+<td>
+210,060
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+MUN
+</td>
+<td>
+6
+</td>
+<td>
+210,035.000
+</td>
+<td>
+18.708
+</td>
+<td>
+210,010
+</td>
+<td>
+210,022.5
+</td>
+<td>
+210,047.5
+</td>
+<td>
+210,060
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lng9110
+</td>
+<td>
+6
+</td>
+<td>
+0.607
+</td>
+<td>
+0.349
+</td>
+<td>
+0.212
+</td>
+<td>
+0.333
+</td>
+<td>
+0.915
+</td>
+<td>
+1.022
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lng9100
+</td>
+<td>
+6
+</td>
+<td>
+-0.018
+</td>
+<td>
+0.242
+</td>
+<td>
+-0.325
+</td>
+<td>
+-0.218
+</td>
+<td>
+0.163
+</td>
+<td>
+0.231
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lng0010
+</td>
+<td>
+6
+</td>
+<td>
+0.625
+</td>
+<td>
+0.155
+</td>
+<td>
+0.405
+</td>
+<td>
+0.540
+</td>
+<td>
+0.733
+</td>
+<td>
+0.822
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd1991
+</td>
+<td>
+6
+</td>
+<td>
+2.650
+</td>
+<td>
+0.283
+</td>
+<td>
+2.129
+</td>
+<td>
+2.605
+</td>
+<td>
+2.837
+</td>
+<td>
+2.906
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd2000
+</td>
+<td>
+6
+</td>
+<td>
+2.632
+</td>
+<td>
+0.229
+</td>
+<td>
+2.330
+</td>
+<td>
+2.496
+</td>
+<td>
+2.791
+</td>
+<td>
+2.943
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd2010
+</td>
+<td>
+6
+</td>
+<td>
+3.257
+</td>
+<td>
+0.259
+</td>
+<td>
+2.999
+</td>
+<td>
+3.095
+</td>
+<td>
+3.462
+</td>
+<td>
+3.600
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Escol1991
+</td>
+<td>
+6
+</td>
+<td>
+4.865
+</td>
+<td>
+1.118
+</td>
+<td>
+3.672
+</td>
+<td>
+3.854
+</td>
+<td>
+5.855
+</td>
+<td>
+6.029
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Escol2000
+</td>
+<td>
+6
+</td>
+<td>
+5.937
+</td>
+<td>
+0.499
+</td>
+<td>
+5.285
+</td>
+<td>
+5.613
+</td>
+<td>
+6.207
+</td>
+<td>
+6.652
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+EMedio1991
+</td>
+<td>
+6
+</td>
+<td>
+0.117
+</td>
+<td>
+0.060
+</td>
+<td>
+0.032
+</td>
+<td>
+0.072
+</td>
+<td>
+0.165
+</td>
+<td>
+0.175
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+EMedio2000
+</td>
+<td>
+6
+</td>
+<td>
+0.116
+</td>
+<td>
+0.042
+</td>
+<td>
+0.073
+</td>
+<td>
+0.087
+</td>
+<td>
+0.137
+</td>
+<td>
+0.183
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Urb1991
+</td>
+<td>
+6
+</td>
+<td>
+0.284
+</td>
+<td>
+0.111
+</td>
+<td>
+0.121
+</td>
+<td>
+0.223
+</td>
+<td>
+0.340
+</td>
+<td>
+0.436
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Urb2000
+</td>
+<td>
+6
+</td>
+<td>
+0.390
+</td>
+<td>
+0.129
+</td>
+<td>
+0.263
+</td>
+<td>
+0.286
+</td>
+<td>
+0.459
+</td>
+<td>
+0.593
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Analf1991
+</td>
+<td>
+6
+</td>
+<td>
+0.532
+</td>
+<td>
+0.119
+</td>
+<td>
+0.334
+</td>
+<td>
+0.484
+</td>
+<td>
+0.606
+</td>
+<td>
+0.666
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Analf2000
+</td>
+<td>
+6
+</td>
+<td>
+0.367
+</td>
+<td>
+0.093
+</td>
+<td>
+0.240
+</td>
+<td>
+0.309
+</td>
+<td>
+0.440
+</td>
+<td>
+0.472
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Gini1991
+</td>
+<td>
+6
+</td>
+<td>
+0.866
+</td>
+<td>
+0.025
+</td>
+<td>
+0.837
+</td>
+<td>
+0.847
+</td>
+<td>
+0.882
+</td>
+<td>
+0.900
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Gini2000
+</td>
+<td>
+6
+</td>
+<td>
+0.895
+</td>
+<td>
+0.019
+</td>
+<td>
+0.861
+</td>
+<td>
+0.893
+</td>
+<td>
+0.906
+</td>
+<td>
+0.916
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+LnPop1991
+</td>
+<td>
+6
+</td>
+<td>
+9.564
+</td>
+<td>
+0.623
+</td>
+<td>
+8.429
+</td>
+<td>
+9.402
+</td>
+<td>
+9.898
+</td>
+<td>
+10.048
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+LnPop2000
+</td>
+<td>
+6
+</td>
+<td>
+9.618
+</td>
+<td>
+0.676
+</td>
+<td>
+8.451
+</td>
+<td>
+9.381
+</td>
+<td>
+9.941
+</td>
+<td>
+10.351
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Indus1991
+</td>
+<td>
+6
+</td>
+<td>
+0.253
+</td>
+<td>
+0.079
+</td>
+<td>
+0.100
+</td>
+<td>
+0.261
+</td>
+<td>
+0.285
+</td>
+<td>
+0.326
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Indus2000
+</td>
+<td>
+6
+</td>
+<td>
+0.159
+</td>
+<td>
+0.025
+</td>
+<td>
+0.142
+</td>
+<td>
+0.145
+</td>
+<td>
+0.156
+</td>
+<td>
+0.209
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Serv1991
+</td>
+<td>
+6
+</td>
+<td>
+0.399
+</td>
+<td>
+0.055
+</td>
+<td>
+0.338
+</td>
+<td>
+0.361
+</td>
+<td>
+0.432
+</td>
+<td>
+0.482
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Serv2000
+</td>
+<td>
+6
+</td>
+<td>
+0.643
+</td>
+<td>
+0.031
+</td>
+<td>
+0.603
+</td>
+<td>
+0.630
+</td>
+<td>
+0.660
+</td>
+<td>
+0.690
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Horas1991
+</td>
+<td>
+6
+</td>
+<td>
+39.062
+</td>
+<td>
+2.583
+</td>
+<td>
+34.999
+</td>
+<td>
+38.184
+</td>
+<td>
+40.401
+</td>
+<td>
+42.586
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Horas2000
+</td>
+<td>
+6
+</td>
+<td>
+41.379
+</td>
+<td>
+3.468
+</td>
+<td>
+36.322
+</td>
+<td>
+39.652
+</td>
+<td>
+43.865
+</td>
+<td>
+45.732
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Horas2010
+</td>
+<td>
+6
+</td>
+<td>
+53.497
+</td>
+<td>
+7.555
+</td>
+<td>
+45.738
+</td>
+<td>
+48.266
+</td>
+<td>
+59.027
+</td>
+<td>
+64.301
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Sal1991
+</td>
+<td>
+6
+</td>
+<td>
+540.789
+</td>
+<td>
+151.759
+</td>
+<td>
+324.126
+</td>
+<td>
+432.882
+</td>
+<td>
+669.093
+</td>
+<td>
+687.382
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Sal2000
+</td>
+<td>
+6
+</td>
+<td>
+490.104
+</td>
+<td>
+112.662
+</td>
+<td>
+366.061
+</td>
+<td>
+406.628
+</td>
+<td>
+545.756
+</td>
+<td>
+666.616
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Sal2010
+</td>
+<td>
+6
+</td>
+<td>
+767.879
+</td>
+<td>
+149.096
+</td>
+<td>
+588.369
+</td>
+<td>
+714.081
+</td>
+<td>
+772.222
+</td>
+<td>
+1,039.950
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+MA
+</td>
+<td>
+6
+</td>
+<td>
+1.000
+</td>
+<td>
+0.000
+</td>
+<td>
+1
+</td>
+<td>
+1
+</td>
+<td>
+1
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PI
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+CE
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+RN
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PB
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PE
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AL
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+SE
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+BA
+</td>
+<td>
+6
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+</div>
+<div id="convergencia-absoluta" class="section level2">
+<h2>Convergência Absoluta</h2>
+<p>A convergência absoluta é mais simples de identificar. Apenas em uma figura gráfica já é possível saber se ela conteceu ou não.</p>
+<pre class="r"><code>library(ggplot2)
+ggplot(BASE) + 
+  geom_point(aes(x = lnProd1991,y = lng9110), color = &quot;blue&quot;) +
+  geom_point(aes(x = lnProd1991, y = lng9100), color = &quot;red&quot;) +
+  geom_point(aes(x = lnProd2000, y = lng0010), color = &quot;green&quot;) +
+  labs(y = &quot;Taxa de Crescimento&quot;, x = &quot;Produtividade Inicial&quot;)</code></pre>
+<p><img src="/post/2018-10-05-crescimento-da-produtividade-dos-municípios-nordestinos-convergência-absoluta-e-condicionada_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>A inclinação negativa dos pontos, significa que a convergência absoluta. Ou seja, municípios mais pobres, com menor Produtividade Inicial tem maiores taxas de crescimento.</p>
+<div id="regressao" class="section level3">
+<h3>Regressão</h3>
+<div id="convergencia-absoluta-1" class="section level4">
+<h4>Convergência Absoluta</h4>
+<p>A regressão para convergência absoluta é uma regressão simples, tal que:</p>
+<p><span class="math display">\[\log(Taxa de Crescimento Produtvidade) = \alpha + \beta Produtividade Inicial + \varepsilon  \]</span></p>
+<p>Para a estimação se utiliza o comando <code>lm</code> de <em>linear model</em> (regressão linear).</p>
+<pre class="r"><code>CA9110&lt;-lm(lng9110~lnProd1991, data=BASE)
+CA9100&lt;-lm(lng9100~lnProd1991, data=BASE)
+CA0010&lt;-lm(lng0010~lnProd2000, data=BASE)
+stargazer(CA9110, CA9100, CA0010, type = &quot;html&quot;)</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+lng9110
+</td>
+<td>
+lng9100
+</td>
+<td>
+lng0010
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd1991
+</td>
+<td>
+-0.749<sup>***</sup>
+</td>
+<td>
+-0.704<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.018)
+</td>
+<td>
+(0.018)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.596<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.023)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+2.550<sup>***</sup>
+</td>
+<td>
+1.956<sup>***</sup>
+</td>
+<td>
+2.084<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.044)
+</td>
+<td>
+(0.045)
+</td>
+<td>
+(0.062)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+1,451
+</td>
+<td>
+1,451
+</td>
+<td>
+1,451
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.553
+</td>
+<td>
+0.517
+</td>
+<td>
+0.315
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.553
+</td>
+<td>
+0.516
+</td>
+<td>
+0.314
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error (df = 1449)
+</td>
+<td>
+0.209
+</td>
+<td>
+0.211
+</td>
+<td>
+0.203
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic (df = 1; 1449)
+</td>
+<td>
+1,794.525<sup>***</sup>
+</td>
+<td>
+1,549.752<sup>***</sup>
+</td>
+<td>
+665.363<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Mais uma vez, para ganhar em objetividade, não estou organizando as tabelas, só replicando os resultados. Para ser sincero, na dissertação e no artigo utilizei o Excel mesmo. Hoje já tenho um pouco mais de <em>know-how</em> no R, mas ainda não parei para olhar tabelas. Assim fica para uma próxima também.</p>
+</div>
+<div id="convergencia-condicionada" class="section level4">
+<h4>Convergência Condicionada</h4>
+<p>A covnergência condicionada, como o nome sugere, condiciona a regressão as variáveis de controle. A ideia é filtrar variações que possam ser causadas por outras motivações. Como por exemplo tamanho da população, escolaridade, estrutura produtiva. Tudo isso afeta a variável renda de alguma forma e as diferentes composições devem influenciar diferentemente nas taxas de crescimento. O modelo é semelhante:</p>
+<p><span class="math display">\[\log(Taxa de Crescimento Produtvidade) = \alpha + \beta_0 Produtividade Inicial + \beta_iControles + \varepsilon  \]</span></p>
+<p>E as regressões também são análogas:</p>
+<pre class="r"><code>CC9110 &lt;- lm(lng9110~lnProd1991+EMedio1991+Analf1991
+    +Urb1991+LnPop1991+Indus1991+Serv1991+Gini1991, data=BASE)
+CC9100 &lt;- lm(lng9100~lnProd1991+EMedio1991+Analf1991
+    +Urb1991+LnPop1991+Indus1991+Serv1991+Gini1991, data=BASE)
+CC0010 &lt;- lm(lng0010~lnProd2000+EMedio2000+Analf2000
+    +Urb2000+LnPop2000+Indus2000+Serv2000+Gini2000, data=BASE)
+stargazer(CC9110, CC9100, CC0010, type = &quot;html&quot;)</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+lng9110
+</td>
+<td>
+lng9100
+</td>
+<td>
+lng0010
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd1991
+</td>
+<td>
+-0.871<sup>***</sup>
+</td>
+<td>
+-0.807<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.018)
+</td>
+<td>
+(0.019)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+EMedio1991
+</td>
+<td>
+0.340<sup>***</sup>
+</td>
+<td>
+0.547<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.130)
+</td>
+<td>
+(0.137)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Analf1991
+</td>
+<td>
+-0.286<sup>***</sup>
+</td>
+<td>
+-0.266<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.069)
+</td>
+<td>
+(0.073)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Urb1991
+</td>
+<td>
+0.184<sup>***</sup>
+</td>
+<td>
+0.109<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.031)
+</td>
+<td>
+(0.032)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+LnPop1991
+</td>
+<td>
+0.061<sup>***</sup>
+</td>
+<td>
+0.038<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.006)
+</td>
+<td>
+(0.007)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Indus1991
+</td>
+<td>
+-0.236<sup>***</sup>
+</td>
+<td>
+-0.264<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.061)
+</td>
+<td>
+(0.064)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Serv1991
+</td>
+<td>
+-0.015
+</td>
+<td>
+-0.003
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.077)
+</td>
+<td>
+(0.082)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Gini1991
+</td>
+<td>
+-0.468<sup>**</sup>
+</td>
+<td>
+-0.278
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.213)
+</td>
+<td>
+(0.225)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lnProd2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.748<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.024)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+EMedio2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.069
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.114)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Analf2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.373<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.079)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Urb2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.108<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.030)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+LnPop2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.065<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.006)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Indus2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.213<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.100)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Serv2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.213<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.066)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Gini2000
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.961<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.200)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+2.753<sup>***</sup>
+</td>
+<td>
+2.170<sup>***</sup>
+</td>
+<td>
+2.605<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.199)
+</td>
+<td>
+(0.210)
+</td>
+<td>
+(0.170)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+1,451
+</td>
+<td>
+1,451
+</td>
+<td>
+1,451
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.640
+</td>
+<td>
+0.576
+</td>
+<td>
+0.444
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.638
+</td>
+<td>
+0.574
+</td>
+<td>
+0.441
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error (df = 1442)
+</td>
+<td>
+0.188
+</td>
+<td>
+0.199
+</td>
+<td>
+0.183
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic (df = 8; 1442)
+</td>
+<td>
+320.733<sup>***</sup>
+</td>
+<td>
+245.050<sup>***</sup>
+</td>
+<td>
+144.107<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<pre class="r"><code>library(dotwhisker)
+dwplot(list(CC9110, CC9100, CC0010))</code></pre>
+<p><img src="/post/2018-10-05-crescimento-da-produtividade-dos-municípios-nordestinos-convergência-absoluta-e-condicionada_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="comentarios-finais" class="section level2">
+<h2>Comentários finais</h2>
+<p>Pois bem, está um pouco superficial. Não estou comentando os resultados, pois o objetivo aqui é disponibilizar os <em>scripts</em> para reprodução. Nem detalhei muito os comandos ou arrumei as tabelas de resultados, mas isso era para concluir outro objetivo desse <em>post</em>: começar a publicar essa série de uma vez!! Caso queira mais detalhes pergunte nos comentários, para as próximas postagens tentarei ser mais detalhista.</p>
+</div>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">ETIQUETADO em</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/academia/">Academia</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/artigo/">Artigo</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/crescimento/">Crescimento</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/economia/">Economia</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/curtas-15-09-2018/09/2018/" data-tooltip="Curtas: 15/09/2018">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Rodrigo Volmir Anderle. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/curtas-15-09-2018/09/2018/" data-tooltip="Curtas: 15/09/2018">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=%2Fcrescimento-da-produtividade-dos-munic%25C3%25ADpios-nordestinos-converg%25C3%25AAncia-absoluta-e-condicionada%2F10%2F2018%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Compartilhar no Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2Fcrescimento-da-produtividade-dos-munic%25C3%25ADpios-nordestinos-converg%25C3%25AAncia-absoluta-e-condicionada%2F10%2F2018%2F">
+          <i class="fa fa-twitter"></i><span>Compartilhar no Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2Fcrescimento-da-produtividade-dos-munic%25C3%25ADpios-nordestinos-converg%25C3%25AAncia-absoluta-e-condicionada%2F10%2F2018%2F">
+          <i class="fa fa-google-plus"></i><span>Compartilhar no Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+    
+    <h4 id="about-card-name">Rodrigo Volmir Anderle</h4>
+    
+      <div id="about-card-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista e aspirante a pesquisador</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        <strong><a href="https://ppgeconomia.ufba.br/">Doutorando em Economia Aplicada - UFBA</a></strong>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brasil
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Pesquisar" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-15-09-2018/09/2018/">
+                <h3 class="media-heading">Curtas: 15/09/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Informações gerais Com o feriado acabei não publicando estes curtas na semana passada. Isso fez com que alguns dos prazos já tenham se encerrado. De toda forma vou compartilhar, pois muitas das informações são cíclicas. Assim, também divulgo para para conhecimento de sua existência.
+Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as li, mas vale para divulgação.
+ Metodologias dos números índice: pelo o que entendi a CEPAL vai passar a publicar documentos explicando as metodologias utilizadas pelo órgão.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-31-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas: 31/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Congressos  XL SODEBRAS (Soluções para o Desenvolvimento do País). Congresso acontecerá em Vitória-ES, entre os dias 10 e 12 de Dezembro. A submissão do resumo se encerra hoje, dia 31 de Agosto (foi mal, hehe), mas ainda dá para se inscrever como ouvinte. Os artigos aprovados comporão uma edição especial da revista SODEBRAS. Particularmente achei as taxas de inscrição e submissão proibitivas.   Chamada para Artigos  Revista de Estudos Sociais.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
+                <h3 class="media-heading">Por que a &#34;solução&#34; é empreender? E por que isso não é bom?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Por que a &ldquo;solução&rdquo; é empreender? E por que isso não é bom? Este texto foi originalmente publicado no dia 17 de Março de 2017 em meu blog anterior, &quot;economiaSG&quot;. Alguns textos deste blog foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;
+O país segue em crise, embora, aparentemente, a mídia tenha esquecido disso e propagandeie que o pior já passou e que já começamos a retomada. Se o pior já passou, realmente, não tenho certeza.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-24-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas - 24/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bolsas  Bolsa de Pós-Doutorado na UFRN, até 31/08/2018.  Textos  Interessante texto sobre a importância da clareza nas ideias para desenvolver melhor os pensamentos. De Paul Romer.
+ Já este texto é de um colega de pós-graduação na UFBA em que faz uma discussão sobre o papel dos bancos como criadores de moeda, endividamento e estratégias de combate à crise financeira de 2007. Acesse aqui.
+ Já neste texto de Paulo Gala trata das economias de aglomeração e dos efeitos de especialização.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/">
+                <h3 class="media-heading">Uma discussão a respeito do crescimento econômico dos municípios do Nordeste brasileiro</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Contextualizando Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja aqui). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação.
+Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes insights.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/sobre-uma-sociedade-bin%C3%A1ria/08/2018/">
+                <h3 class="media-heading">Sobre uma sociedade binária</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Sobre uma sociedade binária1 Este texto foi originalmente publicado em meu blog anterior &quot;economiaSG&quot;, no dia 25 de Novembro de 2017. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;.
+Em uma manhã destas estava em uma aula e meu professor fez uma pergunta que ressuscitou este raciocínio antigo: criamos uma sociedade sem capacidade de criticar. Isto significa que só acreditamos (sociedade) naquilo que nos é repassado e, como externalidade deste processo ao longo de nossas vidas, passamos a demandar que verdades nos sejam repassadas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/minha-primeira-publica%C3%A7%C3%A3o-e-uma-s%C3%A9rie-de-agradecimentos/07/2018/">
+                <h3 class="media-heading">Minha primeira publicação e uma série de agradecimentos</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Minha primeira publicação Recentemente tive um artigo aceito para publicação na Revista Brasileira de Estudos Regionais e Urbanos e por acaso hoje saiu esta publicação da revista. Como deixei claro no título e no subtítulo deste post se trata da minha primeira publicação em revista/periódico científica (Veja aqui). Por enquanto estou a um abismo de distância de uma segunda publicação, mas o momento é de reconhecer o esforço feito e agradecer o auxílio e apoio de muitos.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/quem-sou-eu/07/2018/">
+                <h3 class="media-heading">Quem sou eu?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Quem sou eu? (Objetivo)  Nome: Rodrigo Volmir Anderle
+ Idade: 33anos Natural: Caxias do Sul/RS Cidades que morou: Caxias do Sul/RS, Daphne-Alabama/EUA, Caruaru/PE, Salvador/BA, Brasília/DF. Formação: Graduado em Ciências Econômicas pela UCS/RS, Mestre em Economia Regional pelo PPGECON-UFPE/CAA, Doutorando em Economia Aplicada pelo PPGE-UFBA. Áreas de Interesse: Crescimento, Desenvolvimento, Economia Regional, Inovação, Análise de Redes, Complexidade. Currículo Lattes.  Quem sou eu? (Prolixo) Não é uma questão de autopromoção, mas sim de coerência.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/sobre-o-blog/06/2018/">
+                <h3 class="media-heading">Sobre o Blog</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Por que este blog?Olá, meu nome é Rodrigo Volmir Anderle e este post é sobre o que está por trás deste blog. Este não é o meu primeiro blog. Tecnicamente diria que é o segundo, mas na prática já fiz várias outras tentativas. Todas frustradas pelas dificuldades encontradas, além do medo de se comprometer tanto na rede mundial de computadores.
+O blog que considero o meu primeiro foi o economiaSG que foi a experiência mais intensa que tive nestas tentativas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         11 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/Capa.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada\/10\/2018\/';
+          
+            this.page.identifier = '\/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada\/10\/2018\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'AnderleRV';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

@@ -6,10 +6,20 @@
     <description>Recent content in Crescimento on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/crescimento/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</title>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</link>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</guid>
+      <description>ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</description>
+    </item>
     
     <item>
       <title>Uma discussão a respeito do crescimento econômico dos municípios do Nordeste brasileiro</title>
