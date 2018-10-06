@@ -276,14 +276,6 @@ ga('send', 'pageview');
       </time>
     
     
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/publica%c3%a7%c3%b5es">Publicações</a>
-    
-  
-
   </div>
 
 </div>
@@ -1358,18 +1350,21 @@ BA
 <p>A convergência absoluta é mais simples de identificar. Apenas em uma figura gráfica já é possível saber se ela conteceu ou não.</p>
 <pre class="r"><code>library(ggplot2)
 ggplot(BASE) + 
-  geom_point(aes(x = lnProd1991,y = lng9110), color = &quot;blue&quot;) +
-  geom_point(aes(x = lnProd1991, y = lng9100), color = &quot;red&quot;) +
-  geom_point(aes(x = lnProd2000, y = lng0010), color = &quot;green&quot;) +
+  geom_point(aes(x = lnProd1991,y = lng9110), 
+             color = &quot;blue&quot;, alpha = 1/2) +
+  geom_point(aes(x = lnProd1991, y = lng9100), 
+             color = &quot;red&quot;, alpha = 1/2) +
+  geom_point(aes(x = lnProd2000, y = lng0010), 
+             color = &quot;green&quot;, alpha = 1/2) +
   labs(y = &quot;Taxa de Crescimento&quot;, x = &quot;Produtividade Inicial&quot;)</code></pre>
 <p><img src="/post/2018-10-05-crescimento-da-produtividade-dos-municípios-nordestinos-convergência-absoluta-e-condicionada_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>A inclinação negativa dos pontos, significa que a convergência absoluta. Ou seja, municípios mais pobres, com menor Produtividade Inicial tem maiores taxas de crescimento.</p>
+<p>A inclinação negativa dos pontos, significa que houve convergência absoluta. Ou seja, municípios mais pobres, com menor Produtividade Inicial tem maiores taxas de crescimento.</p>
 <div id="regressao" class="section level3">
 <h3>Regressão</h3>
 <div id="convergencia-absoluta-1" class="section level4">
 <h4>Convergência Absoluta</h4>
 <p>A regressão para convergência absoluta é uma regressão simples, tal que:</p>
-<p><span class="math display">\[\log(Taxa de Crescimento Produtvidade) = \alpha + \beta Produtividade Inicial + \varepsilon  \]</span></p>
+<p><span class="math display">\[\log(Taxa de Crescimento Produtvidade) = \alpha + \beta Produtividade Inicial + \varepsilon\]</span></p>
 <p>Para a estimação se utiliza o comando <code>lm</code> de <em>linear model</em> (regressão linear).</p>
 <pre class="r"><code>CA9110&lt;-lm(lng9110~lnProd1991, data=BASE)
 CA9100&lt;-lm(lng9100~lnProd1991, data=BASE)
@@ -1620,7 +1615,7 @@ F Statistic (df = 1; 1449)
 <div id="convergencia-condicionada" class="section level4">
 <h4>Convergência Condicionada</h4>
 <p>A covnergência condicionada, como o nome sugere, condiciona a regressão as variáveis de controle. A ideia é filtrar variações que possam ser causadas por outras motivações. Como por exemplo tamanho da população, escolaridade, estrutura produtiva. Tudo isso afeta a variável renda de alguma forma e as diferentes composições devem influenciar diferentemente nas taxas de crescimento. O modelo é semelhante:</p>
-<p><span class="math display">\[\log(Taxa de Crescimento Produtvidade) = \alpha + \beta_0 Produtividade Inicial + \beta_iControles + \varepsilon  \]</span></p>
+<p><span class="math display">\[\log(Taxa de Crescimento Produtvidade) = \alpha + \beta_0 Produtividade Inicial + \beta_iControles + \varepsilon\]</span></p>
 <p>E as regressões também são análogas:</p>
 <pre class="r"><code>CC9110 &lt;- lm(lng9110~lnProd1991+EMedio1991+Analf1991
     +Urb1991+LnPop1991+Indus1991+Serv1991+Gini1991, data=BASE)
@@ -2353,7 +2348,7 @@ dwplot(list(CC9110, CC9100, CC0010))</code></pre>
 </div>
 <div id="comentarios-finais" class="section level2">
 <h2>Comentários finais</h2>
-<p>Pois bem, está um pouco superficial. Não estou comentando os resultados, pois o objetivo aqui é disponibilizar os <em>scripts</em> para reprodução. Nem detalhei muito os comandos ou arrumei as tabelas de resultados, mas isso era para concluir outro objetivo desse <em>post</em>: começar a publicar essa série de uma vez!! Caso queira mais detalhes pergunte nos comentários, para as próximas postagens tentarei ser mais detalhista.</p>
+<p>Pois bem, está um pouco superficial. Não estou comentando os resultados, pois o objetivo aqui é disponibilizar os <em>scripts</em> para reprodução. Nem detalhei muito os comandos ou arrumei as tabelas de resultados, mas isso era para concluir outro objetivo deste <em>post</em>: começar a publicar essa série de uma vez!! Caso queira mais detalhes, pergunte nos comentários. Para as próximas postagens tentarei ser mais detalhista.</p>
 </div>
 </div>
 
