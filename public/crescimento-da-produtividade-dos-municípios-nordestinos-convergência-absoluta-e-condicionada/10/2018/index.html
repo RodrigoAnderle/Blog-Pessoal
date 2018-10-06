@@ -56,6 +56,8 @@ Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei
 
     
     
+      <meta property="og:image" content="/images/CA.png">
+    
     
 
     
@@ -247,15 +249,13 @@ ga('send', 'pageview');
 </nav>
 
       
-
-      <div id="main" data-behavior="4"
-        class="
-               hasCoverMetaIn
-               ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
-            <div class="post-header main-content-wrap text-left">
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('../../../images/CA.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
       Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada
@@ -279,6 +279,16 @@ ga('send', 'pageview');
   </div>
 
 </div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
@@ -289,7 +299,7 @@ ga('send', 'pageview');
 <h2>Base de dados</h2>
 <p>Para fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010. Há um problema de se trabalhar com municípios que é que eles mudam ao longo do tempo. Há emancipações e até extinções. Uma sugestão de <a href="https://www.ufmg.br/rededemuseus/crch/simposio/REIS_EUSTAQUIO_JOSE_R_ET_AL.pdf">Reis et al.</a>, acatada na pesquisa, é de trabalhar com áreas mínimas comparáveis. Nesse sentido o que chamo de municípios são, na verdade, áreas mínimas comparáveis (AMC) do nordeste brasileiro. Para fazer isso com os dados do censo é necessário agregar municípios, o que dá algum trabalho. Neste momento não vou disponibilizar os procedimentos para ganhar em objetividade, talvez mais para frente. Assim, vou disponibilizar a base que utilizei. Para tanto coloquei ela no <a href="%22http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv%22">github</a>. O arquivo conta com os códigos municípais com seis dígitos. As taxas de crescimento da produtividade, em logarítmo, para os diferentes períodos: 1991-2010, 1991-2000, 2000-2010. Também estão ali as produtividades em logaritmo dos anos de 1991 e 2000. Para essa variável foi considerado o salário médio do município, por hora trabalhada. Além disso estão disponíveis as variáveis de controle para os anos de 1991 e 2000. As variáveis de controle são Escolaridade, percentual da população com ensino médio completo, grau de urbanização, percentual de analfabetos na população, população em logaritmo, horas trabalhadas, salário e <em>dummys</em> para os estados. Não vou detalhar tudo, mas para maiores informações você pode olhar a dissertação, o artigo, ou deixar um comentário.</p>
 <pre class="r"><code>BASE &lt;- read.csv(&quot;http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv&quot;, header = T)
-stargazer(head(BASE), type = &quot;html&quot;)</code></pre>
+stargazer(head(BASE), type = &quot;html&quot;) #necessário carregar o pacote stargazer</code></pre>
 <table style="text-align:center">
 <tr>
 <td colspan="8" style="border-bottom: 1px solid black">
@@ -1351,11 +1361,11 @@ BA
 <pre class="r"><code>library(ggplot2)
 ggplot(BASE) + 
   geom_point(aes(x = lnProd1991,y = lng9110), 
-             color = &quot;blue&quot;, alpha = 1/2) +
+             color = &quot;blue&quot;, alpha = 1/3) +
   geom_point(aes(x = lnProd1991, y = lng9100), 
-             color = &quot;red&quot;, alpha = 1/2) +
+             color = &quot;red&quot;, alpha = 1/3) +
   geom_point(aes(x = lnProd2000, y = lng0010), 
-             color = &quot;green&quot;, alpha = 1/2) +
+             color = &quot;green&quot;, alpha = 1/3) +
   labs(y = &quot;Taxa de Crescimento&quot;, x = &quot;Produtividade Inicial&quot;)</code></pre>
 <p><img src="/post/2018-10-05-crescimento-da-produtividade-dos-municípios-nordestinos-convergência-absoluta-e-condicionada_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>A inclinação negativa dos pontos, significa que houve convergência absoluta. Ou seja, municípios mais pobres, com menor Produtividade Inicial tem maiores taxas de crescimento.</p>
