@@ -6,10 +6,41 @@
     <description>Recent content on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Correlação não é causalidade, mas...: Homicídios</title>
+      <link>/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/</guid>
+      <description>Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &amp;ldquo;achismos&amp;rdquo;. Por isso que o título é &amp;ldquo;Correlação não é Causalidade&amp;rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil, inclisve economistas. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</description>
+    </item>
+    
+    <item>
+      <title>Base de dados: Homicídios</title>
+      <link>/base-de-dados-homic%C3%ADdios/10/2018/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/base-de-dados-homic%C3%ADdios/10/2018/</guid>
+      <description>Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</description>
+    </item>
+    
+    <item>
+      <title>Tabelas com &#34;Stargazer&#34;</title>
+      <link>/tabelas-com-stargazer/10/2018/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tabelas-com-stargazer/10/2018/</guid>
+      <description>Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&amp;quot;stargazer&amp;quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</description>
+    </item>
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</title>
@@ -17,7 +48,7 @@
       <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</guid>
-      <description>ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+      <description>ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
 Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</description>
     </item>
     

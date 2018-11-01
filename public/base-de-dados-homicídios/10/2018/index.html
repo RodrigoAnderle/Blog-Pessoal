@@ -1,0 +1,1007 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Base de dados: Homicídios</title>
+    <meta name="author" content="Rodrigo Volmir Anderle">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+    <meta name="description" content="Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.">
+    <meta property="og:description" content="Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Base de dados: Homicídios">
+    <meta property="og:url" content="/base-de-dados-homic%C3%ADdios/10/2018/">
+    <meta property="og:site_name" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:description" content="Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.">
+    
+      <meta name="twitter:creator" content="@rodrigoanderle">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=640">
+    
+
+    
+      <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Postgres_Query.jpg/1024px-Postgres_Query.jpg">
+    
+    
+      <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Postgres_Query.jpg/1024px-Postgres_Query.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-121614138-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Rodrigo Volmir Anderle</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=90" alt="Foto do autor" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+        </a>
+        <h4 class="sidebar-profile-name">Rodrigo Volmir Anderle</h4>
+        
+          <h5 class="sidebar-profile-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista, bolsita FAPESB</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Início</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categorias</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Arquivo</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/sobre-o-blog">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Sobre</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/rodrigovolmir.anderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.instagram.com/rodrigovanderle/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-instagram"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/rodrigo-volmir-anderle-a8251920/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Postgres_Query.jpg/1024px-Postgres_Query.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Base de dados: Homicídios
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-10-25T00:00:00Z">
+        
+  
+  
+  
+  
+    25 Outubro 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>em</span>
+    
+      <a class="category-link" href="/categories/base-de-dados">Base de Dados</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>Este <em>post</em> é na verdade parte de um <em>post</em> que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.</p>
+
+<p>Neste <em>post</em> específico está a construção da base de dados. Os gráficos estão no outro <a href="https://anderlerv.netlify.com/"><em>post</em></a>.</p>
+
+<p>Inicialmente é necessário carregar os seguintes pacotes:</p>
+
+<pre><code class="language-r">library(tidyverse)
+library(reshape2)
+library(xlsx)
+library(stargazer)
+</code></pre>
+
+<p>A base de dados que estou utilizando é a de homicídios por municípios, disponível no <a href="http://www.ipea.gov.br/atlasviolencia/">atlas da violência</a>. Escolhi a variável homicídios, pois era a única disponível por municípios. Além disso, é uma importante <em>proxy</em> para violência.</p>
+
+<pre><code class="language-r">HOM &lt;- read.csv2(
+  &quot;Municípios/Violência/homicidios-1996-01-15-2016-01-15.csv&quot;,
+  encoding = &quot;UTF-8&quot;)
+stargazer(HOM, type = &quot;html&quot;, digit.separator = &quot;&quot;, digits = 0)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>N</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Pctl(25)</td><td>Pctl(75)</td><td>Max</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">cod</td><td>115353</td><td>3249029</td><td>986975</td><td>1100015</td><td>2511301</td><td>4118402</td><td>5300108</td></tr>
+<tr><td style="text-align:left">período</td><td>115353</td><td>2006</td><td>6</td><td>1996</td><td>2001</td><td>2011</td><td>2016</td></tr>
+<tr><td style="text-align:left">valor</td><td>115353</td><td>9</td><td>76</td><td>0</td><td>0</td><td>4</td><td>6657</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr></table>
+
+<h2 id="população">População</h2>
+
+<p>Em seguida, fui atrás dos dados populacionais, pois no atlas só tinham as opções de homicídios e taxa de homicídios. Pensando em retrospectiva, poderia ter calculado a população com essas informações, ao invés de ter feito todo o trabalho que vou mostrar em seguida. O consolo é que o burro é o que aprende mais. :-(</p>
+
+<p>De toda forma, foi o que fiz. Busquei as informações populacionais no <a href="http://www.ipeadata.gov.br/Default.aspx">ipeadata</a>.</p>
+
+<pre><code class="language-r">POP &lt;- read.csv2(&quot;Municípios/População/ipeadata[11-10-2018-07-17].csv&quot;,
+                 skip = 1, encoding = &quot;UTF-8&quot;)
+POP &lt;- POP[,1:21]
+stargazer(POP[1:5,], type = &quot;html&quot;, summary = F,
+          digit.separator = &quot;&quot;, digits = 0)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="22" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td>Sigla</td><td>Código</td><td>Município</td><td>X1998</td><td>X1999</td><td>X2000</td><td>X2001</td><td>X2002</td><td>X2003</td><td>X2004</td><td>X2005</td><td>X2006</td><td>X2008</td><td>X2009</td><td>X2011</td><td>X2012</td><td>X2013</td><td>X2014</td><td>X2015</td><td>X2016</td><td>X2017</td></tr>
+<tr><td colspan="22" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">1</td><td>AC</td><td>1200013</td><td>Acrelândia</td><td>6730</td><td>6922</td><td>7115</td><td>8237</td><td>8454</td><td>8695</td><td>10668</td><td>11451</td><td>11786</td><td>11987</td><td>12241</td><td>12778</td><td>13011</td><td>13353</td><td>13613</td><td>13869</td><td>13613</td><td>14366</td></tr>
+<tr><td style="text-align:left">2</td><td>AC</td><td>1200054</td><td>Assis Brasil</td><td>2918</td><td>2919</td><td>2919</td><td>3564</td><td>3611</td><td>3667</td><td>4852</td><td>5063</td><td>5153</td><td>5559</td><td>5662</td><td>6192</td><td>6308</td><td>6480</td><td>6610</td><td>6738</td><td>6610</td><td>6986</td></tr>
+<tr><td style="text-align:left">3</td><td>AC</td><td>1200104</td><td>Brasiléia</td><td>13938</td><td>13930</td><td>13922</td><td>17384</td><td>17649</td><td>17944</td><td>16940</td><td>17721</td><td>18056</td><td>19829</td><td>20238</td><td>21837</td><td>22261</td><td>22899</td><td>23378</td><td>23849</td><td>23378</td><td>24765</td></tr>
+<tr><td style="text-align:left">4</td><td>AC</td><td>1200138</td><td>Bujari</td><td>4641</td><td>4888</td><td>5135</td><td>6154</td><td>6382</td><td>6641</td><td>7654</td><td>8423</td><td>8751</td><td>6745</td><td>6772</td><td>8629</td><td>8782</td><td>9003</td><td>9173</td><td>9339</td><td>9173</td><td>9664</td></tr>
+<tr><td style="text-align:left">5</td><td>AC</td><td>1200179</td><td>Capixaba</td><td>3286</td><td>3460</td><td>3635</td><td>5561</td><td>5814</td><td>6096</td><td>6287</td><td>7067</td><td>7403</td><td>8897</td><td>9287</td><td>9087</td><td>9368</td><td>9836</td><td>10170</td><td>10498</td><td>10170</td><td>11136</td></tr>
+<tr><td colspan="22" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Mais uma vez, pensando em retrospectiva, foi um trabalho desnecessário, mas seguimos. A base importada do ipeadata vem com os anos em colunas, isso não ajuda, pois na base <em>HOM</em>, os anos são uma variável só. Assim, tive que utilizar a função <code>melt</code> do pacote <code>reshape2</code> que faz esse trabalho de transformar colunas em uma única coluna. Infelizmente, também tive que inserir os anos em número, pois eles ficaram com o formato tipo: <em>X1998</em>.</p>
+
+<pre><code class="language-r">POP2 &lt;- melt(POP, variable.name =  &quot;Ano&quot;,
+              id.vars = c(&quot;Sigla&quot;, &quot;Código&quot;, &quot;Município&quot;))
+POP2$Ano &lt;- c(rep(1998,5596),rep(1999,5596),rep(2000,5596),
+              rep(2001,5596),rep(2002,5596),rep(2003,5596),
+              rep(2004,5596),rep(2005,5596),rep(2006,5596),
+              rep(2008,5596),rep(2009,5596),rep(2011,5596),
+              rep(2012,5596),rep(2013,5596),rep(2014,5596),
+              rep(2015,5596),rep(2016,5596),rep(2017,5596))
+stargazer(POP2[1:5,], summary = F,
+          type = &quot;html&quot;, digit.separator = &quot;&quot;, digits = 0)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td>Sigla</td><td>Código</td><td>Município</td><td>Ano</td><td>value</td></tr>
+<tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">1</td><td>AC</td><td>1200013</td><td>Acrelândia</td><td>1998</td><td>6730</td></tr>
+<tr><td style="text-align:left">2</td><td>AC</td><td>1200054</td><td>Assis Brasil</td><td>1998</td><td>2918</td></tr>
+<tr><td style="text-align:left">3</td><td>AC</td><td>1200104</td><td>Brasiléia</td><td>1998</td><td>13938</td></tr>
+<tr><td style="text-align:left">4</td><td>AC</td><td>1200138</td><td>Bujari</td><td>1998</td><td>4641</td></tr>
+<tr><td style="text-align:left">5</td><td>AC</td><td>1200179</td><td>Capixaba</td><td>1998</td><td>3286</td></tr>
+<tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Outro problema é que a base do IPEA não possui dados dos anos de 2007 e 2010. Para simplificar inseri a média aritimética dos anos de 2006 e 2008 no ano de 2007. Embora reconheça que isso está longe de ser uma metodologia adequada, acredito que ela gere poucos problemas.</p>
+
+<pre><code class="language-r">POPtemp &lt;- POP2 %&gt;% 
+  filter( Ano == 2006) %&gt;%
+  select(&quot;Sigla&quot;,&quot;Código&quot;,&quot;Município&quot;)
+POPtemp$Ano &lt;- 2007
+POPtemp$value &lt;-  as.integer(
+  as.matrix((POP2 %&gt;% filter(Ano == 2006) %&gt;% select(value) +
+               POP2 %&gt;% filter(Ano == 2008) %&gt;% select(value))/2
+    ))
+  
+POP2 &lt;- rbind(POP2,POPtemp)
+stargazer(POP2, type = &quot;html&quot;, digit.separator = &quot;&quot;, digits = 0)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>N</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Pctl(25)</td><td>Pctl(75)</td><td>Max</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Código</td><td>106324</td><td>3253647</td><td>984442</td><td>1100015</td><td>2512175.0</td><td>4119264.0</td><td>5300108</td></tr>
+<tr><td style="text-align:left">Ano</td><td>106324</td><td>2007</td><td>6</td><td>1998</td><td>2002</td><td>2013</td><td>2017</td></tr>
+<tr><td style="text-align:left">value</td><td>105567</td><td>33558</td><td>199535</td><td>697</td><td>5194</td><td>22974</td><td>12106920</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Já para o ano de 2010, existe o censo de 2010. Assim, por mais que acredite que a média aritmética seja uma substituição simplificada que gere poucos prejuízos à análise, se existem dados censitários, é sempre melhor utilizá-los.</p>
+
+<p>Estes dados peguei no <a href="http://atlasbrasil.org.br/2013/">atlas do desenvolvimento humano no Brasil</a>. Haviam outras bases, como a do IBGE, mas meu problema era que precisava que a base viesse com os códigos dos municípios. Do contrário daria ainda mais trabalho para conseguir juntar tudo.</p>
+
+<p>Como importei os dados em formato Excel, utilizei a função <code>read.xlsx</code>, mas sinceramente é melhor transformar em &ldquo;csv&rdquo;, pois a leitura é muito lenta.</p>
+
+<pre><code class="language-r">Pop2010 &lt;- read.xlsx(&quot;Municípios/População/AtlasBrasil_Consulta.xlsx&quot;,
+                     sheetIndex = 1,
+                     header = T,
+                     encoding = &quot;UTF-8&quot;)
+Pop2010 &lt;- Pop2010 %&gt;% 
+  filter( Código %in% POP2$Código) %&gt;% 
+  mutate(Ano = 2010)
+
+colnames(Pop2010) &lt;- c(&quot;Código&quot;, &quot;Município&quot;, &quot;value&quot;,&quot;Ano&quot;)
+
+POP2 &lt;- select(POP2, Código, Município, Ano, value)
+Pop2010 &lt;- select(Pop2010, Código, Município, Ano, value)
+POPtemp &lt;- rbind(POP2,Pop2010)
+stargazer(POPtemp[1:5,], summary = F,
+          type = &quot;html&quot;, digit.separator = &quot;&quot;, digits = 0)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td>Código</td><td>Município</td><td>Ano</td><td>value</td></tr>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">1</td><td>1200013</td><td>Acrelândia</td><td>1998</td><td>6730</td></tr>
+<tr><td style="text-align:left">2</td><td>1200054</td><td>Assis Brasil</td><td>1998</td><td>2918</td></tr>
+<tr><td style="text-align:left">3</td><td>1200104</td><td>Brasiléia</td><td>1998</td><td>13938</td></tr>
+<tr><td style="text-align:left">4</td><td>1200138</td><td>Bujari</td><td>1998</td><td>4641</td></tr>
+<tr><td style="text-align:left">5</td><td>1200179</td><td>Capixaba</td><td>1998</td><td>3286</td></tr>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Agora é inserir os dados populacionais na tabela de homicídios.</p>
+
+<pre><code class="language-r">HOM &lt;- merge(HOM, 
+             select(POPtemp, Código, Ano, value), 
+             by.x = c(&quot;cod&quot;,&quot;período&quot;), 
+             by.y = c(&quot;Código&quot;, &quot;Ano&quot;), 
+             all.x = T, all.y = F)
+
+names(HOM) &lt;- c(&quot;cod&quot;, &quot;Ano&quot;,&quot;Município&quot;,&quot;Homicídios&quot;,&quot;População&quot;)
+</code></pre>
+
+<p>Para gerar a taxa de homicídios é necessário dividir os homicídios pela população e multiplicar por 100 mil. Assim a taxa representa a quantidade de homicídios por município a cada mil habitantes.</p>
+
+<pre><code class="language-r">HOM &lt;- mutate(HOM, TaxaHom = (Homicídios / População)*100000)
+</code></pre>
+
+<h2 id="estados">Estados</h2>
+
+<p>Outra informação que percebi que seria útil e estava faltando na base eram os estados dos municípios. Pensei em utilizar um <em>for loop</em>, mas ouvi dizer que o R não é adequado para tal utilização. Como já estava meio cansado, resolvi simplificar escrevendo um monte de linhas.</p>
+
+<pre><code class="language-r">HOM$UF &lt;- NA
+HOM$UF[HOM$cod &lt; 1200000] &lt;- &quot;RO&quot;         
+HOM$UF[HOM$cod &lt; 1300000 &amp; HOM$cod &gt; 1200000] &lt;- &quot;AC&quot;
+HOM$UF[HOM$cod &lt; 1400000 &amp; HOM$cod &gt; 1300000] &lt;- &quot;AM&quot;
+HOM$UF[HOM$cod &lt; 1500000 &amp; HOM$cod &gt; 1400000] &lt;- &quot;RR&quot;
+HOM$UF[HOM$cod &lt; 1600000 &amp; HOM$cod &gt; 1500000] &lt;- &quot;PA&quot;
+HOM$UF[HOM$cod &lt; 1700000 &amp; HOM$cod &gt; 1600000] &lt;- &quot;AP&quot;
+HOM$UF[HOM$cod &lt; 1800000 &amp; HOM$cod &gt; 1700000] &lt;- &quot;TO&quot;
+
+HOM$UF[HOM$cod &lt; 2200000 &amp; HOM$cod &gt; 2100000] &lt;- &quot;MA&quot;
+HOM$UF[HOM$cod &lt; 2300000 &amp; HOM$cod &gt; 2200000] &lt;- &quot;PI&quot;
+HOM$UF[HOM$cod &lt; 2400000 &amp; HOM$cod &gt; 2300000] &lt;- &quot;CE&quot;
+HOM$UF[HOM$cod &lt; 2500000 &amp; HOM$cod &gt; 2400000] &lt;- &quot;RN&quot;
+HOM$UF[HOM$cod &lt; 2600000 &amp; HOM$cod &gt; 2500000] &lt;- &quot;PB&quot;
+HOM$UF[HOM$cod &lt; 2700000 &amp; HOM$cod &gt; 2600000] &lt;- &quot;PE&quot;
+HOM$UF[HOM$cod &lt; 2800000 &amp; HOM$cod &gt; 2700000] &lt;- &quot;AL&quot;
+HOM$UF[HOM$cod &lt; 2900000 &amp; HOM$cod &gt; 2800000] &lt;- &quot;SE&quot;
+HOM$UF[HOM$cod &lt; 3000000 &amp; HOM$cod &gt; 2900000] &lt;- &quot;BA&quot;
+
+HOM$UF[HOM$cod &lt; 3200000 &amp; HOM$cod &gt; 3100000] &lt;- &quot;MG&quot;
+HOM$UF[HOM$cod &lt; 3300000 &amp; HOM$cod &gt; 3200000] &lt;- &quot;ES&quot;
+HOM$UF[HOM$cod &lt; 3400000 &amp; HOM$cod &gt; 3300000] &lt;- &quot;RJ&quot;
+HOM$UF[HOM$cod &lt; 3600000 &amp; HOM$cod &gt; 3400000] &lt;- &quot;SP&quot;
+
+HOM$UF[HOM$cod &lt; 4200000 &amp; HOM$cod &gt; 4100000] &lt;- &quot;PR&quot;
+HOM$UF[HOM$cod &lt; 4300000 &amp; HOM$cod &gt; 4200000] &lt;- &quot;SC&quot;
+HOM$UF[HOM$cod &lt; 4400000 &amp; HOM$cod &gt; 4300000] &lt;- &quot;RS&quot;
+
+HOM$UF[HOM$cod &lt; 5100000 &amp; HOM$cod &gt; 5000000] &lt;- &quot;MS&quot;
+HOM$UF[HOM$cod &lt; 5200000 &amp; HOM$cod &gt; 5100000] &lt;- &quot;MT&quot;
+HOM$UF[HOM$cod &lt; 5300000 &amp; HOM$cod &gt; 5200000] &lt;- &quot;GO&quot;
+HOM$UF[HOM$cod &lt; 5400000 &amp; HOM$cod &gt; 5300000] &lt;- &quot;DF&quot;
+</code></pre>
+
+<p>E o mesmo para as regiões.</p>
+
+<pre><code class="language-r">HOM$Região &lt;- NA
+HOM$Região[HOM$cod &lt;2000000] &lt;- &quot;NORTE&quot;
+HOM$Região[HOM$cod &gt;2000000 &amp; HOM$cod &lt;3000000] &lt;- &quot;NORDESTE&quot;
+HOM$Região[HOM$cod &gt;3000000 &amp; HOM$cod &lt;4000000] &lt;- &quot;SUDESTE&quot;
+HOM$Região[HOM$cod &gt;4000000 &amp; HOM$cod &lt;5000000] &lt;- &quot;SUL&quot;
+HOM$Região[HOM$cod &gt;5000000 &amp; HOM$cod &lt;6000000] &lt;- &quot;CENTRO-OESTE&quot;
+</code></pre>
+
+<p>Em seguida gerei a base de dados com a função <code>write.csv2</code> e a deixei disponível no meu <a href="https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Homic%C3%ADdios1996-2016.csv">github</a>.</p>
+
+<p>A leitura e alguns gráficos estão no outro <a href="https://anderlerv.netlify.com/"><em>post</em></a>.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">ETIQUETADO em</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/r-studio/">R-Studio</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/tabelas/">Tabelas</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/base-de-dados/">Base de dados</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/viol%C3%AAncia/">Violência</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/" data-tooltip="Correlação não é causalidade, mas...: Homicídios">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/tabelas-com-stargazer/10/2018/" data-tooltip="Tabelas com &#34;Stargazer&#34;">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/base-de-dados-homic%C3%ADdios/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/base-de-dados-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/base-de-dados-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Rodrigo Volmir Anderle. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/" data-tooltip="Correlação não é causalidade, mas...: Homicídios">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/tabelas-com-stargazer/10/2018/" data-tooltip="Tabelas com &#34;Stargazer&#34;">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/base-de-dados-homic%C3%ADdios/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/base-de-dados-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/base-de-dados-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=%2Fbase-de-dados-homic%25C3%25ADdios%2F10%2F2018%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Compartilhar no Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2Fbase-de-dados-homic%25C3%25ADdios%2F10%2F2018%2F">
+          <i class="fa fa-twitter"></i><span>Compartilhar no Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2Fbase-de-dados-homic%25C3%25ADdios%2F10%2F2018%2F">
+          <i class="fa fa-google-plus"></i><span>Compartilhar no Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+    
+    <h4 id="about-card-name">Rodrigo Volmir Anderle</h4>
+    
+      <div id="about-card-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista, bolsita FAPESB</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        <strong><a href="https://ppgeconomia.ufba.br/">Doutorando em Economia Aplicada - UFBA</a></strong>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brasil
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Pesquisar" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Correlação não é causalidade, mas...: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil, inclisve economistas. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/base-de-dados-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Base de dados: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/tabelas-com-stargazer/10/2018/">
+                <h3 class="media-heading">Tabelas com &#34;Stargazer&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-15-09-2018/09/2018/">
+                <h3 class="media-heading">Curtas: 15/09/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Informações gerais Com o feriado acabei não publicando estes curtas na semana passada. Isso fez com que alguns dos prazos já tenham se encerrado. De toda forma vou compartilhar, pois muitas das informações são cíclicas. Assim, também divulgo para para conhecimento de sua existência.
+Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as li, mas vale para divulgação.
+ Metodologias dos números índice: pelo o que entendi a CEPAL vai passar a publicar documentos explicando as metodologias utilizadas pelo órgão.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-31-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas: 31/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Congressos  XL SODEBRAS (Soluções para o Desenvolvimento do País). Congresso acontecerá em Vitória-ES, entre os dias 10 e 12 de Dezembro. A submissão do resumo se encerra hoje, dia 31 de Agosto (foi mal, hehe), mas ainda dá para se inscrever como ouvinte. Os artigos aprovados comporão uma edição especial da revista SODEBRAS. Particularmente achei as taxas de inscrição e submissão proibitivas.   Chamada para Artigos  Revista de Estudos Sociais.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
+                <h3 class="media-heading">Por que a &#34;solução&#34; é empreender? E por que isso não é bom?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Por que a &ldquo;solução&rdquo; é empreender? E por que isso não é bom? Este texto foi originalmente publicado no dia 17 de Março de 2017 em meu blog anterior, &quot;economiaSG&quot;. Alguns textos deste blog foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;
+O país segue em crise, embora, aparentemente, a mídia tenha esquecido disso e propagandeie que o pior já passou e que já começamos a retomada. Se o pior já passou, realmente, não tenho certeza.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-24-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas - 24/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bolsas  Bolsa de Pós-Doutorado na UFRN, até 31/08/2018.  Textos  Interessante texto sobre a importância da clareza nas ideias para desenvolver melhor os pensamentos. De Paul Romer.
+ Já este texto é de um colega de pós-graduação na UFBA em que faz uma discussão sobre o papel dos bancos como criadores de moeda, endividamento e estratégias de combate à crise financeira de 2007. Acesse aqui.
+ Já neste texto de Paulo Gala trata das economias de aglomeração e dos efeitos de especialização.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/">
+                <h3 class="media-heading">Uma discussão a respeito do crescimento econômico dos municípios do Nordeste brasileiro</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Contextualizando Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja aqui). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação.
+Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes insights.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/sobre-uma-sociedade-bin%C3%A1ria/08/2018/">
+                <h3 class="media-heading">Sobre uma sociedade binária</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Sobre uma sociedade binária1 Este texto foi originalmente publicado em meu blog anterior &quot;economiaSG&quot;, no dia 25 de Novembro de 2017. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;.
+Em uma manhã destas estava em uma aula e meu professor fez uma pergunta que ressuscitou este raciocínio antigo: criamos uma sociedade sem capacidade de criticar. Isto significa que só acreditamos (sociedade) naquilo que nos é repassado e, como externalidade deste processo ao longo de nossas vidas, passamos a demandar que verdades nos sejam repassadas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         14 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/Capa.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/base-de-dados-homic%C3%ADdios\/10\/2018\/';
+          
+            this.page.identifier = '\/base-de-dados-homic%C3%ADdios\/10\/2018\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'AnderleRV';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tabelas on Rodrigo Volmir Anderle</title>
+    <link>/tags/tabelas/</link>
+    <description>Recent content in Tabelas on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/tabelas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Base de dados: Homicídios</title>
+      <link>/base-de-dados-homic%C3%ADdios/10/2018/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/base-de-dados-homic%C3%ADdios/10/2018/</guid>
+      <description>Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</description>
+    </item>
+    
+    <item>
+      <title>Tabelas com &#34;Stargazer&#34;</title>
+      <link>/tabelas-com-stargazer/10/2018/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tabelas-com-stargazer/10/2018/</guid>
+      <description>Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&amp;quot;stargazer&amp;quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</description>
+    </item>
+    
+  </channel>
+</rss>
