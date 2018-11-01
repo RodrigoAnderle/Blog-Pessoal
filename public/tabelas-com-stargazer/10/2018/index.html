@@ -1,0 +1,1085 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Tabelas com &#34;Stargazer&#34;</title>
+    <meta name="author" content="Rodrigo Volmir Anderle">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+    <meta name="description" content="Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).">
+    <meta property="og:description" content="Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Tabelas com &#34;Stargazer&#34;">
+    <meta property="og:url" content="/tabelas-com-stargazer/10/2018/">
+    <meta property="og:site_name" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:description" content="Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).">
+    
+      <meta name="twitter:creator" content="@rodrigoanderle">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=640">
+    
+
+    
+      <meta property="og:image" content="https://www.r-project.org/Rlogo.png">
+    
+    
+      <meta property="og:image" content="https://www.r-project.org/Rlogo.png">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-121614138-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Rodrigo Volmir Anderle</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=90" alt="Foto do autor" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+        </a>
+        <h4 class="sidebar-profile-name">Rodrigo Volmir Anderle</h4>
+        
+          <h5 class="sidebar-profile-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista, bolsita FAPESB</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Início</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categorias</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Arquivo</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/sobre-o-blog">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Sobre</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/rodrigovolmir.anderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.instagram.com/rodrigovanderle/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-instagram"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/rodrigo-volmir-anderle-a8251920/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('https://www.r-project.org/Rlogo.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Tabelas com &#34;Stargazer&#34;
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-10-25T00:00:00Z">
+        
+  
+  
+  
+  
+    25 Outubro 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>em</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>Após minha última <a href="https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">publicação apressada</a>, percebi que precisava parar para dar uma estudada melhor na  produção de tabelas no <a href="https://www.r-project.org/">R</a>. Assim, este texto pretente apresentar o pacote <code>stargazer</code> do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.</p>
+
+<p>Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.</p>
+
+<pre><code class="language-r">#install.packages(&quot;stargazer&quot;)
+library(stargazer)
+</code></pre>
+
+<pre><code>## 
+## Please cite as:
+</code></pre>
+
+<pre><code>##  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+</code></pre>
+
+<pre><code>##  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer
+</code></pre>
+
+<p>A referência que está sendo utilizada é a mesma citada acima, <a href="https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf">Marek (2008)</a>.</p>
+
+<p>A utilização é simples e basta inserir um <code>data.frame</code> na função <code>stargazer()</code>, para obter o mesmo resultado da função <code>summary()</code> da base de dados <code>attitude</code>. A base de dados <code>attitude</code> já vem com a instalação padrão do R.</p>
+
+<pre><code class="language-r">stargazer(attitude, type = &quot;html&quot;)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>N</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Pctl(25)</td><td>Pctl(75)</td><td>Max</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">rating</td><td>30</td><td>64.633</td><td>12.173</td><td>40</td><td>58.8</td><td>71.8</td><td>85</td></tr>
+<tr><td style="text-align:left">complaints</td><td>30</td><td>66.600</td><td>13.315</td><td>37</td><td>58.5</td><td>77</td><td>90</td></tr>
+<tr><td style="text-align:left">privileges</td><td>30</td><td>53.133</td><td>12.235</td><td>30</td><td>45</td><td>62.5</td><td>83</td></tr>
+<tr><td style="text-align:left">learning</td><td>30</td><td>56.367</td><td>11.737</td><td>34</td><td>47</td><td>66.8</td><td>75</td></tr>
+<tr><td style="text-align:left">raises</td><td>30</td><td>64.633</td><td>10.397</td><td>43</td><td>58.2</td><td>71</td><td>88</td></tr>
+<tr><td style="text-align:left">critical</td><td>30</td><td>74.767</td><td>9.895</td><td>49</td><td>69.2</td><td>80</td><td>92</td></tr>
+<tr><td style="text-align:left">advance</td><td>30</td><td>42.933</td><td>10.289</td><td>25</td><td>35</td><td>47.8</td><td>72</td></tr>
+<tr><td colspan="8" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Também é possível apresentar apenas os dados, sem o sua análise descritiva.</p>
+
+<pre><code class="language-r">stargazer(attitude[1:4,], summary=FALSE, rownames=FALSE, type = &quot;html&quot;)
+</code></pre>
+
+<table style="text-align:center"><tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">rating</td><td>complaints</td><td>privileges</td><td>learning</td><td>raises</td><td>critical</td><td>advance</td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">43</td><td>51</td><td>30</td><td>39</td><td>61</td><td>92</td><td>45</td></tr>
+<tr><td style="text-align:left">63</td><td>64</td><td>51</td><td>54</td><td>63</td><td>73</td><td>47</td></tr>
+<tr><td style="text-align:left">71</td><td>70</td><td>68</td><td>69</td><td>76</td><td>86</td><td>48</td></tr>
+<tr><td style="text-align:left">61</td><td>63</td><td>45</td><td>47</td><td>54</td><td>84</td><td>35</td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Observe que estou inserindo a opção <code>type = &quot;html&quot;</code>. Faço isso por que estou gerando as tabelas para um arquivo em html, uma página de internet. Caso não coloque nada, a função assume o <code>type = &quot;latex&quot;</code> que é o formato padrão. Esta opção padrão pode ser mantida se for produzido um texto em pdf, gerado no <a href="https://rmarkdown.rstudio.com/">RMarkdown</a><sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>. Uma terceira opção é gerar uma tabela no formato ASCI, colocando <code>type = &quot;text&quot;</code>, que é uma tabela para arquivos &ldquo;txt&rdquo; (que não fica legal no word). Assim, se a ideia for gerar tabelas para colocar em documentos de word, o melhor caminho é gerar em pdf no Rmarkdown, copiar e colar no Word.</p>
+
+<h1 id="resultados-de-modelos">Resultados de Modelos</h1>
+
+<p>Seguindo o material de <a href="https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf">Marek (2008)</a>, são apresentados dois modelos de regressão linear, <code>lm()</code>, e um probit, <code>glm()</code>.</p>
+
+<p>Abaixo, os modelos são gerados em separado da tabela e utilizam a mesma base de dados, <code>attitude</code>.</p>
+
+<pre><code class="language-r">##  Modelos Lineares
+linear.1 &lt;- lm(rating ~ complaints + privileges + learning + raises + critical,
+               data=attitude)
+linear.2 &lt;- lm(rating ~ complaints + privileges + learning,
+               data=attitude)
+## Probit
+#Indicador verdadeiro ou falso (0 ou 1) para variável dependente do modelo
+attitude$high.rating &lt;- (attitude$rating &gt; 70)
+
+# modelo probit
+probit.model &lt;- glm(high.rating ~ learning + critical + advance,
+                    data=attitude,
+                    family = binomial(link = &quot;probit&quot;))
+</code></pre>
+
+<p>Assim, são três os modelos a serem analisados. Note, abaixo, que a função é automatizada. Basta colocar os modelos que ela os insere em conjunto. Além dos modelos, é inserido o argumento <code>title =</code>, o título da tabela, e o argumento <code>align = TRUE</code>, que alinha os valores da tabela.</p>
+
+<pre><code class="language-r">stargazer(linear.1, linear.2, probit.model,
+          title=&quot;Resultados&quot;,
+          align=T,
+          type = &quot;html&quot;)
+</code></pre>
+
+<table style="text-align:center"><caption><strong>Resultados</strong></caption>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="3"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="3" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">rating</td><td>high.rating</td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><em>OLS</em></td><td><em>probit</em></td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">complaints</td><td>0.692<sup>***</sup></td><td>0.682<sup>***</sup></td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.149)</td><td>(0.129)</td><td></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">privileges</td><td>-0.104</td><td>-0.103</td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.135)</td><td>(0.129)</td><td></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">learning</td><td>0.249</td><td>0.238<sup>*</sup></td><td>0.164<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.160)</td><td>(0.139)</td><td>(0.053)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">raises</td><td>-0.033</td><td></td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.202)</td><td></td><td></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">critical</td><td>0.015</td><td></td><td>-0.001</td></tr>
+<tr><td style="text-align:left"></td><td>(0.147)</td><td></td><td>(0.044)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">advance</td><td></td><td></td><td>-0.062</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(0.042)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>11.011</td><td>11.258</td><td>-7.476<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(11.704)</td><td>(7.318)</td><td>(3.570)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>30</td><td>30</td><td>30</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.715</td><td>0.715</td><td></td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.656</td><td>0.682</td><td></td></tr>
+<tr><td style="text-align:left">Log Likelihood</td><td></td><td></td><td>-9.087</td></tr>
+<tr><td style="text-align:left">Akaike Inf. Crit.</td><td></td><td></td><td>26.175</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>7.139 (df = 24)</td><td>6.863 (df = 26)</td><td></td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>12.063<sup>***</sup> (df = 5; 24)</td><td>21.743<sup>***</sup> (df = 3; 26)</td><td></td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="3" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+  
+
+<p>É possível fazer mais ajustes. Na composição seguinte, além das opções anteriores, foram inseridos nomes (<em>labels</em>) para as variáveis dependentes, com o argumento <code>dep.var.labels</code>. Note que são só dois nomes, pois são duas variáveis dependentes diferentes em três modelos distintos. Também é especificado o nome das &ldquo;covariáveis&rdquo;, ou variáveis explicativas, com o argumento <code>covariate.labels</code>.</p>
+
+<p>Para contextualizar, a base de dados é o resultado de uma pesquisa com funcionários administrativos em uma grande organização financeira. Ela está agregada em 30 setores (amostra), uma descrição (muito breve) dessa base pode ser encontrada <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/attitude.html">aqui</a>. Digo isso, pois traduzi as variáveis para fazer mais sentido, mas não sei se não acabei piorando as coisas.</p>
+
+<p>Avançando nas opções, foram omitidas as estatísticas <em>LogLikelihood</em> (<code>LL</code>), erro padrão (<code>ser</code>) e teste F (<code>f</code>), utilizando o argumento <code>omit.stat</code>. E foram retirados os espaços em branco da tabela com o argumento <code>no.space</code>.</p>
+
+<pre><code class="language-r">stargazer(linear.1, linear.2, probit.model, 
+          title=&quot;Resultados&quot;, 
+          align=TRUE,
+          type = &quot;html&quot;,
+          dep.var.labels=c(&quot;Taxa Nominal&quot;,&quot;Taxas Elevadas (&gt;70%)&quot;),
+          covariate.labels=c(&quot;Tratamento das Reclamações&quot;,
+                             &quot;Não permite privilégios&quot;,
+                             &quot;Oportunidades de Aprendizado&quot;,
+                             &quot;Aumentos por performance&quot;,
+                             &quot;Crítica&quot;,
+                             &quot;Avanço&quot;, 
+                             &quot;Constante&quot;),
+          omit.stat=c(&quot;LL&quot;,&quot;ser&quot;,&quot;f&quot;),
+          no.space=TRUE)
+</code></pre>
+
+<table style="text-align:center"><caption><strong>Resultados</strong></caption>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="3"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="3" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Taxa Nominal</td><td>Taxas Elevadas (>70%)</td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><em>OLS</em></td><td><em>probit</em></td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Tratamento das Reclamações</td><td>0.692<sup>***</sup></td><td>0.682<sup>***</sup></td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.149)</td><td>(0.129)</td><td></td></tr>
+<tr><td style="text-align:left">Não permite privilégios</td><td>-0.104</td><td>-0.103</td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.135)</td><td>(0.129)</td><td></td></tr>
+<tr><td style="text-align:left">Oportunidades de Aprendizado</td><td>0.249</td><td>0.238<sup>*</sup></td><td>0.164<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.160)</td><td>(0.139)</td><td>(0.053)</td></tr>
+<tr><td style="text-align:left">Aumentos por performance</td><td>-0.033</td><td></td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.202)</td><td></td><td></td></tr>
+<tr><td style="text-align:left">Crítica</td><td>0.015</td><td></td><td>-0.001</td></tr>
+<tr><td style="text-align:left"></td><td>(0.147)</td><td></td><td>(0.044)</td></tr>
+<tr><td style="text-align:left">Avanço</td><td></td><td></td><td>-0.062</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(0.042)</td></tr>
+<tr><td style="text-align:left">Constante</td><td>11.011</td><td>11.258</td><td>-7.476<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(11.704)</td><td>(7.318)</td><td>(3.570)</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>30</td><td>30</td><td>30</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.715</td><td>0.715</td><td></td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.656</td><td>0.682</td><td></td></tr>
+<tr><td style="text-align:left">Akaike Inf. Crit.</td><td></td><td></td><td>26.175</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="3" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+  
+
+<p>Outra sugestão feita por <a href="https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf">Marek (2008)</a> é a da tabela a seguir. Os intervalos dos coeficientes, a 90% de significância estatística, são inseridos com os argumentos <code>ci</code> e <code>ci.level</code>. Tudo colocado na mesma linha com <code>single.row</code>. Note que estão sendo usados apenas os dois modelos lineares e que, mesmo assim, apenas um <em>label</em>, &ldquo;Taxa Nominal&rdquo;, aparece.</p>
+
+<pre><code class="language-r">stargazer(linear.1, linear.2,
+          title=&quot;Resultados&quot;,
+          align = F,
+          type = &quot;html&quot;,
+          dep.var.labels=c(&quot;Taxa Nominal&quot;,&quot;Taxas Elevadas (&gt;70%)&quot;),
+          covariate.labels=c(&quot;Tratamento das Reclamações&quot;,
+                             &quot;Não permite privilégios&quot;,
+                             &quot;Oportunidades de Aprendizado&quot;,
+                             &quot;Aumentos por performance&quot;,
+                             &quot;Crítica&quot;,
+                             &quot;Avanço&quot;, 
+                             &quot;Constante&quot;),
+          omit.stat=c(&quot;LL&quot;,&quot;ser&quot;,&quot;f&quot;), 
+          ci=TRUE, 
+          ci.level=0.90, 
+          single.row=TRUE)
+</code></pre>
+
+<table style="text-align:center"><caption><strong>Resultados</strong></caption>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Taxa Nominal</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Tratamento das Reclamações</td><td>0.692<sup>***</sup> (0.447, 0.937)</td><td>0.682<sup>***</sup> (0.470, 0.894)</td></tr>
+<tr><td style="text-align:left">Não permite privilégios</td><td>-0.104 (-0.325, 0.118)</td><td>-0.103 (-0.316, 0.109)</td></tr>
+<tr><td style="text-align:left">Oportunidades de Aprendizado</td><td>0.249 (-0.013, 0.512)</td><td>0.238<sup>*</sup> (0.009, 0.467)</td></tr>
+<tr><td style="text-align:left">Aumentos por performance</td><td>-0.033 (-0.366, 0.299)</td><td></td></tr>
+<tr><td style="text-align:left">Crítica</td><td>0.015 (-0.227, 0.258)</td><td></td></tr>
+<tr><td style="text-align:left">Avanço</td><td>11.011 (-8.240, 30.262)</td><td>11.258 (-0.779, 23.296)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>30</td><td>30</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.715</td><td>0.715</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.656</td><td>0.682</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+<p>Uma versão ainda mais sintética da tabela é apresentada em seguida. Retirando todas as estatísticas com, <code>keep.stat=&quot;n&quot;</code>. Nela as variáveis <em>learnings</em> e <em>privileges</em> são destacadas (trazidas) no começo da tabela com o <code>order</code>.</p>
+
+<pre><code class="language-r">stargazer(linear.1, linear.2, 
+          title=&quot;Resultados&quot;,
+          type = &quot;html&quot;,
+          dep.var.labels=c(&quot;Taxa Nominal&quot;,&quot;Taxas Elevadas (&gt;70%)&quot;),
+          order=c(&quot;learning&quot;, &quot;privileges&quot;),
+          keep.stat=&quot;n&quot;,
+          ci=TRUE,
+          ci.level=0.90,
+          single.row=TRUE)
+</code></pre>
+
+<table style="text-align:center"><caption><strong>Resultados</strong></caption>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Taxa Nominal</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">learning</td><td>0.249 (-0.013, 0.512)</td><td>0.238<sup>*</sup> (0.009, 0.467)</td></tr>
+<tr><td style="text-align:left">privileges</td><td>-0.104 (-0.325, 0.118)</td><td>-0.103 (-0.316, 0.109)</td></tr>
+<tr><td style="text-align:left">complaints</td><td>0.692<sup>***</sup> (0.447, 0.937)</td><td>0.682<sup>***</sup> (0.470, 0.894)</td></tr>
+<tr><td style="text-align:left">raises</td><td>-0.033 (-0.366, 0.299)</td><td></td></tr>
+<tr><td style="text-align:left">critical</td><td>0.015 (-0.227, 0.258)</td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>11.011 (-8.240, 30.262)</td><td>11.258 (-0.779, 23.296)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>30</td><td>30</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+<h2 id="matrizes">Matrizes</h2>
+
+<p>O autor também destaca que é possível representar matrizes de correlação. No caso são utilizadas apenas três variáveis.</p>
+
+<pre><code class="language-r">correlation.matrix &lt;- 
+  cor(attitude[,c(&quot;rating&quot;,&quot;complaints&quot;,&quot;privileges&quot;)])
+
+stargazer(correlation.matrix,
+          title=&quot;Matriz de Correlação&quot;,
+          type = &quot;html&quot;)
+</code></pre>
+
+<table style="text-align:center"><caption><strong>Matriz de Correlação</strong></caption>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td>rating</td><td>complaints</td><td>privileges</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">rating</td><td>1</td><td>0.825</td><td>0.426</td></tr>
+<tr><td style="text-align:left">complaints</td><td>0.825</td><td>1</td><td>0.558</td></tr>
+<tr><td style="text-align:left">privileges</td><td>0.426</td><td>0.558</td><td>1</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr></table>
+  
+
+<h1 id="considerações-finais">Considerações finais</h1>
+
+<p><a href="https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf">Marek (2008)</a> ainda apresenta como inserir &ldquo;erros customizados&rdquo;, para regressões robustas. Não vou me prender a essa replicação aqui, pois foi usada uma programação muito longa e com muitos detalhes para explicar. De qualquer forma, os erros padrão (<code>se</code>), podem ser alterados na tabela, inserindo-os com o argumento <code>se =</code>.</p>
+
+<p>Espero que tenha sido útil, meu esforço aqui foi só o de reproduzir um material que já está disponível em inglês. Basicamente uma tradução sintética de algumas funcionalidades do pacote, pois eu mesmo precisava parar para fazer essa leitura.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Importante, caso gere tabelas ou documentos no Rmarkdown e queira visualizar em <em>html</em> como fiz aqui,  é necessário inserir a opção <code>results='asis'</code> nos <em>chuncks</em> dos códigos.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">ETIQUETADO em</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/r-studio/">R-Studio</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/r-tips/">R-Tips</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/tabelas/">Tabelas</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/base-de-dados-homic%C3%ADdios/10/2018/" data-tooltip="Base de dados: Homicídios">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/" data-tooltip="Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/tabelas-com-stargazer/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/tabelas-com-stargazer/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/tabelas-com-stargazer/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Rodrigo Volmir Anderle. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/base-de-dados-homic%C3%ADdios/10/2018/" data-tooltip="Base de dados: Homicídios">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/" data-tooltip="Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/tabelas-com-stargazer/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/tabelas-com-stargazer/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/tabelas-com-stargazer/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=%2Ftabelas-com-stargazer%2F10%2F2018%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Compartilhar no Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2Ftabelas-com-stargazer%2F10%2F2018%2F">
+          <i class="fa fa-twitter"></i><span>Compartilhar no Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2Ftabelas-com-stargazer%2F10%2F2018%2F">
+          <i class="fa fa-google-plus"></i><span>Compartilhar no Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+    
+    <h4 id="about-card-name">Rodrigo Volmir Anderle</h4>
+    
+      <div id="about-card-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista, bolsita FAPESB</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        <strong><a href="https://ppgeconomia.ufba.br/">Doutorando em Economia Aplicada - UFBA</a></strong>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brasil
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Pesquisar" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Correlação não é causalidade, mas...: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil, inclisve economistas. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/base-de-dados-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Base de dados: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/tabelas-com-stargazer/10/2018/">
+                <h3 class="media-heading">Tabelas com &#34;Stargazer&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-15-09-2018/09/2018/">
+                <h3 class="media-heading">Curtas: 15/09/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Informações gerais Com o feriado acabei não publicando estes curtas na semana passada. Isso fez com que alguns dos prazos já tenham se encerrado. De toda forma vou compartilhar, pois muitas das informações são cíclicas. Assim, também divulgo para para conhecimento de sua existência.
+Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as li, mas vale para divulgação.
+ Metodologias dos números índice: pelo o que entendi a CEPAL vai passar a publicar documentos explicando as metodologias utilizadas pelo órgão.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-31-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas: 31/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Congressos  XL SODEBRAS (Soluções para o Desenvolvimento do País). Congresso acontecerá em Vitória-ES, entre os dias 10 e 12 de Dezembro. A submissão do resumo se encerra hoje, dia 31 de Agosto (foi mal, hehe), mas ainda dá para se inscrever como ouvinte. Os artigos aprovados comporão uma edição especial da revista SODEBRAS. Particularmente achei as taxas de inscrição e submissão proibitivas.   Chamada para Artigos  Revista de Estudos Sociais.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
+                <h3 class="media-heading">Por que a &#34;solução&#34; é empreender? E por que isso não é bom?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Por que a &ldquo;solução&rdquo; é empreender? E por que isso não é bom? Este texto foi originalmente publicado no dia 17 de Março de 2017 em meu blog anterior, &quot;economiaSG&quot;. Alguns textos deste blog foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;
+O país segue em crise, embora, aparentemente, a mídia tenha esquecido disso e propagandeie que o pior já passou e que já começamos a retomada. Se o pior já passou, realmente, não tenho certeza.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-24-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas - 24/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bolsas  Bolsa de Pós-Doutorado na UFRN, até 31/08/2018.  Textos  Interessante texto sobre a importância da clareza nas ideias para desenvolver melhor os pensamentos. De Paul Romer.
+ Já este texto é de um colega de pós-graduação na UFBA em que faz uma discussão sobre o papel dos bancos como criadores de moeda, endividamento e estratégias de combate à crise financeira de 2007. Acesse aqui.
+ Já neste texto de Paulo Gala trata das economias de aglomeração e dos efeitos de especialização.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/">
+                <h3 class="media-heading">Uma discussão a respeito do crescimento econômico dos municípios do Nordeste brasileiro</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Contextualizando Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja aqui). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação.
+Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes insights.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/sobre-uma-sociedade-bin%C3%A1ria/08/2018/">
+                <h3 class="media-heading">Sobre uma sociedade binária</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Sobre uma sociedade binária1 Este texto foi originalmente publicado em meu blog anterior &quot;economiaSG&quot;, no dia 25 de Novembro de 2017. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;.
+Em uma manhã destas estava em uma aula e meu professor fez uma pergunta que ressuscitou este raciocínio antigo: criamos uma sociedade sem capacidade de criticar. Isto significa que só acreditamos (sociedade) naquilo que nos é repassado e, como externalidade deste processo ao longo de nossas vidas, passamos a demandar que verdades nos sejam repassadas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         14 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/Capa.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/tabelas-com-stargazer\/10\/2018\/';
+          
+            this.page.identifier = '\/tabelas-com-stargazer\/10\/2018\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'AnderleRV';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+
