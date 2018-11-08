@@ -6,15 +6,24 @@
     <description>Recent content in Categories on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Base De Dados</title>
+      <link>/categories/base-de-dados/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/base-de-dados/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Blog</title>
       <link>/categories/blog/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/blog/</guid>
       <description></description>
@@ -30,11 +39,29 @@
     </item>
     
     <item>
+      <title>Exercícios</title>
+      <link>/categories/exerc%C3%ADcios/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/exerc%C3%ADcios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Publicações</title>
       <link>/categories/publica%C3%A7%C3%B5es/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/publica%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
