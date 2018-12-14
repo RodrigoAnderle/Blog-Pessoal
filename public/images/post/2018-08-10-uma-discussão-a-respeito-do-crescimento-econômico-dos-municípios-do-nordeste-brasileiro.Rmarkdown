@@ -1,0 +1,48 @@
+---
+title: Uma discussão a respeito do crescimento econômico dos municípios do Nordeste
+  brasileiro
+author: Rodrigo Volmir Anderle
+date: '2018-08-10'
+slug: uma-discussão-a-respeito-do-crescimento-econômico-dos-municípios-do-nordeste-brasileiro
+autoThumbnailImage: "images/AMC Nordeste 1991-2010 Clusters de crescimento.png"
+thumbnailImagePosition: "left"
+coverImage: "../../../images/AMC Nordeste 1991-2010 Clusters de crescimento.png"
+categories:
+  - Publicações
+tags:
+  - Academia
+  - Artigo
+  - Crescimento
+  - Economia
+  - Efeito Espacial
+---
+
+# Contextualizando
+
+Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja [aqui](https://www.revistaaber.org.br/rberu/article/view/233)). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação. 
+
+# Uma ressalva
+
+Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes *insights*. Além disso, era o ponto de vista que utilizava na época do mestrado (Veja [aqui](http://anderlerv.netlify.com/minha-primeira-publica%C3%A7%C3%A3o-e-uma-s%C3%A9rie-de-agradecimentos/07/2018/)).
+
+# A discussão
+
+O artigo tem como temática o crescimento econômico. Particularmente o desenvolvimento. Algo que recorrentemente é do meu interesse. Apesar disso, não sabia muito bem de onde partir. Até que, por indicação do meu orientador, dei uma olhada no artigo de [Lall e Shalizi](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-4146.2003.00315.x). Nesse artigo os autores, ambos indianos, estudaram os municípios do nordeste brasileiro utilizando um modelo de convergência condicionada para testar o efeito espacial. A ideia de efeito espacial é que o crescimento não se dá de forma isolada, há externalidades de crescimento nos municípios vizinhos. Uma espécie de transbordamento. Isso normalmente é entendido como algo positivo. Por exemplo, se o município de São Paulo cresce é muito provável que seus vizinhos também cresçam. A novidade é que isso pode ser identificado estatisticamente em diferentes técnicas de econometria espacial. Além de resolver um problema de omissão de variáveis importantes, possibilita verificar novos *insights* teóricos.
+
+Entretanto, o trabalho de [Lall e Shalize](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-4146.2003.00315.x) identificava um efeito espacial negativo para os municípios nordestinos, o que é o contrário do esperado. Achei que o trabalho pudesse ter problemas nos dados, pois os autores utilizaram dados da [RAIS](http://www.rais.gov.br/sitio/index.jsf) que mede somentado trabalho formal. O problema de utilizar essa informação é que, particularmente no Nordeste, trabalho formal não correspende a toda atividade econômica. Outro agravante para essa leitura é que o período escolhido, entre 1987 e 1995, era permeado de mudanças institucionais importantes: constituinte em 1988, redemocratização e três trocas de moedas.
+
+Convicto de que essas questões estavam influenciando os dados, fiz um primeiro exercício utilizando dados do [Censos Demográficos](https://www.ibge.gov.br/estatisticas-novoportal/sociais/saude/9662-censo-demografico-2010.html?=&t=o-que-e) de 1991, 2000 e 2010. Imaginando que a consideração do setor informal e que um período de reconhecido crescimento seriam suficientes para identificar o efeito. Minha surpresa foi que o sinal negativo persistia, apontando o impacto espacial negativo no crescimento dos municípios Nordestinos. No trabalho de [Lall e Shalizi](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-4146.2003.00315.x) era sugerida uma hipótese de que isso acontecia por causa da escassez de fatores produtivos. O que os levava a competir na vizinhança. Ou seja, os mercados seriam tão pequenos que não comportavam "uma unidade" em cada município, tendo que escolher um ou outro. 
+
+Entretanto, apesar desse problema da escassez, meu entendimento é de que, ainda assim, deveria haver algum efeito espacial positivo. Para tanto era necessário desagregar o efeito espacial. Lendo o material de ajuda do [R](https://www.r-project.org/) descobri o trabalho de [Anselin](http://labs.bio.unc.edu/buckley/documents/anselinintrospatregres.pdf) em que era dada uma opção adicional de modelo, o Durbin Espacial. Esse modelo insere a defasagem espacial em todas as variáveis e no resíduo espacial. Em outras palavras, esse modelo desagrega o efeito espacial para identificar os "fatores comuns". A dita "hipótese dos fatores espaciais comuns" é de que existem fatores produtivos na vizinhança (espaço) que são utilizados por todos os vizinhos. 
+
+Ao aplicar esse modelo a hipótese foi verificada em um comportamento que chamei de concorrente. O mesmo fator produtivo que tinha um efeito (sinal) positivo no crescimento do município, apresentava um efeito (sinal) negativo quando defasado espacialmente (como esse fator dos vizinhos implicava no crescimento). Mais especificamente nas variáveis de capital humano. Por outro lado, quando considerado apenas o crescimento dos vizinhos, o impacto da vizinhança era positivo. Confirmando a intuição teórica de que o crescimento tem um comportamento de transbordamento (externalidade).
+
+# Conclusões
+
+As conclusões se restringem a esta última constatação. Entre 1991 e 2010, o crescimento dos municípios nordestinos tiveram um efeito espacial positivo. Entretanto, variáveis que especificavam os fatores de produção indicavam um comportamento competitivo. As implicações para políticas desses resultados são limitadas. Em especial, a indicação é de que políticas de desenvolvimento nessas localidades podem ser mais efetivas quando pensadas de forma regional e cooperativa do que independente em cada município.
+
+# Sugestões de Pesquisa
+
+O estudo foi muito focado na aplicação de uma ferramenta econométrica, mais especificadamente de econometria espacial. Em função disto e das limitções de tempo e capacidade, algumas simplificações foram adotadas. Uma importante simplificação feita foi em relação a complexidade da estrutura produtiva. A região Nordeste é composta de 9 estados e cerca de 1.800 municípios com uma ampla variação populacional. A classificação produtiva do artigo apresentava apenas indústria e serviços. Óbviamente falta complexidade nessa análise. Que tipo de indústria? Qual o seu tamanho? Como se deram seus impactos no crescimento? E na questão dos fatores comuns? Em quais setores isso é mais forte, ou mais fraco? Estes questionamentos podem ser justificáveis em diferentes objetivos de pesquisa.
+
+Inclusive um resultado do artigo aponta para isso. Nos diferentes cortes temporais aplicados, quando o ano de referência era o de 1991, o setor industrial apresentava impacto negativo no crescimento. Creditamos isto a um possível sucateamento do setor industrial da região. O que provavelmente foi impactado pelo processo de abertura comercial. Além disto, esse impacto negativo persistia até o período de 2010. Isto deixou uma última questão: teria sido o crescimento dos anos 2000, um crescimento meramente aparente? Ele não teria sido capaz de incrementar a capacidade produtiva da indústria local?

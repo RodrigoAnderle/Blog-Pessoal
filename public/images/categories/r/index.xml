@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Rodrigo Volmir Anderle</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Correlação não é causalidade, mas...: Homicídios</title>
+      <link>/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/</guid>
+      <description>Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &amp;ldquo;achismos&amp;rdquo;. Por isso que o título é &amp;ldquo;Correlação não é Causalidade&amp;rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</description>
+    </item>
+    
+    <item>
+      <title>Tabelas com &#34;Stargazer&#34;</title>
+      <link>/tabelas-com-stargazer/10/2018/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tabelas-com-stargazer/10/2018/</guid>
+      <description>Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&amp;quot;stargazer&amp;quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</description>
+    </item>
+    
+  </channel>
+</rss>

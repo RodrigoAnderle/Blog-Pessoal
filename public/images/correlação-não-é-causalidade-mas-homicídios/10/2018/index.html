@@ -1,0 +1,1059 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Correlação não é causalidade, mas...: Homicídios</title>
+    <meta name="author" content="Rodrigo Volmir Anderle">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+    <meta name="description" content="Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.">
+    <meta property="og:description" content="Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Correlação não é causalidade, mas...: Homicídios">
+    <meta property="og:url" content="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+    <meta property="og:site_name" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:description" content="Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.">
+    
+      <meta name="twitter:creator" content="@rodrigoanderle">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=640">
+    
+
+    
+      <meta property="og:image" content="/images/Correla%C3%A7%C3%A3o%20n%C3%A3o%20%C3%A9%20Causalidade.png">
+    
+    
+      <meta property="og:image" content="/images/Correla%C3%A7%C3%A3o%20n%C3%A3o%20%C3%A9%20Causalidade.png">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-121614138-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Rodrigo Volmir Anderle</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=90" alt="Foto do autor" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+        </a>
+        <h4 class="sidebar-profile-name">Rodrigo Volmir Anderle</h4>
+        
+          <h5 class="sidebar-profile-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista e aspirante a pesquisador</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Início</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categorias</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Arquivo</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/sobre-o-blog">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Sobre</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/rodrigovolmir.anderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.instagram.com/rodrigovanderle/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-instagram"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/rodrigo-volmir-anderle-a8251920/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('../../../images/Correla%c3%a7%c3%a3o%20n%c3%a3o%20%c3%a9%20Causalidade.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Correlação não é causalidade, mas...: Homicídios
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-10-26T00:00:00Z">
+        
+  
+  
+  
+  
+    26 Outubro 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>em</span>
+    
+      <a class="category-link" href="/categories/exerc%c3%adcios">Exercícios</a>, 
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.</p>
+
+<p>Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas. Então, mais uma vez, correlações não são causalidades, nem meus comentários são conclusões. É tudo palpite e achismo.</p>
+
+<p>Vamos começar com os pacotes que serão utilizados:</p>
+
+<pre><code class="language-r">library(ggplot2)
+library(tidyverse)
+</code></pre>
+
+<p>Em seguida é importar a base de dados. Essa base fui que construi, com base nos dados do <a href="http://www.ipea.gov.br/atlasviolencia/">Atlas da Violência</a>, do <a href="http://www.ipeadata.gov.br/Default.aspx">IpeaData</a> e do <a href="http://atlasbrasil.org.br/2013/">Atlas do Desenvolvimento Humano no Brasil</a>. A explicação de como ela foi construída e os comandos utilizados estão no <a href="https://anderlerv.netlify.com/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/"><em>post</em> anterior</a>.</p>
+
+<p>Por aqui só será feita a sua leitura e análise.</p>
+
+<pre><code class="language-r">HOM &lt;- read.csv2(&quot;https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Homic%C3%ADdios1996-2016.csv&quot;)
+</code></pre>
+
+<h1 id="total-de-homicídios-no-tempo-e-eventos">Total de Homicídios no tempo e eventos</h1>
+
+<p>Quando busquei os dados tentava ver algumas correlações a nível municípal, mas não consegui avançar muito. Assim, preferi parar a &ldquo;análise&rdquo; nos dados agregados e deixar essa &ldquo;análise&rdquo; municipal para uma próxima tentativa.</p>
+
+<p>O primeiro gráfico tem o número de homicídios no Brasil por ano. Ainda na concepção do gráfico, pensei em contextualizar os períodos, inserindo &ldquo;eventos&rdquo; que imaginava poder ter afetado o número de homicídios. Entre esses eventos destaquei o <a href="http://www.planalto.gov.br/ccivil_03/Leis/2003/L10.826compilado.htm">Estatuto do Desarmamento</a> em 2003, a Crise Financeira em 2007-2009, as Manifestações de 2013 e o Impeachment em 2015.</p>
+
+<p>O estatuto do desarmamento e a crise financeira me parecem eventos bastante importantes quando se pensa em homicídios. Já as manifestações de 2013 e o Impeachment de 2015, não deveriam ter muita relação. Entretanto, veja o gráfico a seguir.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  group_by(Ano) %&gt;%
+  summarise(Homicídios = sum(Homicídios, na.rm = T)) %&gt;%
+  ggplot() + 
+  geom_line(aes(x = Ano, y = Homicídios), size = 2) +
+  geom_vline(aes(xintercept = 2003, 
+                 colour = &quot;Estatuto do Desarmamento&quot;)) +
+  geom_vline( aes(xintercept = 2007, 
+                  colour = &quot;Crise Financeira&quot;)) +
+  geom_vline( aes(xintercept = 2013,
+                  colour = &quot;Manifestações&quot;)) +
+  geom_vline( aes(xintercept = 2015,
+                  colour = &quot;Impeachment&quot;)) +
+  scale_colour_discrete(name = &quot;&quot;) +
+  theme_bw() +
+  theme(legend.position = &quot;bottom&quot;) +
+  labs(title = &quot;Total de Homicídios no Brasil de 1996-2016&quot;,
+       caption = &quot;Nota: Eventos destacados foram escolhidos arbitrariamente.&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+
+<p>Note que os eventos parecem ser bastante elucidativos. Depois de 2003 há uma queda no número de homicídios que passa a ter uma tendência &ldquo;lateral&rdquo;. A partir do estouro da crise financeira, em 2007, passa a haver uma tendência de crescimento. Apesar disso, é importante ter em mente que a crise financeira demorou a chegar no Brasil. Além disso, a curva parece ganhar velocidade a partir de 2011, começo da administração da Dilma.</p>
+
+<p>Agora, olhar os dados de homicídios agregados contribuem pouco para uma análise. Isso por que a população também cresceu ao longo do tempo. Assim, o mais adequado é trabalhar com a taxa de homicídio.</p>
+
+<h2 id="taxa-de-homicídio-no-tempo-e-eventos">Taxa de Homicídio no tempo e eventos</h2>
+
+<p>A taxa de homicídio é calculada de forma a representar a quantidade de homicídios a cada 100 mil habitantes. Basta dividir os homicídios pela população e multiplicar por 100 mil.</p>
+
+<p>Veja como fica o gráfico agora:</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  group_by(Ano) %&gt;%
+  summarise(Taxa = 
+              (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + 
+  geom_line(aes(x = Ano, y = Taxa), size = 2) +
+  geom_vline(aes(xintercept = 2003, 
+                 colour = &quot;Estatuto do Desarmamento&quot;)) +
+  geom_vline( aes(xintercept = 2007, 
+                  colour = &quot;Crise Financeira&quot;)) +
+  geom_vline( aes(xintercept = 2013,
+                  colour = &quot;Manifestações Passe Livre&quot;)) +
+  geom_vline( aes(xintercept = 2015,
+                  colour = &quot;Impeachment&quot;)) +
+  scale_colour_discrete(name = &quot;&quot;) +
+  theme_bw() +
+  theme(legend.position = &quot;bottom&quot;) +
+  coord_cartesian(xlim = c(1999,2016)) +
+  labs(title = &quot;Taxa de Homicídios no Brasil (a cada 100mil hab) de 1999-2015&quot;,
+       caption = &quot;Nota: Eventos destacados foram escolhidos arbitrariamente.&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+
+<p>O gráfico mantém as características encontradas no primeiro, mas note que a taxa de homicídio só supera a de 2003 em 2011. De certa forma, parece que o estatuto do desarmamento teve impacto de fato.</p>
+
+<p>Agora, o Brasil é um país grande com diferentes composições de cidades, estados e regiões. Assim, vamos desagregar um pouco estes dados.</p>
+
+<h3 id="taxa-de-homicídio-nas-diferentes-regiões">Taxa de Homicídio nas diferentes regiões</h3>
+
+<p>Um gráfico com todos os estados juntos fica uma confusão de linhas. Então vamos aos poucos. Inicialmente gerei um gráfico por regiões, para ver como foi a dinâmica nas diferentes regiões do país.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  group_by(Ano, Região) %&gt;%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = Região), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2016)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  geom_vline( aes(xintercept = 2015)) +
+  theme_bw() +
+    labs(title = &quot;Taxa de Homicídios(100mil hab) no Brasil por região de 1999-2016&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+<p>No gráfico por região dá para perceber que, praticamente, a única região que tem queda na taxa de homicídios é a região Sudeste. Então fica a pergunta, por que o gráfico agregado tinha aquele formato?</p>
+
+<p>Bom, um palpite considerável é que o maior contigente populacional do país está na região Sudeste. Além disso, se bem me lembro, a demanda do estatuto do desarmamento foi encabeçada por essa região.</p>
+
+<p>Outra correlação que pode ser percebida é que na mesma medida que cai a taxa de homicídios na região Sudeste, ela aumenta nas regiões Centro-Oeste, Nordeste e Norte. Pensando a respeito, já ouvi falar sobre uma migração da violência da região Sudeste para as demais. Isso parece fazer sentido, pois quando olhamos a região Sul, ela tem sua dinâmica particular. Digo isso, pois, se não me engano, esse tranbordamento de que ouvi falar foi na direção das outras regiões.</p>
+
+<p>Outra possível explicação foi levantada enquanto conversava com minha companheira. Ela lembrou que a transferência de líderes de organizações criminosas para os presídios destas regiões também já havia sido levantado com ohipótese por alguém.</p>
+
+<p>A seguir vamos olhar os estados por região.</p>
+
+<h2 id="norte">Norte</h2>
+
+<p>Aquilo que falei da confusão de linhas pode ser observada a seguir. Note que apenas no começo do gráfico existem dinâmicas distintas, em dois grupos. Dos com taxa superior a 30, Amapá, Rondônia e Roraima. E do restante dos estados com menos de 20. Depois há uma espécie de convergência com todo mundo ficando meio parecido. Com destaque para Amapa e Pará que tem aumento considerável no último trecho.</p>
+
+<p>Em particular, nenhum dos eventos parece ter tido muita correlação com as tendências apresentadas.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  filter(Região == &quot;NORTE&quot;) %&gt;%
+  group_by(Ano, UF) %&gt;%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = &quot;Taxa de Homicídio por estado da região Norte de 1999-2016&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+
+<h2 id="nordeste">Nordeste</h2>
+
+<p>O gráfico para a região Nordeste é outro com uma confusão de linhas. Com nove estados é difícil olhar todos juntos e até mesmo perceber as mudanças. Alagoas e Sergipe são conhecidos pela sua violência, mas note que no começo do período o estado mais violento era Pernambuco. O único que teve queda nas taxas ao longo do período. Já o Piauí se manteve com as menores taxas ao longo de todo o período.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  filter(Região == &quot;NORDESTE&quot;) %&gt;%
+  group_by(Ano, UF) %&gt;%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), 
+                        size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = &quot;Taxa de Homicídio por estado da região Nordeste de 1999-2016&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+
+<h2 id="centro-oeste">Centro-Oeste</h2>
+
+<p>A região dos grandes latifundios também parece ter pouca correlação com os grandes eventos destacados no começo deste <em>post</em>. O estado de Goiás rasga o gráfico em uma diagonal crescente, enquanto que o Distrito Federal e o Mato Grosso do Sul apresentam uma queda no período. Já no Mato Grosso houve um aumento da taxa no final do período.</p>
+
+<p>Desconfio que tenha relação com os conflitos no campo. Palpite que estenderia para Goiás, Amapa e Pará. Embora Goiás também possa sofrer algum contágio da diminuição da violência no Mato Grosso do Sul e no Distrito Federal.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  filter(Região == &quot;CENTRO-OESTE&quot;) %&gt;%
+  group_by(Ano, UF) %&gt;%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = &quot;Taxa de Homicídio por estado da região Centro-Oeste de 1999-2016&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+
+<h2 id="sudeste">Sudeste</h2>
+
+<p>Chegando a região Sudeste, foi ela a principal causadora da queda da taxa de homicídios no país. Desagregando por estados, nota-se que as taxas só não caíram em Minas Gerais. Mais uma vez , há motivos para imaginar que há um efeito de &ldquo;transbordamento&rdquo; da violência.</p>
+
+<p>Por outro lado, o único evento que parece ter tido alguma correlação foi o estatuto do desarmamento em 2003. Apesar disso, em São Paulo, já havia uma tendência de queda, enquanto Minas tinha uma de alta. A partir de 2007 &ldquo;as coisas&rdquo; ficam meio de lado. Só no Espírito Santo houve um salto, a partir de 2005, mas que se transforma em uma tendência de queda, a partir de 2009.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  filter(Região == &quot;SUDESTE&quot;) %&gt;%
+  group_by(Ano, UF) %&gt;%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = &quot;Taxa de Homicídio por estado da região Sudeste de 1999-2016&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+
+<h2 id="sul">Sul</h2>
+
+<p>A região Sul é um tanto alienada aos movimetnos do resto do país. Note que apenas o Paraná teve um crescimento considerável, ainda antes de 2003. Mais uma vez pode ser um efeito &ldquo;transbordamento&rdquo;, pois o Paraná é vizinho de São Paulo, estado que teve a maior queda nas taxas de homicídios.</p>
+
+<p>Olhando mais para o final do gráfico, nota-se uma queda abrupta do Paraná, aproximadamente em 2012. Ao mesmo tempo que há um crescimento no Rio Grande do Sul. Apesar disso o movimento do Rio Grande do Sul deve ter relação com a sua própria dinâmica, uma vez que o estado entrou em crise financeira.</p>
+
+<pre><code class="language-r">HOM %&gt;%
+  filter(Região == &quot;SUL&quot;) %&gt;%
+  group_by(Ano, UF) %&gt;%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %&gt;%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw() +
+    labs(title = &quot;Taxa de Homicídio por estado da região Sul de 1999-2016&quot;)
+</code></pre>
+
+<p><img src="/post/2018-10-26-correlação-não-é-causalidade-mas-homicídios_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+
+<h1 id="considerações">Considerações</h1>
+
+<p>Mais uma vez é importante ressaltar que esse exercício pretendia praticar a análise de dados com o R. Todas as considerações feitas e sugeridas como causalidade são hipóteses sem consitência teórica. O que quero dizer com isso é que são &ldquo;papo de boteco&rdquo;.</p>
+
+<p>O meu limitado entedimento sobre o tema me leva a pensar que violência, medida na quantidade de homicídios, é um fenômeno complexo que tem diferentes formas e funções em diferentes localidades. De fato, acredito que eventos macro, como o estatuto do desarmamento e o transbordamento da violência de um estado para o outro tenham impacto. Ainda assim, acredito que existam dinâmicas micro, regionais, que tenham sua parcela de contribuição.</p>
+
+<p>Enquanto economista, não posso deixar de salientar que motivações econômicas e sociais devem estar intrinsicamente ligadas aos fenômenos sociais como a violência. Em um trabalho que consultei rapidamente do <a href="http://www.smallarmssurvey.org/publications/by-type/yearbook/small-arms-survey-2007.html">Small Arms Survey</a>, é dado destaque para a importância da urbanização no aumento da violência. Inclusive em um estudo que li recentemente, <a href="http://www.pnas.org/content/104/17/7301">Bettencour (2007)</a> destacava, entre outros fenômenos de escala urbana, o aumento da violência urbana.</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">ETIQUETADO em</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/base-de-dados/">Base de dados</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/desigualdade/">desigualdade</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/diversos/">Diversos</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/r-studio/">R-Studio</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/viol%C3%AAncia/">Violência</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/" data-tooltip="Curtas #4: Revistas, Congressos, bolsas e outras coisas mais">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/base-de-dados-homic%C3%ADdios/10/2018/" data-tooltip="Base de dados: Homicídios">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Rodrigo Volmir Anderle. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/" data-tooltip="Curtas #4: Revistas, Congressos, bolsas e outras coisas mais">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/base-de-dados-homic%C3%ADdios/10/2018/" data-tooltip="Base de dados: Homicídios">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=%2Fcorrela%25C3%25A7%25C3%25A3o-n%25C3%25A3o-%25C3%25A9-causalidade-mas-homic%25C3%25ADdios%2F10%2F2018%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Compartilhar no Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2Fcorrela%25C3%25A7%25C3%25A3o-n%25C3%25A3o-%25C3%25A9-causalidade-mas-homic%25C3%25ADdios%2F10%2F2018%2F">
+          <i class="fa fa-twitter"></i><span>Compartilhar no Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2Fcorrela%25C3%25A7%25C3%25A3o-n%25C3%25A3o-%25C3%25A9-causalidade-mas-homic%25C3%25ADdios%2F10%2F2018%2F">
+          <i class="fa fa-google-plus"></i><span>Compartilhar no Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+    
+    <h4 id="about-card-name">Rodrigo Volmir Anderle</h4>
+    
+      <div id="about-card-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista e aspirante a pesquisador</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        <strong><a href="https://ppgeconomia.ufba.br/">Doutorando em Economia Aplicada - UFBA (Bolsista FAPESB)</a></strong>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brasil
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Pesquisar" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
+Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;
+ Resumo do que trata o artigo, aqui;</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/">
+                <h3 class="media-heading">Curtas #5: Bolsa, Financiamento de Pesquisas, Revistas e seleções de pós-graduação</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Hoje divulgo chamadas para submissão de artigos em revistas de economia, seleção para financiamento de pesquisas que envolvam os últimos anos do ensino fundamental, seleção para doutorado, bolsa de estudo ofertada pela John Hopkings, em nome de Marielle Franco (presente!), e a publicação mais recente da revista Análise Econômica.
+Chamada para artigos Revista de Economia da UFPR
+ &ldquo;A Revista de Economia, da Universidade Federal do Paraná, está reaberta para receber novas submissões de artigos.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/">
+                <h3 class="media-heading">Curtas #4: Revistas, Congressos, bolsas e outras coisas mais</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Divulgando algumas oportunidades. A maior parte delas repasso do blog Economic Sociology and Political Economy. Como sugere o título são abordagens bem heterodoxas.
+Da ABEIN tem uma chamada para artigo. E da UFBA, uma oportunidade para bolsa de Pós-Doutorado da Capes.
+Chamada para Revistas  Após o III Encontro Nacional de Economia Industrial e da Inovação, a ABEIN disponibiliza chamada para artigo em número especial da revista Ensaios da UFV que trará os artigos melhor avaliados do III ENEI.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Correlação não é causalidade, mas...: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/base-de-dados-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Base de dados: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/tabelas-com-stargazer/10/2018/">
+                <h3 class="media-heading">Tabelas com &#34;Stargazer&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-15-09-2018/09/2018/">
+                <h3 class="media-heading">Curtas: 15/09/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Informações gerais Com o feriado acabei não publicando estes curtas na semana passada. Isso fez com que alguns dos prazos já tenham se encerrado. De toda forma vou compartilhar, pois muitas das informações são cíclicas. Assim, também divulgo para para conhecimento de sua existência.
+Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as li, mas vale para divulgação.
+ Metodologias dos números índice: pelo o que entendi a CEPAL vai passar a publicar documentos explicando as metodologias utilizadas pelo órgão.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-31-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas: 31/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Congressos  XL SODEBRAS (Soluções para o Desenvolvimento do País). Congresso acontecerá em Vitória-ES, entre os dias 10 e 12 de Dezembro. A submissão do resumo se encerra hoje, dia 31 de Agosto (foi mal, hehe), mas ainda dá para se inscrever como ouvinte. Os artigos aprovados comporão uma edição especial da revista SODEBRAS. Particularmente achei as taxas de inscrição e submissão proibitivas.   Chamada para Artigos  Revista de Estudos Sociais.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
+                <h3 class="media-heading">Por que a &#34;solução&#34; é empreender? E por que isso não é bom?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Por que a &ldquo;solução&rdquo; é empreender? E por que isso não é bom? Este texto foi originalmente publicado no dia 17 de Março de 2017 em meu blog anterior, &quot;economiaSG&quot;. Alguns textos deste blog foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;
+O país segue em crise, embora, aparentemente, a mídia tenha esquecido disso e propagandeie que o pior já passou e que já começamos a retomada. Se o pior já passou, realmente, não tenho certeza.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         17 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/Capa.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios\/10\/2018\/';
+          
+            this.page.identifier = '\/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios\/10\/2018\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'AnderleRV';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

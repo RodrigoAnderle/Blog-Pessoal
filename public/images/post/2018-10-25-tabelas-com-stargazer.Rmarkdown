@@ -1,0 +1,173 @@
+---
+title: Tabelas com "Stargazer"
+author: Rodrigo Volmir Anderle
+date: '2018-10-25'
+thumbnailImage: https://www.r-project.org/Rlogo.png
+thumbnailImagePosition: right
+coverImage: https://www.r-project.org/Rlogo.png
+slug: tabelas-com-stargazer
+categories:
+  - R
+tags:
+  - R-Studio
+  - R-Tips
+  - Tabelas
+---
+
+
+  Após minha última [publicação apressada](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/), percebi que precisava parar para dar uma estudada melhor na  produção de tabelas no [R](https://www.r-project.org/). Assim, este texto pretente apresentar o pacote `stargazer` do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+ 
+  Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+  
+  
+```{r, results='asis'}
+#install.packages("stargazer")
+library(stargazer)
+```
+  
+  
+  A referência que está sendo utilizada é a mesma citada acima, [Marek (2008)](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf). 
+ 
+  A utilização é simples e basta inserir um `data.frame` na função `stargazer()`, para obter o mesmo resultado da função `summary()` da base de dados `attitude`. A base de dados `attitude` já vem com a instalação padrão do R.
+  
+  
+```{r, results='asis'}
+stargazer(attitude, type = "html")
+```
+
+  
+  Também é possível apresentar apenas os dados, sem o sua análise descritiva.
+  
+
+```{r, results = 'asis'}
+stargazer(attitude[1:4,], summary=FALSE, rownames=FALSE, type = "html")
+
+```
+
+  
+  Observe que estou inserindo a opção `type = "html"`. Faço isso por que estou gerando as tabelas para um arquivo em html, uma página de internet. Caso não coloque nada, a função assume o `type = "latex"` que é o formato padrão. Esta opção padrão pode ser mantida se for produzido um texto em pdf, gerado no [RMarkdown](https://rmarkdown.rstudio.com/)[^1]. Uma terceira opção é gerar uma tabela no formato ASCI, colocando `type = "text"`, que é uma tabela para arquivos "txt" (que não fica legal no word). Assim, se a ideia for gerar tabelas para colocar em documentos de word, o melhor caminho é gerar em pdf no Rmarkdown, copiar e colar no Word.
+  
+# Resultados de Modelos
+
+
+  Seguindo o material de [Marek (2008)](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf), são apresentados dois modelos de regressão linear, `lm()`, e um probit, `glm()`.
+ 
+  Abaixo, os modelos são gerados em separado da tabela e utilizam a mesma base de dados, `attitude`.
+  
+  
+```{r}
+##  Modelos Lineares
+linear.1 <- lm(rating ~ complaints + privileges + learning + raises + critical,
+               data=attitude)
+linear.2 <- lm(rating ~ complaints + privileges + learning,
+               data=attitude)
+## Probit
+#Indicador verdadeiro ou falso (0 ou 1) para variável dependente do modelo
+attitude$high.rating <- (attitude$rating > 70)
+
+# modelo probit
+probit.model <- glm(high.rating ~ learning + critical + advance,
+                    data=attitude,
+                    family = binomial(link = "probit"))
+```
+  
+  
+  Assim, são três os modelos a serem analisados. Note, abaixo, que a função é automatizada. Basta colocar os modelos que ela os insere em conjunto. Além dos modelos, é inserido o argumento `title = `, o título da tabela, e o argumento `align = TRUE`, que alinha os valores da tabela.
+  
+  
+```{r, results='asis'}
+stargazer(linear.1, linear.2, probit.model,
+          title="Resultados",
+          align=T,
+          type = "html")
+```
+  
+  
+  É possível fazer mais ajustes. Na composição seguinte, além das opções anteriores, foram inseridos nomes (*labels*) para as variáveis dependentes, com o argumento `dep.var.labels`. Note que são só dois nomes, pois são duas variáveis dependentes diferentes em três modelos distintos. Também é especificado o nome das "covariáveis", ou variáveis explicativas, com o argumento `covariate.labels`. 
+  
+  Para contextualizar, a base de dados é o resultado de uma pesquisa com funcionários administrativos em uma grande organização financeira. Ela está agregada em 30 setores (amostra), uma descrição (muito breve) dessa base pode ser encontrada [aqui](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/attitude.html). Digo isso, pois traduzi as variáveis para fazer mais sentido, mas não sei se não acabei piorando as coisas. 
+  
+  Avançando nas opções, foram omitidas as estatísticas *LogLikelihood* (`LL`), erro padrão (`ser`) e teste F (`f`), utilizando o argumento `omit.stat`. E foram retirados os espaços em branco da tabela com o argumento `no.space`.
+  
+  
+```{r, results='asis'}
+stargazer(linear.1, linear.2, probit.model, 
+          title="Resultados", 
+          align=TRUE,
+          type = "html",
+          dep.var.labels=c("Taxa Nominal","Taxas Elevadas (>70%)"),
+          covariate.labels=c("Tratamento das Reclamações",
+                             "Não permite privilégios",
+                             "Oportunidades de Aprendizado",
+                             "Aumentos por performance",
+                             "Crítica",
+                             "Avanço", 
+                             "Constante"),
+          omit.stat=c("LL","ser","f"),
+          no.space=TRUE)
+```
+  
+  
+  Outra sugestão feita por [Marek (2008)](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf) é a da tabela a seguir. Os intervalos dos coeficientes, a 90% de significância estatística, são inseridos com os argumentos `ci` e `ci.level`. Tudo colocado na mesma linha com `single.row`. Note que estão sendo usados apenas os dois modelos lineares e que, mesmo assim, apenas um *label*, "Taxa Nominal", aparece.
+  
+
+```{r, results='asis'}
+stargazer(linear.1, linear.2,
+          title="Resultados",
+          align = F,
+          type = "html",
+          dep.var.labels=c("Taxa Nominal","Taxas Elevadas (>70%)"),
+          covariate.labels=c("Tratamento das Reclamações",
+                             "Não permite privilégios",
+                             "Oportunidades de Aprendizado",
+                             "Aumentos por performance",
+                             "Crítica",
+                             "Avanço", 
+                             "Constante"),
+          omit.stat=c("LL","ser","f"), 
+          ci=TRUE, 
+          ci.level=0.90, 
+          single.row=TRUE)
+```
+
+
+  Uma versão ainda mais sintética da tabela é apresentada em seguida. Retirando todas as estatísticas com, `keep.stat="n"`. Nela as variáveis *learnings* e *privileges* são destacadas (trazidas) no começo da tabela com o `order`.
+  
+  
+```{r, results='asis'}
+stargazer(linear.1, linear.2, 
+          title="Resultados",
+          type = "html",
+          dep.var.labels=c("Taxa Nominal","Taxas Elevadas (>70%)"),
+          order=c("learning", "privileges"),
+          keep.stat="n",
+          ci=TRUE,
+          ci.level=0.90,
+          single.row=TRUE)
+```
+
+
+## Matrizes
+
+  O autor também destaca que é possível representar matrizes de correlação. No caso são utilizadas apenas três variáveis.
+  
+```{r, results = 'asis'}
+correlation.matrix <- 
+  cor(attitude[,c("rating","complaints","privileges")])
+
+stargazer(correlation.matrix,
+          title="Matriz de Correlação",
+          type = "html")
+```
+  
+  
+# Considerações finais
+
+
+  [Marek (2008)](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf) ainda apresenta como inserir "erros customizados", para regressões robustas. Não vou me prender a essa replicação aqui, pois foi usada uma programação muito longa e com muitos detalhes para explicar. De qualquer forma, os erros padrão (`se`), podem ser alterados na tabela, inserindo-os com o argumento `se = `.
+  
+  Espero que tenha sido útil, meu esforço aqui foi só o de reproduzir um material que já está disponível em inglês. Basicamente uma tradução sintética de algumas funcionalidades do pacote, pois eu mesmo precisava parar para fazer essa leitura.
+  
+  
+
+[^1]: Importante, caso gere tabelas ou documentos no Rmarkdown e queira visualizar em *html* como fiz aqui,  é necessário inserir a opção `results='asis'` nos *chuncks* dos códigos.

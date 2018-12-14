@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Base De Dados on Rodrigo Volmir Anderle</title>
+    <link>/tags/base-de-dados/</link>
+    <description>Recent content in Base De Dados on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/base-de-dados/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Correlação não é causalidade, mas...: Homicídios</title>
+      <link>/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/</guid>
+      <description>Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &amp;ldquo;achismos&amp;rdquo;. Por isso que o título é &amp;ldquo;Correlação não é Causalidade&amp;rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</description>
+    </item>
+    
+    <item>
+      <title>Base de dados: Homicídios</title>
+      <link>/base-de-dados-homic%C3%ADdios/10/2018/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/base-de-dados-homic%C3%ADdios/10/2018/</guid>
+      <description>Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</description>
+    </item>
+    
+  </channel>
+</rss>
