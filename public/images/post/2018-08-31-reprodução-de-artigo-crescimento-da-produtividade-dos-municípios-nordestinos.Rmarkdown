@@ -1,0 +1,34 @@
+---
+title: 'Reprodução de Artigo: Crescimento da Produtividade dos Municípios Nordestinos'
+author: Rodrigo Volmir Anderle
+date: '2018-09-14'
+slug: reprodução-de-artigo-crescimento-da-produtividade-dos-municípios-nordestinos
+categories:
+  - Publicações
+tags:
+  - Reprodução
+  - Academia
+  - Artigo
+  - Crescimento
+  - Economia
+  - Efeito Espacial
+  - revistas
+---
+
+```{r, message = FALSE}
+BPAMC1991 <-read.csv("https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv")
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+BPAMC1991 %>%
+  group_by()
+
+
+
+BPAMC1991 %>%
+  summary() %>%
+    kable(digits = 2) %>%
+      kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
