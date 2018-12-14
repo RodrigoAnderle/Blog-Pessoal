@@ -6,10 +6,34 @@
     <description>Recent content in Economia on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/economia/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</title>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</guid>
+      <description>Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
+Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;
+ Resumo do que trata o artigo, aqui;</description>
+    </item>
+    
+    <item>
+      <title>Curtas #5: Bolsa, Financiamento de Pesquisas, Revistas e seleções de pós-graduação</title>
+      <link>/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/</guid>
+      <description>Hoje divulgo chamadas para submissão de artigos em revistas de economia, seleção para financiamento de pesquisas que envolvam os últimos anos do ensino fundamental, seleção para doutorado, bolsa de estudo ofertada pela John Hopkings, em nome de Marielle Franco (presente!), e a publicação mais recente da revista Análise Econômica.
+Chamada para artigos Revista de Economia da UFPR
+ &amp;ldquo;A Revista de Economia, da Universidade Federal do Paraná, está reaberta para receber novas submissões de artigos.</description>
+    </item>
     
     <item>
       <title>Curtas #4: Revistas, Congressos, bolsas e outras coisas mais</title>
@@ -23,7 +47,7 @@ Chamada para Revistas  Após o III Encontro Nacional de Economia Industrial e da
     </item>
     
     <item>
-      <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta e Condicionada</title>
+      <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada</title>
       <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</link>
       <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
       

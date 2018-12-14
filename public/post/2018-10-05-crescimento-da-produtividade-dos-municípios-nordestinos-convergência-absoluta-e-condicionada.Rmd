@@ -1,10 +1,12 @@
 ---
-title: 'Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta
-  e Condicionada'
+title: 'Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada'
 author: Rodrigo Volmir Anderle
 date: '2018-10-05'
 slug: crescimento-da-produtividade-dos-municípios-nordestinos-convergência-absoluta-e-condicionada
-categories:
+thumbnailImagePosition: "left"
+autoThumbnailImage: "images/CA.png"
+coverImage: "../../../images/CA.png"
+ategories:
   - Publicações
 tags:
   - Academia
@@ -14,50 +16,68 @@ tags:
 ---
 
 ```{r, echo=FALSE, message=F}
-library(knitr)
 library(stargazer)
 library(tidyverse)
+library(rmarkdown)
 ```
+
 
 # Apresentação
 
-  Estou prometendo disponibilizar os *scripts* para reprodução do [artigo](https://www.revistaaber.org.br/rberu/article/view/233) baseado em minha [dissertação](https://repositorio.ufpe.br/handle/123456789/13903), mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três *posts* contando este. Os próximos apresnetarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns.
+
+  Estou prometendo disponibilizar os *scripts* para reprodução do [artigo](https://www.revistaaber.org.br/rberu/article/view/233) baseado em minha [dissertação](https://repositorio.ufpe.br/handle/123456789/13903), mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três *posts* contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado [aqui](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/).
+
 
 ## Base de dados
+
 
   Para fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010. Há um problema de se trabalhar com municípios que é que eles mudam ao longo do tempo. Há emancipações e até extinções. Uma sugestão de [Reis et al.](https://www.ufmg.br/rededemuseus/crch/simposio/REIS_EUSTAQUIO_JOSE_R_ET_AL.pdf), acatada na pesquisa, é de trabalhar com áreas mínimas comparáveis. Nesse sentido o que chamo de municípios são, na verdade, áreas mínimas comparáveis (AMC) do nordeste brasileiro.
   Para fazer isso com os dados do censo é necessário agregar municípios, o que dá algum trabalho. Neste momento não vou disponibilizar os procedimentos para ganhar em objetividade, talvez mais para frente. Assim, vou disponibilizar a base que utilizei. Para tanto coloquei ela no [github]("http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv"). O arquivo conta com os códigos municípais com seis dígitos. As taxas de crescimento da produtividade, em logarítmo, para os diferentes períodos: 1991-2010, 1991-2000, 2000-2010. Também estão ali as produtividades em logaritmo dos anos de 1991 e 2000. Para essa variável foi considerado o salário médio do município, por hora trabalhada. Além disso estão disponíveis as variáveis de controle para os anos de 1991 e 2000. As variáveis de controle são Escolaridade, percentual da população com ensino médio completo, grau de urbanização, percentual de analfabetos na população, população em logaritmo, horas trabalhadas, salário e *dummys* para os estados. Não vou detalhar tudo, mas para maiores informações você pode olhar a dissertação, o artigo, ou deixar um comentário.
 
+
 ```{r, results = 'asis'}
 BASE <- read.csv("http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv", header = T)
-stargazer(head(BASE), type = "html")
+
+stargazer(head(BASE), type = "html",
+          summary = F, align = T) #necessário carregar o pacote stargazer
 ```
+
 
 ## Convergência Absoluta
 
-  A convergência absoluta é mais simples de identificar. Apenas em uma figura gráfica já é possível saber se ela conteceu ou não.
+  A convergência absoluta é mais simples de identificar. Apenas com uma figura gráfica é possível saber se ela conteceu ou não.
+
   
 ```{r}
 library(ggplot2)
 ggplot(BASE) + 
-  geom_point(aes(x = lnProd1991,y = lng9110), color = "blue") +
-  geom_point(aes(x = lnProd1991, y = lng9100), color = "red") +
-  geom_point(aes(x = lnProd2000, y = lng0010), color = "green") +
+  geom_point(aes(x = lnProd1991,y = lng9110), 
+             color = "blue", alpha = 1/3) +
+  geom_point(aes(x = lnProd1991, y = lng9100), 
+             color = "red", alpha = 1/3) +
+  geom_point(aes(x = lnProd2000, y = lng0010), 
+             color = "green", alpha = 1/3) +
   labs(y = "Taxa de Crescimento", x = "Produtividade Inicial")
 
 ```
   
-  A inclinação negativa dos pontos, significa que a convergência absoluta. Ou seja, municípios mais pobres, com menor Produtividade Inicial tem maiores taxas de crescimento. 
+  
+  A inclinação negativa dos pontos sugere que houve convergência absoluta. Ou seja, os municípios mais pobres, com menor Produtividade Inicial, tiveram maiores taxas de crescimento no período.
+
   
 ### Regressão
+
 
 #### Convergência Absoluta
 
   A regressão para convergência absoluta é uma regressão simples, tal que:
   
-  $$\log(Taxa de Crescimento Produtvidade) = \alpha + \beta Produtividade Inicial + \varepsilon  $$
+  
+  $$\log(Taxa de Crescimento Produtvidade) = \alpha + \beta Produtividade Inicial + \varepsilon$$
+  
   
   Para a estimação se utiliza o comando `lm` de *linear model* (regressão linear).
+  
   
 ```{r, results = 'asis'}
 CA9110<-lm(lng9110~lnProd1991, data=BASE)
@@ -66,16 +86,22 @@ CA0010<-lm(lng0010~lnProd2000, data=BASE)
 stargazer(CA9110, CA9100, CA0010, type = "html")
 ```
   
+  
   Mais uma vez, para ganhar em objetividade, não estou organizando as tabelas, só replicando os resultados. Para ser sincero, na dissertação e no artigo utilizei o Excel mesmo. Hoje já tenho um pouco mais de *know-how* no R, mas ainda não parei para olhar tabelas. Assim fica para uma próxima também.
 
+
 #### Convergência Condicionada
+
 
   A covnergência condicionada, como o nome sugere, condiciona a regressão as variáveis de controle. A ideia é filtrar variações que possam ser causadas por outras motivações. Como por exemplo tamanho da população, escolaridade, estrutura produtiva. Tudo isso afeta a variável renda de alguma forma e as diferentes composições devem influenciar diferentemente nas taxas de crescimento.
   O modelo é semelhante:
   
-  $$\log(Taxa de Crescimento Produtvidade) = \alpha + \beta_0 Produtividade Inicial + \beta_iControles + \varepsilon  $$
+  
+  $$ \log(Taxa de Crescimento Produtvidade) = \alpha + \beta_0 Produtividade Inicial + \beta_iControles + \varepsilon $$
+  
   
   E as regressões também são análogas:
+  
   
 ```{r, error = F, warning = FALSE, results = 'asis'}
 CC9110 <- lm(lng9110~lnProd1991+EMedio1991+Analf1991
@@ -87,6 +113,10 @@ CC0010 <- lm(lng0010~lnProd2000+EMedio2000+Analf2000
 stargazer(CC9110, CC9100, CC0010, type = "html")
 ```
 
+
+Por fim, achei um pacote no R para expor os resultados dos coeficientes com seus respectivos erros-padrão. Serve só uma visualização diferente dos resultados.
+
+
 ```{r}
 library(dotwhisker)
 dwplot(list(CC9110, CC9100, CC0010))
@@ -95,7 +125,7 @@ dwplot(list(CC9110, CC9100, CC0010))
 
 ## Comentários finais
 
-  Pois bem, está um pouco superficial. Não estou comentando os resultados, pois o objetivo aqui é disponibilizar os *scripts* para reprodução. Nem detalhei muito os comandos ou arrumei as tabelas de resultados, mas isso era para concluir outro objetivo desse *post*: começar a publicar essa série de uma vez!!
-  Caso queira mais detalhes pergunte nos comentários, para as próximas postagens tentarei ser mais detalhista.
+  Pois bem, está um pouco superficial. Não estou comentando os resultados, pois o objetivo aqui é disponibilizar os *scripts* para reprodução. Nem detalhei muito os comandos ou arrumei as tabelas de resultados, mas isso era para concluir outro objetivo deste *post*: começar a publicar essa série de uma vez!!
+  Caso queira mais detalhes, pergunte nos comentários. Para as próximas postagens tentarei ser mais detalhista.
   
   

@@ -1,0 +1,274 @@
+---
+title: 'Correlação não é causalidade, mas...: Homicídios'
+author: Rodrigo Volmir Anderle
+date: '2018-10-26'
+thumbnailImage: "images/Correlação não é Causalidade.png"
+thumbnailImagePosition: right
+coverImage: "../../../images/Correlação não é Causalidade.png"
+slug: correlação-não-é-causalidade-mas-homicídios
+categories:
+  - Exercícios
+  - R
+tags:
+  - Base de dados
+  - desigualdade
+  - Diversos
+  - R-Studio
+  - Violência
+---
+
+Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são "achismos". Por isso que o título é "Correlação não é Causalidade".
+
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas. Então, mais uma vez, correlações não são causalidades, nem meus comentários são conclusões. É tudo palpite e achismo.
+
+Vamos começar com os pacotes que serão utilizados:
+
+
+```{r, message=FALSE}
+library(ggplot2)
+library(tidyverse)
+```
+
+
+Em seguida é importar a base de dados. Essa base fui que construi, com base nos dados do [Atlas da Violência](http://www.ipea.gov.br/atlasviolencia/), do [IpeaData](http://www.ipeadata.gov.br/Default.aspx) e do [Atlas do Desenvolvimento Humano no Brasil](http://atlasbrasil.org.br/2013/). A explicação de como ela foi construída e os comandos utilizados estão no [*post* anterior](https://anderlerv.netlify.com/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/).
+
+Por aqui só será feita a sua leitura e análise.
+
+
+```{r}
+HOM <- read.csv2("https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Homic%C3%ADdios1996-2016.csv")
+```
+
+
+# Total de Homicídios no tempo e eventos
+
+Quando busquei os dados tentava ver algumas correlações a nível municípal, mas não consegui avançar muito. Assim, preferi parar a "análise" nos dados agregados e deixar essa "análise" municipal para uma próxima tentativa.
+
+O primeiro gráfico tem o número de homicídios no Brasil por ano. Ainda na concepção do gráfico, pensei em contextualizar os períodos, inserindo "eventos" que imaginava poder ter afetado o número de homicídios. Entre esses eventos destaquei o [Estatuto do Desarmamento](http://www.planalto.gov.br/ccivil_03/Leis/2003/L10.826compilado.htm) em 2003, a Crise Financeira em 2007-2009, as Manifestações de 2013 e o Impeachment em 2015. 
+
+O estatuto do desarmamento e a crise financeira me parecem eventos bastante importantes quando se pensa em homicídios. Já as manifestações de 2013 e o Impeachment de 2015, não deveriam ter muita relação. Entretanto, veja o gráfico a seguir.
+
+
+```{r}
+HOM %>%
+  group_by(Ano) %>%
+  summarise(Homicídios = sum(Homicídios, na.rm = T)) %>%
+  ggplot() + 
+  geom_line(aes(x = Ano, y = Homicídios), size = 2) +
+  geom_vline(aes(xintercept = 2003, 
+                 colour = "Estatuto do Desarmamento")) +
+  geom_vline( aes(xintercept = 2007, 
+                  colour = "Crise Financeira")) +
+  geom_vline( aes(xintercept = 2013,
+                  colour = "Manifestações")) +
+  geom_vline( aes(xintercept = 2015,
+                  colour = "Impeachment")) +
+  scale_colour_discrete(name = "") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  labs(title = "Total de Homicídios no Brasil de 1996-2016",
+       caption = "Nota: Eventos destacados foram escolhidos arbitrariamente.")
+  
+```
+
+
+Note que os eventos parecem ser bastante elucidativos. Depois de 2003 há uma queda no número de homicídios que passa a ter uma tendência "lateral". A partir do estouro da crise financeira, em 2007, passa a haver uma tendência de crescimento. Apesar disso, é importante ter em mente que a crise financeira demorou a chegar no Brasil. Além disso, a curva parece ganhar velocidade a partir de 2011, começo da administração da Dilma.
+
+Agora, olhar os dados de homicídios agregados contribuem pouco para uma análise. Isso por que a população também cresceu ao longo do tempo. Assim, o mais adequado é trabalhar com a taxa de homicídio.
+
+
+## Taxa de Homicídio no tempo e eventos
+
+A taxa de homicídio é calculada de forma a representar a quantidade de homicídios a cada 100 mil habitantes. Basta dividir os homicídios pela população e multiplicar por 100 mil. 
+
+Veja como fica o gráfico agora:
+
+
+```{r}
+HOM %>%
+  group_by(Ano) %>%
+  summarise(Taxa = 
+              (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + 
+  geom_line(aes(x = Ano, y = Taxa), size = 2) +
+  geom_vline(aes(xintercept = 2003, 
+                 colour = "Estatuto do Desarmamento")) +
+  geom_vline( aes(xintercept = 2007, 
+                  colour = "Crise Financeira")) +
+  geom_vline( aes(xintercept = 2013,
+                  colour = "Manifestações Passe Livre")) +
+  geom_vline( aes(xintercept = 2015,
+                  colour = "Impeachment")) +
+  scale_colour_discrete(name = "") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  coord_cartesian(xlim = c(1999,2016)) +
+  labs(title = "Taxa de Homicídios no Brasil (a cada 100mil hab) de 1999-2015",
+       caption = "Nota: Eventos destacados foram escolhidos arbitrariamente.")
+  
+```
+
+
+O gráfico mantém as características encontradas no primeiro, mas note que a taxa de homicídio só supera a de 2003 em 2011. De certa forma, parece que o estatuto do desarmamento teve impacto de fato.
+
+Agora, o Brasil é um país grande com diferentes composições de cidades, estados e regiões. Assim, vamos desagregar um pouco estes dados.
+
+
+### Taxa de Homicídio nas diferentes regiões
+
+
+Um gráfico com todos os estados juntos fica uma confusão de linhas. Então vamos aos poucos. Inicialmente gerei um gráfico por regiões, para ver como foi a dinâmica nas diferentes regiões do país.
+
+  
+```{r}
+HOM %>%
+  group_by(Ano, Região) %>%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = Região), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2016)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  geom_vline( aes(xintercept = 2015)) +
+  theme_bw() +
+    labs(title = "Taxa de Homicídios(100mil hab) no Brasil por região de 1999-2016")
+```
+  
+  
+No gráfico por região dá para perceber que, praticamente, a única região que tem queda na taxa de homicídios é a região Sudeste. Então fica a pergunta, por que o gráfico agregado tinha aquele formato? 
+
+Bom, um palpite considerável é que o maior contigente populacional do país está na região Sudeste. Além disso, se bem me lembro, a demanda do estatuto do desarmamento foi encabeçada por essa região.
+
+Outra correlação que pode ser percebida é que na mesma medida que cai a taxa de homicídios na região Sudeste, ela aumenta nas regiões Centro-Oeste, Nordeste e Norte. Pensando a respeito, já ouvi falar sobre uma migração da violência da região Sudeste para as demais. Isso parece fazer sentido, pois quando olhamos a região Sul, ela tem sua dinâmica particular. Digo isso, pois, se não me engano, esse tranbordamento de que ouvi falar foi na direção das outras regiões.
+
+Outra possível explicação foi levantada enquanto conversava com minha companheira. Ela lembrou que a transferência de líderes de organizações criminosas para os presídios destas regiões também já havia sido levantado com ohipótese por alguém.
+
+A seguir vamos olhar os estados por região.
+  
+  
+## Norte
+
+Aquilo que falei da confusão de linhas pode ser observada a seguir. Note que apenas no começo do gráfico existem dinâmicas distintas, em dois grupos. Dos com taxa superior a 30, Amapá, Rondônia e Roraima. E do restante dos estados com menos de 20. Depois há uma espécie de convergência com todo mundo ficando meio parecido. Com destaque para Amapa e Pará que tem aumento considerável no último trecho.
+
+Em particular, nenhum dos eventos parece ter tido muita correlação com as tendências apresentadas.
+
+
+```{r}
+HOM %>%
+  filter(Região == "NORTE") %>%
+  group_by(Ano, UF) %>%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = "Taxa de Homicídio por estado da região Norte de 1999-2016")
+```
+
+
+## Nordeste
+
+O gráfico para a região Nordeste é outro com uma confusão de linhas. Com nove estados é difícil olhar todos juntos e até mesmo perceber as mudanças. Alagoas e Sergipe são conhecidos pela sua violência, mas note que no começo do período o estado mais violento era Pernambuco. O único que teve queda nas taxas ao longo do período. Já o Piauí se manteve com as menores taxas ao longo de todo o período.
+
+
+```{r}
+HOM %>%
+  filter(Região == "NORDESTE") %>%
+  group_by(Ano, UF) %>%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), 
+                        size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = "Taxa de Homicídio por estado da região Nordeste de 1999-2016")
+```
+
+
+## Centro-Oeste
+
+
+A região dos grandes latifundios também parece ter pouca correlação com os grandes eventos destacados no começo deste *post*. O estado de Goiás rasga o gráfico em uma diagonal crescente, enquanto que o Distrito Federal e o Mato Grosso do Sul apresentam uma queda no período. Já no Mato Grosso houve um aumento da taxa no final do período. 
+
+Desconfio que tenha relação com os conflitos no campo. Palpite que estenderia para Goiás, Amapa e Pará. Embora Goiás também possa sofrer algum contágio da diminuição da violência no Mato Grosso do Sul e no Distrito Federal.
+
+
+```{r}
+HOM %>%
+  filter(Região == "CENTRO-OESTE") %>%
+  group_by(Ano, UF) %>%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = "Taxa de Homicídio por estado da região Centro-Oeste de 1999-2016")
+```
+
+
+## Sudeste
+
+Chegando a região Sudeste, foi ela a principal causadora da queda da taxa de homicídios no país. Desagregando por estados, nota-se que as taxas só não caíram em Minas Gerais. Mais uma vez , há motivos para imaginar que há um efeito de "transbordamento" da violência. 
+
+Por outro lado, o único evento que parece ter tido alguma correlação foi o estatuto do desarmamento em 2003. Apesar disso, em São Paulo, já havia uma tendência de queda, enquanto Minas tinha uma de alta. A partir de 2007 "as coisas" ficam meio de lado. Só no Espírito Santo houve um salto, a partir de 2005, mas que se transforma em uma tendência de queda, a partir de 2009.
+
+
+
+```{r}
+HOM %>%
+  filter(Região == "SUDESTE") %>%
+  group_by(Ano, UF) %>%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw()+
+    labs(title = "Taxa de Homicídio por estado da região Sudeste de 1999-2016")
+```
+
+
+## Sul
+
+
+A região Sul é um tanto alienada aos movimetnos do resto do país. Note que apenas o Paraná teve um crescimento considerável, ainda antes de 2003. Mais uma vez pode ser um efeito "transbordamento", pois o Paraná é vizinho de São Paulo, estado que teve a maior queda nas taxas de homicídios. 
+
+Olhando mais para o final do gráfico, nota-se uma queda abrupta do Paraná, aproximadamente em 2012. Ao mesmo tempo que há um crescimento no Rio Grande do Sul. Apesar disso o movimento do Rio Grande do Sul deve ter relação com a sua própria dinâmica, uma vez que o estado entrou em crise financeira.
+
+
+```{r}
+HOM %>%
+  filter(Região == "SUL") %>%
+  group_by(Ano, UF) %>%
+  summarise(Taxa = (sum(Homicídios, na.rm = T)/
+              sum(População, na.rm = T))*100000) %>%
+  ggplot() + geom_line( aes(x = Ano, y = Taxa, colour = UF), size = 1.5) +
+  coord_cartesian(xlim = c(1999,2015)) +
+  geom_vline(aes(xintercept = 2003)) +
+  geom_vline( aes(xintercept = 2007)) +
+  geom_vline( aes(xintercept = 2013)) +
+  theme_bw() +
+    labs(title = "Taxa de Homicídio por estado da região Sul de 1999-2016")
+```
+
+
+# Considerações
+
+Mais uma vez é importante ressaltar que esse exercício pretendia praticar a análise de dados com o R. Todas as considerações feitas e sugeridas como causalidade são hipóteses sem consitência teórica. O que quero dizer com isso é que são "papo de boteco". 
+
+O meu limitado entedimento sobre o tema me leva a pensar que violência, medida na quantidade de homicídios, é um fenômeno complexo que tem diferentes formas e funções em diferentes localidades. De fato, acredito que eventos macro, como o estatuto do desarmamento e o transbordamento da violência de um estado para o outro tenham impacto. Ainda assim, acredito que existam dinâmicas micro, regionais, que tenham sua parcela de contribuição.
+
+Enquanto economista, não posso deixar de salientar que motivações econômicas e sociais devem estar intrinsicamente ligadas aos fenômenos sociais como a violência. Em um trabalho que consultei rapidamente do [Small Arms Survey](http://www.smallarmssurvey.org/publications/by-type/yearbook/small-arms-survey-2007.html), é dado destaque para a importância da urbanização no aumento da violência. Inclusive em um estudo que li recentemente, [Bettencour (2007)](http://www.pnas.org/content/104/17/7301) destacava, entre outros fenômenos de escala urbana, o aumento da violência urbana.

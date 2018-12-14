@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Academia</title>
       <link>/tags/academia/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/academia/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>Artigo</title>
       <link>/tags/artigo/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/artigo/</guid>
       <description></description>
@@ -41,7 +41,7 @@
     <item>
       <title>Bolsas</title>
       <link>/tags/bolsas/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/bolsas/</guid>
       <description></description>
@@ -68,7 +68,7 @@
     <item>
       <title>Crescimento</title>
       <link>/tags/crescimento/</link>
-      <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/crescimento/</guid>
       <description></description>
@@ -95,7 +95,7 @@
     <item>
       <title>Economia</title>
       <link>/tags/economia/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/economia/</guid>
       <description></description>
@@ -104,7 +104,7 @@
     <item>
       <title>Efeito Espacial</title>
       <link>/tags/efeito-espacial/</link>
-      <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/efeito-espacial/</guid>
       <description></description>
@@ -120,11 +120,47 @@
     </item>
     
     <item>
+      <title>Financiamento</title>
+      <link>/tags/financiamento/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/financiamento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geografia</title>
+      <link>/tags/geografia/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geografia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pesquisa</title>
+      <link>/tags/pesquisa/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pesquisa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pessoal</title>
       <link>/tags/pessoal/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pessoal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publicações</title>
+      <link>/tags/publica%C3%A7%C3%B5es/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/publica%C3%A7%C3%B5es/</guid>
       <description></description>
     </item>
     
@@ -158,7 +194,7 @@
     <item>
       <title>Revistas</title>
       <link>/tags/revistas/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/revistas/</guid>
       <description></description>
