@@ -1,0 +1,987 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</title>
+    <meta name="author" content="Rodrigo Volmir Anderle">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+    <meta name="description" content="Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
+Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;
+ Resumo do que trata o artigo, aqui;">
+    <meta property="og:description" content="Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
+Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;
+ Resumo do que trata o artigo, aqui;">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial">
+    <meta property="og:url" content="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+    <meta property="og:site_name" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:description" content="Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
+Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;
+ Resumo do que trata o artigo, aqui;">
+    
+      <meta name="twitter:creator" content="@rodrigoanderle">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=640">
+    
+
+    
+    
+      <meta property="og:image" content="/images/CA.png">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-121614138-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Rodrigo Volmir Anderle</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=90" alt="Foto do autor" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+        </a>
+        <h4 class="sidebar-profile-name">Rodrigo Volmir Anderle</h4>
+        
+          <h5 class="sidebar-profile-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista e aspirante a pesquisador</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Início</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categorias</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Arquivo</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/sobre-o-blog">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">Sobre</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.facebook.com/rodrigovolmir.anderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/RodrigoAnderle">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.instagram.com/rodrigovanderle/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-instagram"></i>
+      
+      <span class="sidebar-button-desc">Instagram</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.linkedin.com/in/rodrigo-volmir-anderle-a8251920/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">Linkedin</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('../../../images/CA.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-12-13T00:00:00Z">
+        
+  
+  
+  
+  
+    13 Dezembro 2018
+  
+
+      </time>
+    
+    
+  
+  
+    <span>em</span>
+    
+      <a class="category-link" href="/categories/publica%c3%a7%c3%b5es">Publicações</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p>Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.</p>
+
+<p>Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.</p>
+
+<ul>
+<li><p>Dissertação que originou o artigo, <a href="https://repositorio.ufpe.br/handle/123456789/13903">aqui</a>;</p></li>
+
+<li><p>Artigo publicado, <a href="https://www.revistaaber.org.br/rberu/article/view/233">aqui</a>;</p></li>
+
+<li><p>Resumo do que trata o artigo, <a href="https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/">aqui</a>;</p></li>
+
+<li><p>Reprodução das análises de convergência absoluta e condicionada,<a href="https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">aqui</a>.</p></li>
+</ul>
+
+<h1 id="dependência-espacial">Dependência espacial</h1>
+
+<p>Na prática, identificar se há dependência espacial significa identificar se há efeito estatisticamente significante do aspecto geográfico. Existem diferentes maneiras de fazer isso. Essas dependem do objeto que está sendo analisado e da metodologia utilizada. No artigo, o aspecto geográfico a ser analisado era a vizinhança de municípios nordestinos. Nesse sentido, o objetivo era saber se, além das variáveis inseridas nas regressões de convergência absoluta e condicionada, o desempenho econômico da vizinhança também teria algum impacto.</p>
+
+<p>Para fazer essa análise, é necessário quantificar essa vizinhaça. Isso foi feito por meio matrizes de vizinhança. Essas matrizes são compostas de 1&rsquo;s e 0&rsquo;s (uns e zeros). Assim, a matriz é composta por linhas e colunas dos municípios nordestinos e, quando dois deles são vizinhos, a célula correspondente será 1, quando não, 0.</p>
+
+<h3 id="tipos-de-matrizes-de-vizinhança">Tipos de Matrizes de Vizinhança</h3>
+
+<p>Para a construção dessas matrizes é necessário definir qual método será utilizado. Afinal, existem diferentes configurações de vizinhança possíveis. Nesse sentido, as composições analisadas no artigo foram as formações <em>queen</em> e <em>root</em>, de níveis 1 e 2. O que isso significa? As menções <em>queen</em> (rainha) e <em>root</em> (torre) remetem aos movimentos do xadrez e representam os vizinhos acima, abaixo e de cada lado, para o caso do <em>root</em> (como uma cruz). E os mesmos, mais os das diagonais, para o caso do formato <em>queen</em> (como um asterísco). Além disso, os diferentes níveis representam vizinhos de 1º grau e de 2º grau. Os de 2º grau são aqueles que, por exemplo, são vizinhos imediatos na mesma direação dos vizinhos imediatos (1º grau).Tudo isso, respeitando o formato da vizinhança, <em>queen</em> ou <em>root</em>.<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></p>
+
+<p>Parece confuso, mas, na verdade, é bastante simples.</p>
+
+<h2 id="dados">Dados</h2>
+
+<p>Para construir essas matrizes de vizinhança é necessário ter o <em>shapefile</em>, o mapa dos municípios. Com base nesse mapa é que são criadas as matrizes de vizinhança. Para fazer isso, eu utilizei o <em>software</em> Geoda, que está disponível no <a href="https://spatial.uchicago.edu/software">link</a>.</p>
+
+<p>Acredito que seja possível fazer as mesmas matrizes no R, mas, como tive o trabalho de compor as Áreas Mínimas Comparáveis (AMC) e estou privilegiando a praticidade, não vou apresentar essa solução, pois não a conheço no momento. Para quem desejar se aventurar, o pacote a ser utilizado é o <code>spdep</code>, que tem manual e aplicações disponíveis <a href="https://cran.r-project.org/web/packages/spdep/index.html">aqui</a>.</p>
+
+<h2 id="aplicação">Aplicação</h2>
+
+<p>Inicialmente, temos que carregar os pacotes para a análise de dependência espacial (<code>spdep</code>), tabelas (<code>stargazer</code>) e gráficos (<code>gplot2</code>).</p>
+
+<pre><code class="language-r">library(spdep)
+library(stargazer)
+library(ggplot2)
+</code></pre>
+
+<p>Feito isso, é necessário carregar a base de dados que estamos utilizando, a mesma dos outros textos.</p>
+
+<pre><code class="language-r">BASE &lt;- read.csv(&quot;http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv&quot;, header = T)
+</code></pre>
+
+<h3 id="leitura-de-dados">Leitura de dados</h3>
+
+<p>Agora, é necessário adicionar as matrizes de vizinhança à base de dados principal. Essas matrizes de defasagens espaciais serão relacionadas com os códigos dos municípios da base principal. No caso, criei quatro matrizes, pois ainda precisaremos testar qual é a mais adequada para este conjunto de municípios e período de análise.</p>
+
+<p>Abaixo, a primeira função, <code>read.gal</code> faz a leitura da matriz. A segunda, <code>nb2listw</code>, faz a transformação de <em>neighbor</em> (nb) para uma lista de &ldquo;pesos&rdquo;, a matriz de vizinhança.</p>
+
+<pre><code class="language-r">Q1&lt;-read.gal(&quot;https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/Q1.gal&quot;,BASE$MUN)
+WQ1&lt;-nb2listw(Q1)
+
+Q2&lt;-read.gal(&quot;https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/Q2.gal&quot;,BASE$MUN)
+WQ2&lt;-nb2listw(Q2)
+
+R1&lt;-read.gal(&quot;https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/R1.gal&quot;,BASE$MUN)
+WR1&lt;-nb2listw(R1)
+
+R2&lt;-read.gal(&quot;https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/R2.gal&quot;,BASE$MUN)
+WR2&lt;-nb2listw(R2)
+</code></pre>
+
+<h3 id="teste-i-de-moran">Teste I de Moran</h3>
+
+<p>O teste indicado para verificar se há dependência espacial no modelo econométrico é o I de Moran. O I de Moran faz um teste com base na relação do resíduo da regressão defasado espacialmente e dele sem essa defasagem. Tudo isso, normalizado pelo número de de observações e a soma de valores na matriz (bem resumidamente, para mais detalhes, veja na dissertação).</p>
+
+<p>O teste, então, demanda a utilização das regressões. Para tanto, vamos refazer as regressões de convergência condicionada do último <a href="https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">texto</a>.</p>
+
+<pre><code class="language-r">CC9110 &lt;- lm(lng9110~lnProd1991+EMedio1991+Analf1991
+    +Urb1991+LnPop1991+Indus1991+Serv1991+Gini1991, data=BASE)
+
+CC9100 &lt;- lm(lng9100~lnProd1991+EMedio1991+Analf1991
+    +Urb1991+LnPop1991+Indus1991+Serv1991+Gini1991, data=BASE)
+
+CC0010 &lt;- lm(lng0010~lnProd2000+EMedio2000+Analf2000
+    +Urb2000+LnPop2000+Indus2000+Serv2000+Gini2000, data=BASE)
+</code></pre>
+
+<p>Os testes são feitos com a função <code>lm.morantest</code>. Para simplificar, só vou fazer aqui, os da regressão &ldquo;CC9110&rdquo; (Convergência Condicionada de 1991 a 2010), nas diferentes matrizes de ponderação:</p>
+
+<ul>
+<li><p><em>Queen</em> de grau 1: WQ1;</p></li>
+
+<li><p><em>Queen</em> de grau 2: WQ2;</p></li>
+
+<li><p><em>Root</em> de grau 1: WR1;</p></li>
+
+<li><p><em>Root</em> de grau 2: WR2</p></li>
+</ul>
+
+<pre><code class="language-r">MQ19110&lt;-lm.morantest(CC9110,WQ1)
+MQ29110&lt;-lm.morantest(CC9110,WQ2)
+MR19110&lt;-lm.morantest(CC9110,WR1)
+MR29110&lt;-lm.morantest(CC9110,WR2)
+</code></pre>
+
+<p>Os resultados podem ser vistos na tabela a seguir:</p>
+
+<pre><code class="language-r">stargazer(cbind(MQ19110$estimate,MQ29110$estimate,
+          MR19110$estimate,MR29110$estimate), 
+          type = &quot;html&quot;, 
+          title = &quot;Resultados para o Teste I de Moran &quot;,
+          align = T,
+          no.space = T
+)
+</code></pre>
+
+<table style="text-align:center"><caption><strong>Resultados para o Teste I de Moran</strong></caption>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td>Observed Moran I</td><td>0.112</td><td>0.082</td><td>0.118</td><td>0.087</td></tr>
+<tr><td>Expectation</td><td>-0.002</td><td>-0.002</td><td>-0.002</td><td>-0.002</td></tr>
+<tr><td>Variance</td><td>0.0002</td><td>0.0001</td><td>0.0003</td><td>0.0001</td></tr>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr></table>
+
+<p>Para facilitar a visualização, acabei suprimindo as estatísticas da tabela, mas acredite em mim, os I&rsquo;s de Moran observados foram estatisticamente significantes. Isso significa que, se eles são estatísticamente diferentes de zero, há dependência espacial no modelo testado.</p>
+
+<p>Também podemos analisar essa informação no gráfico. No caso do artigo, eu havia feito os gráficos pelo GeoDa. Também é possível gerar esse gráfico diretamente no R, com a função <code>moran.plot</code>, do pacote <code>spdep</code>. O problema é que o gráfico não é &ldquo;dos mais bacanas&rdquo;. Uma demonstração gráfica do teste é feita com a comparação dos resíduos, defasados e não defasados, das regressões feitas acima, o que demonstraria heterocedasticidade dos modelos. De certa forma, esse é o teste feito na função <code>lm.morantest</code> de antes. Assim, vamos construir esse gráfico manualmente. O gráfico vai contrapor os resíduos das regressões condicionadas e a sua defasagem espacial (utilizando a função <code>lag.listw</code>).</p>
+
+<p>No gráfico abaixo, mais uma vez para simplificação, foi usado somente uma das regressões, a &ldquo;CC9110&rdquo;.</p>
+
+<pre><code class="language-r">ggplot(BASE) +
+  geom_point(aes(x = CC9110$residuals, y = lag.listw(WR1,CC9110$residuals)), 
+              colour = &quot;blue&quot;, alpha = 1/5) +
+  theme_light() +
+  geom_hline(aes(yintercept = 0), colour = &quot;black&quot;) +
+  geom_vline(aes(xintercept = 0), colour = &quot;black&quot;) +
+  geom_smooth(aes(x = CC9110$residuals, 
+                  y = lag.listw(WR1,CC9110$residuals)), 
+              method = lm, fullrange = TRUE, colour = &quot;blue&quot;) +
+    coord_cartesian(xlim = c(-1,1), ylim = c(-1,1)) +
+  labs( title = &quot;Gráfico do Teste I de Moran&quot;,
+        x = &quot;Resíduos da regressão&quot;,
+        y = &quot;Resíduos defasados&quot;) 
+</code></pre>
+
+<p><img src="/post/2018-12-13-crescimento-da-produtividade-dos-municípios-nordestinos-dependência-espacial_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+
+<p>A presença da dependência espacial é evidenciada pela nuvem de pontos distantes do ponto central do gráfico (0,0) e pela linha de tendência traçada. Entretanto, este é um teste visual, a evidência estatística da dependência espacial deve ser confirmada pelo I de Moran.</p>
+
+<p>Assim, foi identificado que, nos modelos que testamos, as regressões apresentavam dependência espacial em relação aos seus vizinhos. Ou seja, o crescimento da produtividade desses municípios era influência pelo crescimento da produtividade dos seus vizinhos.</p>
+
+<p>O próximo texto sobre o artigo deve mostrar os diferentes modelos de aplicação. Particularmente essa série está um pouco mais longa do que gostaria, mas devo finalizá-la nos próximos dois textos, espero!</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Mais detalhes podem ser vistos em <a href="https://s3.amazonaws.com/academia.edu.documents/30885531/Alexandre.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&amp;Expires=1542919303&amp;Signature=kyPqv41JYMDUhe2z2saBuWS0NoU%3D&amp;response-content-disposition=inline%3B%20filename%3DMetodos_e_modelos_em_econometria_espacia.pdf">Carvalho Ywata e Albuquerque</a>.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">ETIQUETADO em</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/academia/">Academia</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/artigo/">Artigo</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/crescimento/">Crescimento</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/economia/">Economia</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/efeito-espacial/">Efeito Espacial</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/geografia/">Geografia</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/" data-tooltip="Curtas #5: Bolsa, Financiamento de Pesquisas, Revistas e seleções de pós-graduação">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Rodrigo Volmir Anderle. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/" data-tooltip="Curtas #5: Bolsa, Financiamento de Pesquisas, Revistas e seleções de pós-graduação">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=%2Fcrescimento-da-produtividade-dos-munic%25C3%25ADpios-nordestinos-depend%25C3%25AAncia-espacial%2F12%2F2018%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Compartilhar no Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2Fcrescimento-da-produtividade-dos-munic%25C3%25ADpios-nordestinos-depend%25C3%25AAncia-espacial%2F12%2F2018%2F">
+          <i class="fa fa-twitter"></i><span>Compartilhar no Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2Fcrescimento-da-produtividade-dos-munic%25C3%25ADpios-nordestinos-depend%25C3%25AAncia-espacial%2F12%2F2018%2F">
+          <i class="fa fa-google-plus"></i><span>Compartilhar no Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/7cf66d7f85af11a4d55890d54de9bd28?s=110" alt="Foto do autor" />
+    
+    <h4 id="about-card-name">Rodrigo Volmir Anderle</h4>
+    
+      <div id="about-card-bio"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4406967Z2">Economista e aspirante a pesquisador</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        <strong><a href="https://ppgeconomia.ufba.br/">Doutorando em Economia Aplicada - UFBA (Bolsista FAPESB)</a></strong>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brasil
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Pesquisar" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
+Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;
+ Resumo do que trata o artigo, aqui;</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/">
+                <h3 class="media-heading">Curtas #5: Bolsa, Financiamento de Pesquisas, Revistas e seleções de pós-graduação</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Hoje divulgo chamadas para submissão de artigos em revistas de economia, seleção para financiamento de pesquisas que envolvam os últimos anos do ensino fundamental, seleção para doutorado, bolsa de estudo ofertada pela John Hopkings, em nome de Marielle Franco (presente!), e a publicação mais recente da revista Análise Econômica.
+Chamada para artigos Revista de Economia da UFPR
+ &ldquo;A Revista de Economia, da Universidade Federal do Paraná, está reaberta para receber novas submissões de artigos.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/">
+                <h3 class="media-heading">Curtas #4: Revistas, Congressos, bolsas e outras coisas mais</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Divulgando algumas oportunidades. A maior parte delas repasso do blog Economic Sociology and Political Economy. Como sugere o título são abordagens bem heterodoxas.
+Da ABEIN tem uma chamada para artigo. E da UFBA, uma oportunidade para bolsa de Pós-Doutorado da Capes.
+Chamada para Revistas  Após o III Encontro Nacional de Economia Industrial e da Inovação, a ABEIN disponibiliza chamada para artigo em número especial da revista Ensaios da UFV que trará os artigos melhor avaliados do III ENEI.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Correlação não é causalidade, mas...: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Pois bem, a ideia aqui é apresentar correlações que são identificadas em gráficos. Faço isso como um exercício. Então é importante que se diga que todas as considerações feitas aqui são &ldquo;achismos&rdquo;. Por isso que o título é &ldquo;Correlação não é Causalidade&rdquo;.
+Também preciso destacar que violência não é minha área de interesse. Tem bastante gente que discute o tema, em especial no Brasil. Eu, particularmente, não tenho domínio sobre a literatura e o pouco que sei é de apresentações de congressos, reportagens de jornais e conversas.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/base-de-dados-homic%C3%ADdios/10/2018/">
+                <h3 class="media-heading">Base de dados: Homicídios</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
+Neste post específico está a construção da base de dados.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/tabelas-com-stargazer/10/2018/">
+                <h3 class="media-heading">Tabelas com &#34;Stargazer&#34;</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
+Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
+#install.packages(&quot;stargazer&quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
+                <h3 class="media-heading">Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
+Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-15-09-2018/09/2018/">
+                <h3 class="media-heading">Curtas: 15/09/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Informações gerais Com o feriado acabei não publicando estes curtas na semana passada. Isso fez com que alguns dos prazos já tenham se encerrado. De toda forma vou compartilhar, pois muitas das informações são cíclicas. Assim, também divulgo para para conhecimento de sua existência.
+Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as li, mas vale para divulgação.
+ Metodologias dos números índice: pelo o que entendi a CEPAL vai passar a publicar documentos explicando as metodologias utilizadas pelo órgão.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/curtas-31-08-2018/08/2018/">
+                <h3 class="media-heading">Curtas: 31/08/2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Congressos  XL SODEBRAS (Soluções para o Desenvolvimento do País). Congresso acontecerá em Vitória-ES, entre os dias 10 e 12 de Dezembro. A submissão do resumo se encerra hoje, dia 31 de Agosto (foi mal, hehe), mas ainda dá para se inscrever como ouvinte. Os artigos aprovados comporão uma edição especial da revista SODEBRAS. Particularmente achei as taxas de inscrição e submissão proibitivas.   Chamada para Artigos  Revista de Estudos Sociais.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
+                <h3 class="media-heading">Por que a &#34;solução&#34; é empreender? E por que isso não é bom?</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Por que a &ldquo;solução&rdquo; é empreender? E por que isso não é bom? Este texto foi originalmente publicado no dia 17 de Março de 2017 em meu blog anterior, &quot;economiaSG&quot;. Alguns textos deste blog foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;
+O país segue em crise, embora, aparentemente, a mídia tenha esquecido disso e propagandeie que o pior já passou e que já começamos a retomada. Se o pior já passou, realmente, não tenho certeza.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         17 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/Capa.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial\/12\/2018\/';
+          
+            this.page.identifier = '\/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial\/12\/2018\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'AnderleRV';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+
