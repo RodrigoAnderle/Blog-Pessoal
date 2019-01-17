@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -18,25 +22,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Economia</title>
+    <title>Mapas com &#39;brazilmaps&#39;</title>
     <meta name="author" content="Rodrigo Volmir Anderle">
     <meta name="keywords" content="">
 
     <link rel="icon" href="/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="/tags/economia/index.xml">
-    
 
     
-    <meta name="description" content="Rodrigo Volmir Anderle">
-    <meta property="og:description" content="Rodrigo Volmir Anderle">
+    <meta name="description" content="O objetivo deste texto é buscar um shapfile do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.
+Após uma rápida pesquisa, encontrei, no google, o pacote brazilmaps com mapas do Brasil de 2016, disponibilizados pelo IBGE.
+São três funções que parecem ser as mais utilizáveis: get_brmap, join_data e plot_brmap. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.">
+    <meta property="og:description" content="O objetivo deste texto é buscar um shapfile do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.
+Após uma rápida pesquisa, encontrei, no google, o pacote brazilmaps com mapas do Brasil de 2016, disponibilizados pelo IBGE.
+São três funções que parecem ser as mais utilizáveis: get_brmap, join_data e plot_brmap. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Economia">
-    <meta property="og:url" content="/tags/economia/">
+    <meta property="og:title" content="Mapas com &#39;brazilmaps&#39;">
+    <meta property="og:url" content="/mapas-com-brazilmaps/01/2019/">
     <meta property="og:site_name" content="Rodrigo Volmir Anderle">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Rodrigo Volmir Anderle">
-    <meta name="twitter:description" content="Rodrigo Volmir Anderle">
+    <meta name="twitter:description" content="O objetivo deste texto é buscar um shapfile do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.
+Após uma rápida pesquisa, encontrei, no google, o pacote brazilmaps com mapas do Brasil de 2016, disponibilizados pelo IBGE.
+São três funções que parecem ser as mais utilizáveis: get_brmap, join_data e plot_brmap. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.">
     
       <meta name="twitter:creator" content="@rodrigoanderle">
     
@@ -50,6 +58,10 @@
     
 
     
+      <meta property="og:image" content="/images/Rlogo.png">
+    
+    
+      <meta property="og:image" content="/images/Rlogo.png">
     
     
 
@@ -83,7 +95,7 @@ ga('send', 'pageview');
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="/">Rodrigo Volmir Anderle</a>
@@ -103,7 +115,7 @@ ga('send', 'pageview');
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -242,488 +254,275 @@ ga('send', 'pageview');
 </nav>
 
       
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('../../../images/Rlogo.png')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Mapas com &#39;brazilmaps&#39;
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-01-17T00:00:00Z">
         
+  
+  
+  
+  
+    17 Janeiro 2019
+  
 
-      
-      <div id="main" data-behavior="1"
-        class="
+      </time>
+    
+    
+  
+  
+    <span>em</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
-  
-    
-      
-        
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
-          Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-12-13T00:00:00Z">
-        
-  
-  
-  
-  
-    13 Dezembro 2018
-  
-
-      </time>
-    
-    
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/publica%c3%a7%c3%b5es">Publicações</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
-Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
- Dissertação que originou o artigo, aqui;
- Artigo publicado, aqui;
- Resumo do que trata o artigo, aqui;
-      <p>
-        <a href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="/images/CA.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/">
-          Curtas #5: Bolsa, Financiamento de Pesquisas, Revistas e seleções de pós-graduação
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-12-06T00:00:00Z">
-        
-  
-  
-  
-  
-    6 Dezembro 2018
-  
-
-      </time>
-    
-    
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/curtas">Curtas</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      Hoje divulgo chamadas para submissão de artigos em revistas de economia, seleção para financiamento de pesquisas que envolvam os últimos anos do ensino fundamental, seleção para doutorado, bolsa de estudo ofertada pela John Hopkings, em nome de Marielle Franco (presente!), e a publicação mais recente da revista Análise Econômica.
-Chamada para artigos Revista de Economia da UFPR
- &ldquo;A Revista de Economia, da Universidade Federal do Paraná, está reaberta para receber novas submissões de artigos.
-      <p>
-        <a href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="/images/Curtas.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/">
-          Curtas #4: Revistas, Congressos, bolsas e outras coisas mais
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-11-08T00:00:00Z">
-        
-  
-  
-  
-  
-    8 Novembro 2018
-  
-
-      </time>
-    
-    
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/publica%c3%a7%c3%b5es">Publicações</a>, 
-    
-      <a class="category-link" href="/categories/blog">Blog</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      Divulgando algumas oportunidades. A maior parte delas repasso do blog Economic Sociology and Political Economy. Como sugere o título são abordagens bem heterodoxas.
-Da ABEIN tem uma chamada para artigo. E da UFBA, uma oportunidade para bolsa de Pós-Doutorado da Capes.
-Chamada para Revistas  Após o III Encontro Nacional de Economia Industrial e da Inovação, a ABEIN disponibiliza chamada para artigo em número especial da revista Ensaios da UFV que trará os artigos melhor avaliados do III ENEI.
-      <p>
-        <a href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/curtas-revistas-congressos-bolsas-e-outras-coisas-mais/11/2018/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Agenda.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-              
-  
-    
-      
-        
           
-        
-      
-    
-  
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
 
+<p>O objetivo deste texto é buscar um <em>shapfile</em> do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.</p>
 
-  
+<p>Após uma rápida pesquisa, encontrei, no google, o pacote <a href="https://cran.r-project.org/web/packages/brazilmaps/brazilmaps.pdf">brazilmaps</a> com mapas do Brasil de 2016, disponibilizados pelo IBGE.</p>
 
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
-          Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-10-05T00:00:00Z">
-        
-  
-  
-  
-  
-    5 Outubro 2018
-  
+<p>São três funções que parecem ser as mais utilizáveis: <code>get_brmap</code>, <code>join_data</code> e <code>plot_brmap</code>. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.</p>
 
-      </time>
-    
-    
-  </div>
+<p>Assim, primeiramente vou carregar os pacotes:</p>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
-Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.
-      <p>
-        <a href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="/images/CA.png"/>
-      </div>
-    </a>
-  
-</article>
+<pre><code class="language-r">#install.packages(&quot;brazilmaps&quot;)
+library(brazilmaps)
+library(ggplot2)
+library(sf)
+library(tidyverse)
+library(sp)
+</code></pre>
 
+<p>Em seguida, obter o mapa com a função <code>get_brmap</code>.</p>
+
+<p>A função possibilita diferentes níveis geográficos(<code>geo =</code> <code>c(&quot;Brazil&quot;,</code><code>&quot;Region&quot;</code><code>,&quot;State&quot;</code><code>,&quot;MesoRegion&quot;</code><code>,&quot;MicroRegion&quot;</code><code>,&quot;City&quot;)</code>), além de possibilitar filtrar regiões, estados &hellip; (<code>geo.filter =</code>). Para tanto, deve se utilizar os códigos censitários. Por exemplo: <code>geo.filter = list(Region = 5)</code><sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>.</p>
+
+<pre><code class="language-r">BR &lt;- get_brmap(&quot;City&quot;)
+class(BR)
+</code></pre>
+
+<pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;
+</code></pre>
+
+<p>O próximo passo é gerar o mapa com a função <code>plot_brmap</code>, que gera um mapa a partir do pacote <code>ggplot2</code>. Por isso, é aconselhável carregar o pacote já desde o início. Como são mais de cinco mil municípios, o mapa pode demorar um pouco.</p>
+
+<pre><code class="language-r">plot_brmap(BR)
+</code></pre>
+
+<p><img src="/post/2019-01-17-mapas-com-brazilmaps_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+
+<h2 id="adicionando-variáveis">Adicionando variáveis</h2>
+
+<p>Como mencionado, o pacote conta com algumas bases de dados disponíveis e já formatadas para vincular ao mapa. Estas bases são dados de mortes(<code>deaths</code>), índice de gini (<code>gini2015</code>) e população (<code>pop2017</code>). Entretanto, quando fiz as simulações, apenas a base de dados <code>pop2017</code> funcionou.</p>
+
+<pre><code class="language-r">head(pop2017)
+</code></pre>
+
+<pre><code>##       mun                nome_mun pop2017
+## 1 1100015 Alta Floresta D\\'Oeste   25437
+## 2 1100023               Ariquemes  107345
+## 3 1100031                  Cabixi    6224
+## 4 1100049                  Cacoal   88507
+## 5 1100056              Cerejeiras   17934
+## 6 1100064       Colorado do Oeste   18467
+</code></pre>
+
+<p>Para inserir os dados no mapa, o pacote possibilita uma junção das bases pelos códigos, utilizando as opções <code>data_to_join</code>, <code>join_by</code> e <code>var</code>:</p>
+
+<pre><code class="language-r">data(&quot;pop2017&quot;)
+mapa1 &lt;- plot_brmap(BR, data_to_join = pop2017, 
+                    join_by = c(&quot;City&quot; = &quot;mun&quot;), 
+                      var = &quot;pop2017&quot;)
+mapa1
+</code></pre>
+
+<p><img src="/post/2019-01-17-mapas-com-brazilmaps_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+<h2 id="dificuldades">Dificuldades</h2>
+
+<p>Algumas dificuldades surgiram durante a utilização:</p>
+
+<ol>
+<li><p>Primeiro, para um mapa do Brasil inteiro, as linhas que dividem os municípios acabam impossibilitando de ver as informações;</p></li>
+
+<li><p>Outro fator que impossibilita a visualização dos dados é a baixa frequência da escala da legenda;</p></li>
+</ol>
+
+<h1 id="lidando-com-as-dificuldades">Lidando com as dificuldades</h1>
+
+<h2 id="1-linhas-dos-municípios">1. Linhas dos municípios</h2>
+
+<p>Encontrei duas alternativas para o problema da visualização dos municípios. A primeira consiste em utilizar a opção <code>geo.filter=</code>, dentro da função <code>get_brmap</code>, para uma região, ou estado específico, o que aumentará o tamanho da visualização. Caso isso não seja suficiente, ou seja necessário representar o mapa do país inteiro, a sugestão é alterar as linhas para ficarem transparentes. Desta forma, será visualizado apenas o preenchimento da área dos municípios.</p>
+
+<h2 id="2-transformação-dos-dados">2. Transformação dos dados</h2>
+
+<p>Como a distribuição da população dos municípios tem uma série de <em>outliers</em>, São Paulo em especial, a sua escala fica comprometida. A melhor forma de possibilitar a visualização é logaritmizando os dados populacionais.</p>
+
+<h1 id="ajustes">Ajustes</h1>
+
+<p>Abaixo seguem as alterações. Para melhorar a visualização dos municípios, filtrei para mostrar apenas o estado de São Paulo. Já para melhorar a visualização das escalas, logaritimizei os dados populacionais.</p>
+
+<pre><code class="language-r">BR &lt;- get_brmap(&quot;City&quot;, geo.filter = list(State = 31) )
+
+pop2017$logpop &lt;- log(pop2017$pop2017)
+
+plot_brmap(BR, data_to_join = pop2017, 
+                    join_by = c(&quot;City&quot; = &quot;mun&quot;), 
+                      var = &quot;logpop&quot;)
+</code></pre>
+
+<p><img src="/post/2019-01-17-mapas-com-brazilmaps_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+
+<p>Note que, mesmo restringindo ao estado de São Paulo, alguns municípios permanecem de difícil visualização. Ainda acho que a melhor solução seria deixar as linhas sem cor, mas não consegui fazer isso pela função <code>plot_brmap</code>. Embora ela permita adicionar outras camadas do pacote <code>ggplot2</code>, não soube editar esse elemento.</p>
+
+<p>Uma solução que utilizei em um em minha tese, foi pegar o mapa no formato <code>sf</code> do pacote e gerá-lo no <code>ggplot2</code>. Isso abre mais possibilidades de manipulação e deixa de lado as funcionalidades do pacote.De toda forma, o pacote é bastante prático para elaborações rápidas, bem como para obtenção dos mapas sem sair do ambiente do R.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Para mais detalhes é importante ver a ajuda da função, <code>?get_brmap</code>.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
               
-  
-    
-      
-        
-      
-    
-  
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">ETIQUETADO em</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/base-de-dados/">Base de dados</a>
 
+  <a class="tag tag--primary tag--small" href="/tags/diversos/">Diversos</a>
 
-  
+  <a class="tag tag--primary tag--small" href="/tags/geografia/">Geografia</a>
 
-<article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/curtas-15-09-2018/09/2018/">
-          Curtas: 15/09/2018
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-15T00:00:00Z">
-        
-  
-  
-  
-  
-    15 Setembro 2018
-  
+  <a class="tag tag--primary tag--small" href="/tags/r-studio/">R-Studio</a>
 
-      </time>
-    
-    
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/blog">Blog</a>
-    
-  
+  <a class="tag tag--primary tag--small" href="/tags/r-tips/">R-Tips</a>
 
-  </div>
+  <a class="tag tag--primary tag--small" href="/tags/mapas/">Mapas</a>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      Informações gerais Com o feriado acabei não publicando estes curtas na semana passada. Isso fez com que alguns dos prazos já tenham se encerrado. De toda forma vou compartilhar, pois muitas das informações são cíclicas. Assim, também divulgo para para conhecimento de sua existência.
-Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as li, mas vale para divulgação.
- Metodologias dos números índice: pelo o que entendi a CEPAL vai passar a publicar documentos explicando as metodologias utilizadas pelo órgão.
-      <p>
-        <a href="/curtas-15-09-2018/09/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
+  <a class="tag tag--primary tag--small" href="/tags/rstats/">rstats</a>
 
-            
+                  </div>
+                
               
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
-          Por que a &#34;solução&#34; é empreender? E por que isso não é bom?
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-08-31T00:00:00Z">
-        
-  
-  
-  
-  
-    31 Agosto 2018
-  
-
-      </time>
-    
-    
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/economiasg">economiaSG</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      Por que a &ldquo;solução&rdquo; é empreender? E por que isso não é bom? Este texto foi originalmente publicado no dia 17 de Março de 2017 em meu blog anterior, &quot;economiaSG&quot;. Alguns textos deste blog foram republicados aqui e podem ser encontrados na categoria &quot;economiaSG&quot;
-O país segue em crise, embora, aparentemente, a mídia tenha esquecido disso e propagandeie que o pior já passou e que já começamos a retomada. Se o pior já passou, realmente, não tenho certeza.
-      <p>
-        <a href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://i0.wp.com/tribunadoplanalto.com.br/wp-content/uploads/2018/04/papel-do-empreendedor.jpg?fit=1024%2C768"/>
-      </div>
-    </a>
-  
-</article>
-
             
-              
-  
-    
-      
-        
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
           
-        
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/" data-tooltip="Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/">
-          Uma discussão a respeito do crescimento econômico dos municípios do Nordeste brasileiro
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-08-10T00:00:00Z">
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-  
-  
-  
-  
-    10 Agosto 2018
-  
-
-      </time>
-    
-    
-  
-  
-    <span>em</span>
-    
-      <a class="category-link" href="/categories/publica%c3%a7%c3%b5es">Publicações</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      Contextualizando Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja aqui). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação.
-Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes insights.
-      <p>
-        <a href="/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/" class="postShorten-excerpt_link link">Continuar leitura</a>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/mapas-com-brazilmaps/01/2019/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
         
-      </p>
-    </div>
-  </div>
-  
-    <a href="/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="/images/AMC%20Nordeste%201991-2010%20Clusters%20de%20crescimento.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-            
-  <div class="pagination-bar">
-    <ul class="pagination">
-      
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/mapas-com-brazilmaps/01/2019/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
         
-        
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="/tags/economia/page/2/">
-              <span>POSTS MAIS ANTIGOS</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/mapas-com-brazilmaps/01/2019/">
+              <i class="fa fa-google-plus"></i>
             </a>
           </li>
         
       
-      <li class="pagination-number">página 1 de 2</li>
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
   </div>
 
 
-          </section>
-        
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2019 Rodrigo Volmir Anderle. All Rights Reserved
@@ -731,6 +530,102 @@ Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do 
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PRÓXIMO</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/" data-tooltip="Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">ANTERIOR</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=/mapas-com-brazilmaps/01/2019/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/mapas-com-brazilmaps/01/2019/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/mapas-com-brazilmaps/01/2019/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://developers.facebook.com/docs/plugins/%25!%28EXTRA%20string=%2Fmapas-com-brazilmaps%2F01%2F2019%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Compartilhar no Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2Fmapas-com-brazilmaps%2F01%2F2019%2F">
+          <i class="fa fa-twitter"></i><span>Compartilhar no Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2Fmapas-com-brazilmaps%2F01%2F2019%2F">
+          <i class="fa fa-google-plus"></i><span>Compartilhar no Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -1011,6 +906,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/mapas-com-brazilmaps\/01\/2019\/';
+          
+            this.page.identifier = '\/mapas-com-brazilmaps\/01\/2019\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'AnderleRV';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 
