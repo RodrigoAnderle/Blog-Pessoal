@@ -32,7 +32,7 @@
     <item>
       <title>Base De Dados</title>
       <link>/tags/base-de-dados/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/base-de-dados/</guid>
       <description></description>
@@ -86,7 +86,7 @@
     <item>
       <title>Diversos</title>
       <link>/tags/diversos/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/diversos/</guid>
       <description></description>
@@ -131,9 +131,18 @@
     <item>
       <title>Geografia</title>
       <link>/tags/geografia/</link>
-      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/geografia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapas</title>
+      <link>/tags/mapas/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mapas/</guid>
       <description></description>
     </item>
     
@@ -167,7 +176,7 @@
     <item>
       <title>R Studio</title>
       <link>/tags/r-studio/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-studio/</guid>
       <description></description>
@@ -176,7 +185,7 @@
     <item>
       <title>R Tips</title>
       <link>/tags/r-tips/</link>
-      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-tips/</guid>
       <description></description>
@@ -197,6 +206,15 @@
       <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/revistas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rstats</title>
+      <link>/tags/rstats/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstats/</guid>
       <description></description>
     </item>
     

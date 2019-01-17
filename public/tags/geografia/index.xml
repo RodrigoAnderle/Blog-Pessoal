@@ -6,10 +6,21 @@
     <description>Recent content in Geografia on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/geografia/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mapas com &#39;brazilmaps&#39;</title>
+      <link>/mapas-com-brazilmaps/01/2019/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/mapas-com-brazilmaps/01/2019/</guid>
+      <description>O objetivo deste texto é buscar um shapfile do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.
+Após uma rápida pesquisa, encontrei, no google, o pacote brazilmaps com mapas do Brasil de 2016, disponibilizados pelo IBGE.
+São três funções que parecem ser as mais utilizáveis: get_brmap, join_data e plot_brmap. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.</description>
+    </item>
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</title>

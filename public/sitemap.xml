@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/mapas-com-brazilmaps/01/2019/</loc>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</loc>
     <lastmod>2018-12-13T00:00:00+00:00</lastmod>
   </url>
@@ -105,14 +110,14 @@
   </url>
   
   <url>
-    <loc>/tags/base-de-dados/</loc>
-    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+    <loc>/categories/base-de-dados/</loc>
+    <lastmod>2018-10-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/base-de-dados/</loc>
-    <lastmod>2018-10-25T00:00:00+00:00</lastmod>
+    <loc>/tags/base-de-dados/</loc>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -166,7 +171,7 @@
   
   <url>
     <loc>/tags/diversos/</loc>
-    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -208,7 +213,13 @@
   
   <url>
     <loc>/tags/geografia/</loc>
-    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mapas/</loc>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -226,6 +237,12 @@
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/publica%C3%A7%C3%B5es/</loc>
     <lastmod>2018-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -237,26 +254,20 @@
   </url>
   
   <url>
-    <loc>/categories/publica%C3%A7%C3%B5es/</loc>
-    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/categories/r/</loc>
-    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r-studio/</loc>
-    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r-tips/</loc>
-    <lastmod>2018-10-25T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -274,7 +285,13 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rstats/</loc>
+    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
