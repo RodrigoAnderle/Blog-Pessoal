@@ -1,0 +1,125 @@
+---
+title: Mapas com 'brazilmaps'
+author: Rodrigo Volmir Anderle
+date: '2019-01-17'
+thumbnailImage: "images/Rlogo.png"
+thumbnailImagePosition: right
+coverImage: "../../../images/Rlogo.png"
+slug: mapas-com-brazilmaps
+categories:
+  - R
+tags:
+  - Base de dados
+  - Diversos
+  - Geografia
+  - R-Studio
+  - R-Tips
+  - Mapas
+  - rstats
+---
+
+O objetivo deste texto é buscar um *shapfile* do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.
+
+Após uma rápida pesquisa, encontrei, no google, o pacote [brazilmaps](https://cran.r-project.org/web/packages/brazilmaps/brazilmaps.pdf) com mapas do Brasil de 2016, disponibilizados pelo IBGE. 
+
+São três funções que parecem ser as mais utilizáveis: `get_brmap`, `join_data` e `plot_brmap`. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.
+
+Assim, primeiramente vou carregar os pacotes:
+
+
+```{r, message=FALSE, error=FALSE, warning=FALSE}
+#install.packages("brazilmaps")
+library(brazilmaps)
+library(ggplot2)
+library(sf)
+library(tidyverse)
+library(sp)
+```
+
+
+Em seguida, obter o mapa com a função `get_brmap`. 
+
+A função possibilita diferentes níveis geográficos(`geo =` `c("Brazil",``"Region"``,"State"``,"MesoRegion"``,"MicroRegion"``,"City")`), além de possibilitar filtrar regiões, estados ... (`geo.filter = `). Para tanto, deve se utilizar os códigos censitários. Por exemplo: `geo.filter = list(Region = 5)`[^1].
+
+
+
+```{r}
+BR <- get_brmap("City")
+class(BR)
+```
+
+
+O próximo passo é gerar o mapa com a função `plot_brmap`, que gera um mapa a partir do pacote `ggplot2`. Por isso, é aconselhável carregar o pacote já desde o início. Como são mais de cinco mil municípios, o mapa pode demorar um pouco.
+
+
+
+```{r, message = FALSE, error = FALSE}
+plot_brmap(BR)
+```
+
+
+## Adicionando variáveis
+
+Como mencionado, o pacote conta com algumas bases de dados disponíveis e já formatadas para vincular ao mapa. Estas bases são dados de mortes(`deaths`), índice de gini (`gini2015`) e população (`pop2017`). Entretanto, quando fiz as simulações, apenas a base de dados `pop2017` funcionou.
+
+
+```{r}
+head(pop2017)
+```
+
+
+Para inserir os dados no mapa, o pacote possibilita uma junção das bases pelos códigos, utilizando as opções `data_to_join`, `join_by` e `var`:
+
+
+```{r, message = F, error = FALSE}
+data("pop2017")
+mapa1 <- plot_brmap(BR, data_to_join = pop2017, 
+                    join_by = c("City" = "mun"), 
+                      var = "pop2017")
+mapa1
+```
+
+
+## Dificuldades
+
+Algumas dificuldades surgiram durante a utilização:
+ 
+ 1. Primeiro, para um mapa do Brasil inteiro, as linhas que dividem os municípios acabam impossibilitando de ver as informações;
+
+ 2. Outro fator que impossibilita a visualização dos dados é a baixa frequência da escala da legenda;
+
+
+# Lidando com as dificuldades
+
+## 1. Linhas dos municípios
+
+  Encontrei duas alternativas para o problema da visualização dos municípios. A primeira consiste em utilizar a opção `geo.filter=`, dentro da função `get_brmap`, para uma região, ou estado específico, o que aumentará o tamanho da visualização. Caso isso não seja suficiente, ou seja necessário representar o mapa do país inteiro, a sugestão é alterar as linhas para ficarem transparentes. Desta forma, será visualizado apenas o preenchimento da área dos municípios.
+  
+## 2. Transformação dos dados
+
+  Como a distribuição da população dos municípios tem uma série de *outliers*, São Paulo em especial, a sua escala fica comprometida. A melhor forma de possibilitar a visualização é logaritmizando os dados populacionais.
+  
+
+# Ajustes
+
+  Abaixo seguem as alterações. Para melhorar a visualização dos municípios, filtrei para mostrar apenas o estado de São Paulo. Já para melhorar a visualização das escalas, logaritimizei os dados populacionais.
+
+
+```{r}
+BR <- get_brmap("City", geo.filter = list(State = 31) )
+
+pop2017$logpop <- log(pop2017$pop2017)
+
+plot_brmap(BR, data_to_join = pop2017, 
+                    join_by = c("City" = "mun"), 
+                      var = "logpop")
+
+```
+
+
+ Note que, mesmo restringindo ao estado de São Paulo, alguns municípios permanecem de difícil visualização. Ainda acho que a melhor solução seria deixar as linhas sem cor, mas não consegui fazer isso pela função `plot_brmap`. Embora ela permita adicionar outras camadas do pacote `ggplot2`, não soube editar esse elemento.
+ 
+ Uma solução que utilizei em um em minha tese, foi pegar o mapa no formato `sf` do pacote e gerá-lo no `ggplot2`. Isso abre mais possibilidades de manipulação e deixa de lado as funcionalidades do pacote.De toda forma, o pacote é bastante prático para elaborações rápidas, bem como para obtenção dos mapas sem sair do ambiente do R.
+
+
+[^1]: Para mais detalhes é importante ver a ajuda da função, `?get_brmap`.
