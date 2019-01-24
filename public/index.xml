@@ -6,10 +6,19 @@
     <description>Recent content on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Curtas #6</title>
+      <link>/curtas-6/01/2019/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/curtas-6/01/2019/</guid>
+      <description>Estou criando um padrão para a divulgação dessa seção de Curtas. Minha ideia é fazer mensalmente, assim terei mais tempo de organizar as informações que vou recebendo e repassar elas de forma organizada. Infelizmente, para essa primeira tentativa de 2019 já deu um &amp;ldquo;probleminha&amp;rdquo;. Algumas das informações que recebi já estão defasadas, com seu prazos encerrados. De toda forma, compartilho para dar acesso à informação. Neste texto estão chamadas para congressos e fóruns, novos volumes de revistas científicas, abertura de processo seletivo de um novo curso de doutorado em economia e chamada para trabalhos.</description>
+    </item>
     
     <item>
       <title>Mapas com &#39;brazilmaps&#39;</title>
