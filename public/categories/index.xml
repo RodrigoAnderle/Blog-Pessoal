@@ -23,7 +23,7 @@
     <item>
       <title>Blog</title>
       <link>/categories/blog/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/blog/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>Curtas</title>
       <link>/categories/curtas/</link>
-      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/curtas/</guid>
       <description></description>
@@ -48,18 +48,27 @@
     </item>
     
     <item>
-      <title>Exercícios</title>
-      <link>/categories/exerc%C3%ADcios/</link>
+      <title>Exercicios</title>
+      <link>/categories/exercicios/</link>
       <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/exerc%C3%ADcios/</guid>
+      <guid>/categories/exercicios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publicacoes</title>
+      <link>/categories/publicacoes/</link>
+      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/publicacoes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Publicações</title>
       <link>/categories/publica%C3%A7%C3%B5es/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/publica%C3%A7%C3%B5es/</guid>
       <description></description>
@@ -68,7 +77,7 @@
     <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
