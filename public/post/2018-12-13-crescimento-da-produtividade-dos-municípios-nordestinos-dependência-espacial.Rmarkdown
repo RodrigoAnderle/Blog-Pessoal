@@ -7,7 +7,7 @@ thumbnailImagePosition: "left"
 autoThumbnailImage: "images/CA.png"
 coverImage: "../../../images/CA.png"
 categories:
-  - Publicações
+  - Publicacoes
 tags:
   - Academia
   - Artigo
