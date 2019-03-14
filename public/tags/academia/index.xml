@@ -6,10 +6,19 @@
     <description>Recent content in Academia on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/academia/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Curtas #6</title>
+      <link>/curtas-6/01/2019/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/curtas-6/01/2019/</guid>
+      <description>Estou criando um padrão para a divulgação dessa seção de Curtas. Minha ideia é fazer mensalmente, assim terei mais tempo de organizar as informações que vou recebendo e repassar elas de forma organizada. Infelizmente, para essa primeira tentativa de 2019 já deu um &amp;ldquo;probleminha&amp;rdquo;. Algumas das informações que recebi já estão defasadas, com seu prazos encerrados. De toda forma, compartilho para dar acesso à informação. Neste texto estão chamadas para congressos e fóruns, novos volumes de revistas científicas, abertura de processo seletivo de um novo curso de doutorado em economia e chamada para trabalhos.</description>
+    </item>
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</title>
@@ -52,8 +61,8 @@ Chamada para Revistas  Após o III Encontro Nacional de Economia Industrial e da
       <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</guid>
-      <description>ApresentaçãoEstou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
-Base de dadosPara fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</description>
+      <description>Apresentação Estou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
+Base de dados Para fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</description>
     </item>
     
     <item>
