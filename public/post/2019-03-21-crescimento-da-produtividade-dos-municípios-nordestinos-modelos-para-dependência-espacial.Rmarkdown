@@ -1,0 +1,142 @@
+---
+title: 'Crescimento da Produtividade dos Municípios Nordestinos: Modelos para Dependência
+  Espacial'
+author: Rodrigo Volmir Anderle
+date: '2019-03-21'
+slug: crescimento-da-produtividade-dos-municípios-nordestinos-modelos-para-dependência-espacial
+thumbnailImagePosition: "right"
+autoThumbnailImage: "images/CA.png"
+coverImage: "../../../images/CA.png"
+categories:
+  - Publicacoes
+tags:
+  - Academia
+  - Artigo
+  - Crescimento
+  - Economia
+  - Efeito Espacial
+  - Publicações
+  - R-Tips
+  - R-Studio
+  - revistas
+  - rstats
+---
+
+Sigo a reprodução do artigo baseado em minha dissertação de mestrado. Acredito que, além deste, irirei publicar só mais um texto e encerro esta série. Adianto um ensinamento desta experiência que é já deixar o material em um formato de fácil reprodução, pois tem sido trabalhaso esse esforço.
+
+Recapitulando o que já foi discutido, segue uma série de links:
+
+ * Dissertação que originou o artigo, [aqui](https://repositorio.ufpe.br/handle/123456789/13903);
+ 
+ * Artigo publicado, [aqui](https://www.revistaaber.org.br/rberu/article/view/233);
+ 
+ * Resumo do que trata o artigo, [aqui](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/);
+ 
+ * Reprodução das análises de convergência absoluta e condicionada,[aqui](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/).
+ 
+ * [Neste texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/) é apresentado e aplicado o teste para identificar a dependência espacial no modelo.
+ 
+ Este texto pretende demonstrar diferentes formas de tratar a dependência espacial identificada.
+ 
+## Modelos de tratamento espacial
+
+Pois bem, uma vez que detectamos a presença de dependência espacial no modelo de crescimento, isso significa que há uma variável omitida, que assumimos ser uma variável importante. Logo, ao omitir uma variável importante, o modelo estaria [heterocedástico](https://pt.wikipedia.org/wiki/Heteroscedasticidade). Desse modo, precisamos "tratar" esta dependência espacial de forma a melhorar a capacidade explicativa do modelo. O pacote `spdedp` tem a função `lm.LMtests` que realiza o diagnóstico de qual modelo seria mais adequado para esse tratamento. Estes tratamentos podem ser pela "espacialização" do erro, *LMerr*, da defasagem espacial, *LMlag*, ou, ainda, com a utilização das duas defasagens.
+
+### Modelo teórico
+
+Vou expor as equações do modelo, para ficar mais fácil de entender. O blog está com um problema nas configurações que estou tentando solucionar. Caso as equações apareção codificadas, é sinal de que ainda não resolvi isso [:-). 
+
+Considere como modelo estimado:
+
+$$ \delta Y_i = \alpha + X_i \beta + \epsilon $$
+
+
+Em que $\delta Y_i$ é o ganho de produtividade *Y*, do município *i*, $\alpha$ é o termo constante, *X* são as variáveis de controle para o município *i*, $\beta$ é o seu coeficiente e $\epsilon$ é o termo de erro. A dependência espacial identificada afeta o termo de erro, logo, será necessário inserir a variável "espacial" no modelo. Isso é feito com a inserção de uma matriz de vizinhança *W*, explicada no [texto anterior](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/).
+
+Ela pode ser inserida:
+
+
+ * Termo de erro (*LMerr*):
+ 
+ $$ Y_i = \alpha + X_i \beta + \epsilon $$
+ 
+ $$ \epsilon = W\epsilon + \mu $$
+ 
+ $$ Y_i = \alpha + X_i \beta + W\epsilon + \mu $$
+ 
+
+ * Defasagem da produtividade dos vizinhos(*LMlag*):
+ 
+ $$ Y_i = \alpha + Wy_j+ X_i \beta + \epsilon $$
+ 
+Em que $y_j$ representa a produtividade inicial dos municípios vizinhos.
+
+
+ * A defasagem tanto da produtividade dos vizinhos, quanto do termo de erro (*SARMA*):
+ 
+ $$ Y_i = \alpha + Wy_j+ X_i \beta + W\epsilon + \mu $$
+ 
+## Teste
+
+Como já foi comentado, o teste utiliza a função `lm.LMtests`, que é o diagnóstico pelo multiplicador de Lagrange. E, para fazer o teste, precisamos aplicá-lo no modelo estimado no texto sobre [convergência absoluta e condicionada](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/).
+
+Então vamos seguir o mesmo procedimento:
+
+```{r, error=FALSE, message=FALSE}
+# Importação da base de dados
+
+BASE <- read.csv("http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv"
+                 , header = T)
+
+# Estimação do modelo, ainda como regressão linear.
+
+CC9110 <- lm(lng9110~lnProd1991+EMedio1991+Analf1991
+    +Urb1991+LnPop1991+Indus1991+Serv1991+Gini1991, data=BASE)
+```
+
+Mais uma vez, a regressão vai ser testada utilizando a matriz de vizinhança. Pelos resultados do último texto, identificamos que a matriz mais adequada seria a *rook* de grau 1 [^1]. Então, vamos baixar esta matriz e rodar os testes utilizando ela.
+
+```{r, error =FALSE, message=FALSE}
+# Para lidar com dados espaciais é necessário carregar o pacote "spdep"
+library(spdep) 
+#caso não tenha, é necessário instlá-lo antes com "install.packages("spded")"
+
+#Leitura da matriz de vizinhança
+R1<-read.gal("https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/R1.gal"
+             ,BASE$MUN) 
+WR1<-nb2listw(R1) # ajuste necessário para utilização
+```
+
+A função `lm.LMtests` tem uma série de *inputs*, mas só vamos utilizar três: o modelo, *CC9110*; a matriz de vizinhança, *WR1*; e que modelo queremos testar, no caso todos (*all*).
+
+```{r, message=FALSE, error=FALSE}
+#Teste LM
+
+teste <- lm.LMtests(CC9110,WR1,test="all")
+print(teste)
+
+```
+
+
+São apresentados cinco resultados: dois para *LMerr* e dois para *LMlag*, e um *SARMA*. Os dois primeiros modelos tem uma variação para modelos robustos na presença de outras dependências. 
+
+Olhando os resultados, todo os testes foram estatisticamente significantes, como fica demonstrado no *p-value* de cada um. A escolha do modelo mais adequado para o tratamento da dependência espacial, segundo [Anselin (2003)](http://labs.bio.unc.edu/buckley/documents/anselinintrospatregres.pdf), deve ser feita pelo modelo que apresentar maior valor no diagnóstico. Isso acontece com o modelo *SARMA*:
+
+```{r, message=FALSE, error=FALSE, results='asis'}
+#Caregando pacote stargazer para geração de tabelas
+library(stargazer)
+
+#Construindo tabela, com resumo dos resultados
+stargazer(c(teste$LMerr$statistic,
+        teste$LMlag$statistic,
+        teste$SARMA$statistic), 
+          type = "html",
+          title = " Resultados: diagnóstico do multiplicador de Lagrange")
+```
+
+
+Assim, verificamos que o modelo que deve ser utilizado para o tratamento desta dependência espacial, nesta regressão, é o *SARMA*. No próximo texto, este modelo será utilizado para a regressão dos resultados e faremos uma extensão para a hipótese dos fatores comuns. Espero ter conseguido dar uma ideia geral da aplicação. Maiores detalhes podem ser encontrados no [artigo](https://www.revistaaber.org.br/rberu/article/view/233) e na [dissertação](https://repositorio.ufpe.br/handle/123456789/13903).
+
+***
+
+[^1]: O que fica evidenciado pelo maior valor do teste de Moran entre as matrizes testadas.

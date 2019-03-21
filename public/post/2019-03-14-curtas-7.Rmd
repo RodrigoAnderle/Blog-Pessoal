@@ -1,0 +1,41 @@
+---
+title: 'Curtas #7'
+author: Rodrigo Volmir Anderle
+date: '2019-03-14'
+slug: curtas-7
+thumbnailImage: "images/Curtas.jpg"
+thumbnailImagePosition: left
+coverImage: "../../../images/Curtas.jpg"
+categories:
+  - Curtas
+tags:
+  - congressos
+  - revistas
+  - Pesquisa
+  - Economia
+  - Artigo
+---
+
+Retomando a atividade após o carnaval, divulgo alguns congressos que estão por acontecer, uma chamada de resumos para capítulos de um livro, um curso de verão e uma nova edição da RBERU.
+
+# Congressos e Conferências
+
+ * [**III Encontro de Economia Aplicada de Sergipe (III EEA-SE):**](http://www.leaderufs.com.br/ver_evento/70/187/?fbclid=IwAR31YNRY9iRhNN1EOpw1h3alYOe6Gmg04i8J12dykth_axBywHMLugfDZTs) Acontecerá nos dias 18 e 19 de junho em Sergipe.**Prazo para sumissão de artigos até o dia 14 de Abril** nas áreas temáticas de: Economia Regional e Meio Ambiente; Economia do Trabalho, Social e da Educação; Crescimento Econômico e da Inovação; e Teoria Econômica e Métodos Quantitativos.
+ 
+ * [**III Congresso Latino-Americano de Ecologia Política**](https://www.congressoecologiapolitica.org/): O congresso acontecerá nos dias 18 a 20 de Março, em Salvador. O congresso tem uma série de oficinas com inscrições abertas a partir do dia 16 de Março, lançamento de livros e uma série de outras progrmações (veja no site).
+ 
+ * [**XXIII CONFERENCIA ANUAL DE LA ASOCIACIÓN LATINOAMERICANA E IBÉRICA DE DERECHO Y ECONOMÍA(ALACDE):**](http://alacdeorg.com/images/Call-for-Papers-ALACDE-2019.pdf?fbclid=IwAR1SAqZ8Mjhrq6LR1sEwL3xoXSa_2rnAUkjq_xp-ieTikWwYjEOHzXXaVwM) A conferência ocorrerá nos dias 4 e 5 de Novembro na Cidade do México, o período de submissão é **até dia 5 de Julho** e são quatro eixos temáticos que se dividem em outros tantos: Direito Privado e Corporativo; Direito Público, Direito Econômico Público e Direito Econômico; Direito, Economia e Novas Tecnologias; e Resolução de Conflitos e Atividade Jurisdicional.
+
+ * [**2019 Annual Meeting Society for Economic Dynamics:**](https://www.sed2019stlouis.org/SED/) Para quem for tirar férias nos EUA e não se importar de passar uns dias no Missouri, ocorrerá a reunião anual da *Society for Economic Dynamics* acontecerá em St. Louis, entre os dias 27 e 29 de Junho.
+
+# Chamada de resumos para capítulos de livro:
+
+ * [**Métodos para el análisis de los procesos de ciencia, tecnología, innovación y sociedad: herramientas para el estudio de América Latina**](http://www.lalics.org/llamada-resumenes-de-capitulos-de-libro/?fbclid=IwAR1tev0flPAo0KZOaLdfkF2QHkvNatDCVMGrWW2Fpj2suVgZlTzK6a5VEzA): O livro conta com a edição de José Miguel Natera e Diana Suéz, e objetiva "compilar as ferramentas metodológicas empregadas para o estudo e o processo da inovação" na América Latina. A iniciativa conta com o apoio da *Latin America Network for Economics of Learning, Innovation and Competence Building Systems*([LALICS](http://www.lalics.org/)).
+ 
+# Cursos
+ 
+ * [**Trento Summer School**](https://event.unitn.it/al-tss2019/): De 3 a 14 de Junho, para quem tiver a portunidade de passar umas férias na Europa, pode aproveitar para frequentar este curso que tem como tema: *MACROECONOMIC TOPICS: INEFFICIENCIES AND COORDINATION FAILURES*. **O período de admissões vai até 15 de Abril**.
+
+# Revistas
+
+ * [**REVISTA BRASILEIRA DE ESTUDOS REGIONAIS E URBANOS (RBERU):**](https://www.revistaaber.org.br/rberu) Está com número novo disponível ainda do volume 12 de 2018. São sete trabalhos que tratam de diferenciais salariais, gastos públicos, mobilidade e convergência de renda.
