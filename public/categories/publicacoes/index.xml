@@ -6,10 +6,22 @@
     <description>Recent content in Publicacoes on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/publicacoes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Crescimento da Produtividade dos Municípios Nordestinos: Modelos para Dependência Espacial</title>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</guid>
+      <description>Sigo a reprodução do artigo baseado em minha dissertação de mestrado. Acredito que, além deste, irei publicar só mais um texto e encerro esta série. Adianto um ensinamento desta experiência que é já deixar o material em um formato de fácil reprodução, pois tem sido trabalhoso todo esse esforço.
+Recapitulando o que já foi discutido, segue uma série de links:
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;</description>
+    </item>
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</title>
@@ -22,6 +34,16 @@ Antes de continuar, vou deixar uma sequência de links para facilitar o acompanh
  Dissertação que originou o artigo, aqui;
  Artigo publicado, aqui;
  Resumo do que trata o artigo, aqui;</description>
+    </item>
+    
+    <item>
+      <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada</title>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</link>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</guid>
+      <description>Apresentação Estou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
+Base de dados Para fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</description>
     </item>
     
     <item>
