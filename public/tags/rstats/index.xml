@@ -6,10 +6,22 @@
     <description>Recent content in Rstats on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/rstats/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Crescimento da Produtividade dos Municípios Nordestinos: Modelos para Dependência Espacial</title>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</guid>
+      <description>Sigo a reprodução do artigo baseado em minha dissertação de mestrado. Acredito que, além deste, irei publicar só mais um texto e encerro esta série. Adianto um ensinamento desta experiência que é já deixar o material em um formato de fácil reprodução, pois tem sido trabalhoso todo esse esforço.
+Recapitulando o que já foi discutido, segue uma série de links:
+ Dissertação que originou o artigo, aqui;
+ Artigo publicado, aqui;</description>
+    </item>
     
     <item>
       <title>Mapas com &#39;brazilmaps&#39;</title>
