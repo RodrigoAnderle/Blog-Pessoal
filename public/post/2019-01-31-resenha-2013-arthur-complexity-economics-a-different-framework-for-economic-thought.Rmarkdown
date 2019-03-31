@@ -1,0 +1,80 @@
+---
+title: 'Fichamento: 2013 - Arthur - Complexity Economics: A Different Framework for Economic
+  Thought'
+author: Rodrigo Volmir Anderle
+date: '2019-03-28'
+slug: Fichamento-2013-arthur-complexity-economics-a-different-framework-for-economic-thought
+thumbnailImagePosition: "left"
+autoThumbnailImage: "images/2013-Arthur-ComplexityEconomics.png"
+coverImage: "../../../images/2013-Arthur-ComplexityEconomics.png"
+categories:
+  - Fichamentos
+tags:
+  - Artigo
+  - Academia
+  - Economia
+  - Diversos
+  - Pesquisa
+  - Publicações
+  - Complexidade
+---
+
+A proposta deste texto é um pouco diferente. Em função da Tese, tenho lido muita coisa, em sua maioria, interessante. Infelizmente, meu processo de compreensão é lento e, por muitas vezes, não consigo fazer ele por completo. Assim, acabo fichando rapidamente os textos sem dar a devida profundidade que eles, talvez, merecessem. Na esperança de compensar esse lapso de atenção, vou dedicar este espaço para fazer isso de vez em quando. 
+
+O primeiro artigo que vou utilizar para fazer isso é o [*Complexity Economics: A Different Framework for Economic Thought*](http://institutional.narod.ru/terra/journal13.2.pdf#page=16) do [W. Brian Arthur](http://tuvalu.santafe.edu/~wbarthur/)[^1]. 
+
+Eu li este artigo em 2018 e, embora não tenha sido o meu primeiro contato com *Complexity Economics*[^2], se tornou a minha referência preferida quando quero mencionar questões sobre dinâmica, ou rejeitar a ideia de equilíbrio.
+
+# O Artigo
+
+Para falar sobre o artigo vou descontruir um pouco a sequência que o Arthur fez e começarei por uma das últimas seções, a *Discussion*. Arthur ressalta que são dois os grandes problemas econômicos: a alocação e a "formação"[^3]. Segundo o autor, até 1870, ambos os problemas eram de igual importância e cita os trabalhos de Smith, Mill e Marx que contribuíram para questões de alocação, tanto quanto de formação, governança e história. 
+
+Com a revolução marginalista e a revolução do equilíbrio geral, as questões de alocação ganharam um poderoso instrumental matemático que não foi capaz de lidar com os problemas de formação. Apesar disso, como ressalta Arthur, os problemas de formação continuaram a ser abordados por economistas como Marshall, Veblen, Schumpeter, Hayek e Scackle, e por institucionalistas e historiadores. Estes estudos eram limitados a casos históricos específicos e de raciocínio intuítivo, passando a ser tratados como uma disciplina específica, Economia Política, e, nas palavras de Arthur, "colocado de lado, conhecido como prático e útil, mas nem sempre respeitado".
+
+Neste ponto retomo a sequência do texto de Arthur. Desde o princípio do texto, Arthur estabelece como ponto de divergência entre a economia tradicional, neoclássica, e a *Complexity Economics* o pressuposto do equilíbrio. Enquanto que para a primeira o "estado natural" da economia é o equilíbrio. Na segunda abordagem, o "estado natural" da economia é o não equilíbrio. 
+
+# Objetivo do artigo
+
+Arthur descreve em sua introdução que não é do seu interesse fazer um *survey*, um levantamento, ou um guia sobre *Complexity Economics*. Seu objetivo é apresentar um plano de fundo, um *framework*, para a aobrdagem complexa. Ressalta, ainda, que ela não é uma extensão a ser aplicada no modelo neoclássico, ela é uma forma diferente de abordar a economia.
+
+# *The Economy and Complexity*
+
+A ideia básica da complexidade apresentada no artigo é de que a ação individual de agentes formam fenômenos estruturais. Como a ação individual das formigas, formam um formigueiro, das abelhas, uma colméia, e assim por diante. Um escocês do século XVIII já tiha tido uma "sacada" parecida. Segundo ele, não seria pela generosidade do padeiro e do açougueiro que teríamos pão e carne, mas sim o seu egoísmo. Fico incomodado quando vejo as pessoas concluírem que Smith estava dizendo que era o egoísmo que resolveria tudo, ou algo parecido com isso. Utilizando a abordagem complexa, o que Smith estava falando era que as ações individuais **formavam** estruturas de coordenação. 
+
+O que Arthur aponta como complexidade é que estruturas de coordenação, **formadas** por ações individuais, fazem um *feedback*, influenciam de volta os agentes. E, assim, a economia segue em um processo evolutivo de formação (*formation*). Note que nenhuma condição de equilíbrio foi inserida aqui. De fato, a abordagem complexa não exclui a possibilidade de equilíbrio, mas ela não considera ele como o único fenômeno possível.
+
+Arthur aborda esta questão destacando que a teoria tradicional, uma vez que não havia instrumental para lidar com a complexidade, tomou uma abordagem simplificada. Perguntando qual o comportamento seria consistente com os padrões encontrados e cita como exemplos a Teoria dos Jogos clássica e as expectativas racionais.
+
+O custo de utilização desta abordagem baseada no equilíbrio é que os modelos analíticos ficam presos, nas palavras de Arthur, a um mundo platônico de ordem, estabilidade, plena sabedoria e perfeição. Uma clara consequência é que, em equilíbrio, não existe inovação, nem mudança, que são elementos básicos do processo econômico.
+
+# Não equilíbrio gerado endogenamente
+
+A inovação e a incerteza fundamental (Knightiana) seriam os principais fatores para o não equilíbrio. Falando sobre incerteza, no texto [A cheia do Mainstream](http://www.ie.ufrj.br/images/pesquisa/publicacoes/rec/REC%201/REC_1.1_01_A_cheia_do_mainstream.pdf), Mario Possas ressalta a necessidade constante de um economista heterodoxo de diferenciar risco de incerteza. Risco, é algo calculável, incerteza, não é. Por exemplo, ao jogar um dado, você sabe a probabilidade de cada número, pois você conhece o [espaço amostral](https://pt.wikipedia.org/wiki/Espa%C3%A7o_amostral) (1,2,3,4,5,6), é um sistema fechado. Caso exista um dado com números 1 até infinito, você não consegue mais calcular as suas probabilidades. Jogar um dado infinito se torna um fenômeno incerto, um sistema aberto.
+
+Diante de incerteza, as estruturas estão sempre em **formação**, fazendo com que os indivíduos tomem decisões, recebam o *feedback* e repensem suas decisões no período seguinte. Esse processo também explica os processos de inovação que ocorrem em uma economia.
+
+# Como teorizar em não equilíbrio
+
+Uma dificuldade dessa abordagem é que, se tudo é incerto, nada é previsível e tudo se torna caótico. Na verdade, nem tudo é caótico, muitos comportamentos apresentam padrões identificáveis. É mais ou menos nessa linha que a teoria proura trabalhar. Como Arthur aponta, alguns padrões identificáveis podem servir de base para um algoritmo de comportamento. A partir de simulações destes comportamentos, é possível identificar propriedades emergentes, como a "mão-invisível" identificada por Smith[^4]. 
+
+Refletindo sobre a importância da matemática ou da matematização da teoria econômica, Arthur menciona que a função da teoria é a da descoberta, da compreensão e da explicação dos fenômenos. A matemática é um instrumento analítico útil, mas ela não deve limitar a construção das teorias. Da mesma forma que a computação é um novo instrumento disponível para nos auxiliar na construção das teorias. Entretanto, assim como a matemática, ela não pode ser um fim em si mesma, o objetivo ainda é "explicar/entender as coisas".
+
+# Concluindo
+
+Vou encerrar este "fichamento" por aqui. Existem outras passagens no artigo que são interessantes de serem exploradas, mas receio que o texto ficará muito longo e pouco objetivo. 
+
+Entre alguns destaques está a seção que trata do que são fenômenos e como eles surgem. Essa seção é utilizada para explicar parte da metodologia utilizada nesta abordagem. Ela é intensiva em [*Agent-Based Models*](https://en.wikipedia.org/wiki/Agent-based_model) que são simulações em computador do comportamento de agentes para tentar identificar fenômenos agregados. Segundo Arthur, a computação seerve como um laboratório para as ciências sociais, em particular para a economia.
+
+Arthur também menciona, por diversas vezes, o termo "meso-economia" que, segundo ele, seria uma dimensão intermediária entre a micro e a macro e que seria uma dimensão importante a ser estudada. Esse é um ponto da leitura que não aprofundei muito ainda, mas o autor parece dar bastante importância. 
+
+Por fim, queria ressaltar como fiquei sabendo desse texto. Foi em um curso que fiz no [*Complexity Explorer*](https://www.complexityexplorer.org/), um ambiente de cursos online gratuítos, disponibilizado pelo [*Santa Fe Institute*](https://www.santafe.edu/). No curso de Introdução a Complexidade tem uma [entrevista com o professor Arthur](https://www.youtube.com/watch?v=svO4ZAausX0). Assim, aproveito para divulgar.
+
+***
+
+[^1]: Para uma referência em português, recomendo olhar a [wikipedia mesmo](https://en.wikipedia.org/wiki/W._Brian_Arthur).
+
+[^2]: Não tenho certeza de qual seria a melhor tradução, se Economia da Complexidade, ou se Economia Complexa. Acho as duas formas não fazem jus ao nome, parecendo mais algo de ficção científica, por isso mantenho a versão em inglês.
+
+[^3]: Do inglês *formation*, não sei ao certo qual seria a melhor tradução. O termo remete a ideia de como são constituídas as relações econômicas: mercados, preços, instituições...
+
+[^4]: Tomando todo o cuidado com esta mensão. Quero ressaltar que Smith identificou um sistema de coordenação coletiva baseado na ação individual. Daí a assumir que este sistema é eficiente, ou ótimo, foram conclusões pós-marginalismo.
