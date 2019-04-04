@@ -1,0 +1,114 @@
+---
+title: 'Cresc. da Produtividade dos Municípios Nordestinos: modelos defasados espacialmente'
+author: Rodrigo Volmir Anderle
+date: '2019-04-04'
+slug: cresc-da-produtividade-dos-municípios-nordestinos-modelos-defasados-espacialmente
+thumbnailImagePosition: "right"
+autoThumbnailImage: "images/CA.png"
+coverImage: "../../../images/CA.png"
+categories:
+  - Publicacoes
+tags:
+  - Academia
+  - Artigo
+  - Crescimento
+  - Economia
+  - Efeito Espacial
+  - Publicações
+  - R-Studio
+  - R-Tips
+  - revistas
+  - rstats
+---
+
+Este texto pretendia ser o último de uma série de textos que venho publicando para possibilitar a reprodução dos resultados do artigo baseado em minha dissertação de mestrado. 
+
+Digo pretendia, pois lembrei que tem mais uma aplicação que é em painel que foi solicitada pelos revisores da revista. Além disso, pretendo fazer outra postagem só sobre apresentação dos resultados e asua representação com tabelas e gráficos.
+
+# Links úteis
+
+ * Dissertação que originou o artigo, [aqui](https://repositorio.ufpe.br/handle/123456789/13903);
+ 
+ * Artigo publicado, [aqui](https://www.revistaaber.org.br/rberu/article/view/233);
+ 
+ * Resumo do que trata o artigo, [aqui](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/);
+ 
+ * Reprodução das análises de convergência absoluta e condicionada,[aqui](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/).
+ 
+ * [Neste texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/) é apresentado e aplicado o teste para identificar a dependência espacial no modelo.
+ 
+ * [Aqui](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/) foram feitos os testes para identificar o modelo mais adequado para a aplicação.
+
+
+# Pacotes necessários
+
+Neste texto só utilizarei o pacote do R para lidar com dependência espacial.
+
+```{r, message=FALSE, error=FALSE}
+library(spdep)
+```
+
+# Base de dados
+
+A base de dados mantém-se a mesma, asism como a matriz de vizinhan identificada [neste texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/).
+
+```{r, message=FALSE, error=FALSE}
+#Leitura da Base de Dados
+BASE <- read.csv("http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv"
+                 , header = T)
+
+#Leitura da matriz de vizinhança
+R1<-read.gal("https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/R1.gal"
+             ,BASE$MUN) 
+WR1<-nb2listw(R1) # ajuste necessário para utilização nas funções
+```
+
+
+# Modelo com defasagem espacial (SARMA)
+
+Como foi identificado no último [texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/), o modelo SARMA, com defesagem espacial na variável dependente, *rho*  e no termo de erro, *lambda*.
+
+```{r, message=FALSE, error=FALSE}
+# Modelo com defasagem espacial SARMA
+CC9110S<-sacsarlm(lng9110~lnProd1991+EMedio1991+Analf1991+Urb1991
+		+LnPop1991+Indus1991+Serv1991+Gini1991,
+		data = BASE,
+		listw = WR1)
+
+summary(CC9110S) #resultados
+```
+
+Como os resultados apontam, a defasagem espacial da variável dependente (crescimento da produtividade) apresenta um sinal negativo, enquanto que a do termo do erro, um sinal positivo. Isso significa que havaria um impacto negativo do crescimento da produtividade dos vizinhos na produtividade de cada município nordestino. Explico um pouco melhor essa discussão no [resumo do artigo](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/).
+
+
+
+# Hipótese dos Fatores Comuns
+
+Desagregando um pouco mais os efeitos espaciais, chegamos a hipótese dos fatores comuns sugerida por [Anselin(2003)](http://labs.bio.unc.edu/Buckley/documents/AnselinIntroSpatRegres.pdf).
+
+```{r, message=F, error=FALSE}
+CC9110DS<-sacsarlm(lng9110 ~ lnProd1991 + EMedio1991 + Analf1991 +Urb1991
+		+LnPop1991+Indus1991+Serv1991+Gini1991,
+		data = BASE, 
+		listw = WR1,
+		 type="sacmixed")
+
+summary(CC9110DS) #resultados
+```
+
+Este modelo insere uma defasagem espacial para cada variável explicativa, além das defasagens no termo de erro e da variável dependente. A primeira constatação é que os sinais do *rho* e do *lambda* se invertem. Por isso do termo "fatores comuns", quando defasadas as variáveis de controle, o impacto da produtividade da vizinhança deixa de ser negativo, sugerindo que aquele sinal negativo era, na verdade, o resultado da concorrência dos fatores produtivos na vizinhança. Isso significa que, mesmo municípios "pouco desenvolvidos", recebem impactos positivos de vizinhança.
+
+# Qual o modelo mais ajustado?
+
+Um claro problema gerado pelo último modelo é que temos resultados conflitantes. Nesse sentido, precisamos qual dos modelos tem melhor ajuste. Mais uma vez com base em [Anselin(2003)](http://labs.bio.unc.edu/Buckley/documents/AnselinIntroSpatRegres.pdf), realizamos o teste de razão de verossimilhança (*Likelikhood ratio*) descrito abaixo. O modelo com maior valor de *Log likelihood* é o de melhor ajuste.
+
+
+```{r}
+durbin9110<- LR.sarlm(CC9110DS,CC9110S)
+print(durbin9110)
+```
+
+
+# Observações
+
+Em virtude do tempo não me dediquei muito na apresentação dos resultados. Mais adiante, pretendo fazer uma apresentação dos resultados de forma mais completa.
