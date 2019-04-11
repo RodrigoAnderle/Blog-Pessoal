@@ -23,7 +23,7 @@ tags:
 
 Este texto pretendia ser o último de uma série de textos que venho publicando para possibilitar a reprodução dos resultados do artigo baseado em minha dissertação de mestrado. 
 
-Digo pretendia, pois lembrei que tem mais uma aplicação que é em painel que foi solicitada pelos revisores da revista. Além disso, pretendo fazer outra postagem só sobre apresentação dos resultados e asua representação com tabelas e gráficos.
+Digo pretendia, pois lembrei que tem mais uma aplicação, um painel, que foi solicitada pelos revisores da revista. Além disso, pretendo fazer outra postagem só sobre apresentação dos resultados e a sua representação com tabelas e gráficos.
 
 # Links úteis
 
@@ -42,7 +42,7 @@ Digo pretendia, pois lembrei que tem mais uma aplicação que é em painel que f
 
 # Pacotes necessários
 
-Neste texto só utilizarei o pacote do R para lidar com dependência espacial.
+Neste texto só utilizarei o pacote `spdep` do R, para lidar com dependência espacial.
 
 ```{r, message=FALSE, error=FALSE}
 library(spdep)
@@ -50,7 +50,7 @@ library(spdep)
 
 # Base de dados
 
-A base de dados mantém-se a mesma, asism como a matriz de vizinhan identificada [neste texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/).
+A base de dados mantém-se a mesma, asism como a matriz de vizinhança identificada [neste texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/).
 
 ```{r, message=FALSE, error=FALSE}
 #Leitura da Base de Dados
@@ -66,7 +66,7 @@ WR1<-nb2listw(R1) # ajuste necessário para utilização nas funções
 
 # Modelo com defasagem espacial (SARMA)
 
-Como foi identificado no último [texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/), o modelo SARMA, com defesagem espacial na variável dependente, *rho*  e no termo de erro, *lambda*.
+Como foi identificado no [último texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/), o modelo SARMA, com defesagem espacial na variável dependente (*rho*)  e no termo de erro (*lambda*).
 
 ```{r, message=FALSE, error=FALSE}
 # Modelo com defasagem espacial SARMA
@@ -78,7 +78,7 @@ CC9110S<-sacsarlm(lng9110~lnProd1991+EMedio1991+Analf1991+Urb1991
 summary(CC9110S) #resultados
 ```
 
-Como os resultados apontam, a defasagem espacial da variável dependente (crescimento da produtividade) apresenta um sinal negativo, enquanto que a do termo do erro, um sinal positivo. Isso significa que havaria um impacto negativo do crescimento da produtividade dos vizinhos na produtividade de cada município nordestino. Explico um pouco melhor essa discussão no [resumo do artigo](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/).
+Como os resultados apontam, a defasagem espacial da variável dependente (crescimento da produtividade) apresenta um sinal negativo, enquanto que a do termo do erro, um sinal positivo. Isso significa que havaria um impacto negativo do crescimento da produtividade dos vizinhos na produtividade de cada município nordestino, representado pelo sinal negativo de *rho*. Explico um pouco melhor essa interpretação no [resumo do artigo](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/).
 
 
 
@@ -96,11 +96,11 @@ CC9110DS<-sacsarlm(lng9110 ~ lnProd1991 + EMedio1991 + Analf1991 +Urb1991
 summary(CC9110DS) #resultados
 ```
 
-Este modelo insere uma defasagem espacial para cada variável explicativa, além das defasagens no termo de erro e da variável dependente. A primeira constatação é que os sinais do *rho* e do *lambda* se invertem. Por isso do termo "fatores comuns", quando defasadas as variáveis de controle, o impacto da produtividade da vizinhança deixa de ser negativo, sugerindo que aquele sinal negativo era, na verdade, o resultado da concorrência dos fatores produtivos na vizinhança. Isso significa que, mesmo municípios "pouco desenvolvidos", recebem impactos positivos de vizinhança.
+Este modelo insere uma defasagem espacial para cada variável explicativa, os *lag's* que aparecem nos resultados, além das defasagens no termo de erro (*lambda*) e da variável dependente (*rho*). A primeira constatação é que os sinais do *rho* e do *lambda* se invertem. Por isso do termo "fatores comuns". Quando defasadas as variáveis de controle, o impacto da produtividade da vizinhança deixa de ser negativo, sugerindo que aquele sinal negativo era, na verdade, o resultado da concorrência dos fatores produtivos na vizinhança. Isso significa que, mesmo municípios "pouco desenvolvidos", recebem impactos positivos da vizinhança, mas sofrem uma concorrência pelos seus fatores produtivos.
 
 # Qual o modelo mais ajustado?
 
-Um claro problema gerado pelo último modelo é que temos resultados conflitantes. Nesse sentido, precisamos qual dos modelos tem melhor ajuste. Mais uma vez com base em [Anselin(2003)](http://labs.bio.unc.edu/Buckley/documents/AnselinIntroSpatRegres.pdf), realizamos o teste de razão de verossimilhança (*Likelikhood ratio*) descrito abaixo. O modelo com maior valor de *Log likelihood* é o de melhor ajuste.
+Um claro problema gerado pelo último modelo é que temos resultados conflitantes. Nesse sentido, precisamos saber qual dos modelos tem melhor ajuste. Mais uma vez foi seguida a orientação de  [Anselin(2003)](http://labs.bio.unc.edu/Buckley/documents/AnselinIntroSpatRegres.pdf) para a realização do teste de razão de verossimilhança (*Likelikhood ratio*) descrito abaixo. Em que o modelo com maior valor de *Log likelihood* é o de melhor ajuste.
 
 
 ```{r}
