@@ -3,6 +3,9 @@ title: 'Curtas #8 - Congressos e workshops, entre outras coisas'
 author: Rodrigo Volmir Anderle
 date: '2019-04-11'
 slug: curtas-8-congressos-e-workshops
+thumbnailImage: "images/Curtas.jpg"
+thumbnailImagePosition: left
+coverImage: "../../../images/Curtas.jpg"
 categories:
   - Curtas
 tags:

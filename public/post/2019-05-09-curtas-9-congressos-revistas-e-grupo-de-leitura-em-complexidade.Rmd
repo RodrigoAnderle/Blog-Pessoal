@@ -1,0 +1,99 @@
+---
+title: 'Curtas #9 - Congressos, Revistas e Grupo de Leitura em Complexidade'
+author: Rodrigo Volmir Anderle
+date: '2019-05-09'
+slug: curtas-9-congressos-revistas-e-grupo-de-leitura-em-complexidade
+thumbnailImage: "images/Curtas.jpg"
+thumbnailImagePosition: left
+coverImage: "../../../images/Curtas.jpg"
+categories:
+  - Curtas
+tags:
+  - Academia
+  - Artigo
+  - Complexidade
+  - congressos
+  - Economia
+  - Pesquisa
+  - Publicações
+  - revistas
+---
+
+Rotmando as publicações, trago algumas chamadas para trabalhos para congressos e uma revista, além de uma interessante iniciativa de um grupo de leitura em Complexidade. 
+
+# Congressos
+
+* [**XXI Congresso Brasileiro de Economia:**](http://www.cbe2019.com.br/) O congresso acontecerá nos dias 16, 17 e 18 de Outubro de 2019 na cidade de Florianópolis. O prazo final para submissão de trabalhos vai até o dia 1º de Julho. As área temáticas estão divididas em quatro blocos: Políticas Macroeconômicas, Desenvolvimento, Políticas Públicas e Relações e Inserção Internacional.
+
+* [**XIX International Finance Conference:**](http://www.internationalfinanceconference.org/ifc2019/en/home/) Ocorrerá entre os dias 11 e 14 de Setembro em Córdoba na Argentina. O prazo de submissão foi estendido até o dia 20 de Maio. São 16 áreas temáticas (veja no link).
+
+# Revistas
+
+* A Revista [**Textos de Economia**](https://periodicos.ufsc.br/index.php/economia/about/submissions#onlineSubmissions) comunica que estão abertas submissões de artigos originais que estejam dentro de seu foco e escopo para o número 2019.2. A revista é editada pela UFSC e conta com avaliação B5 no qualis Capes de economia. Segundo a própria revista:
+
+>"A Revista admite uma postura pluralista que possibilita a abordagem de diferentes correntes de pensamento econômico na publicação de artigos teóricos e aplicados na área de Economia e afins. Estes devem ser originais, inéditos e podem estar escritos em português, espanhol e inglês."
+
+# Grupo de Leitura
+
+No grupo de [***Complexity Economics*** do ***Young Scholars Initiative***](https://ysd.ineteconomics.org/workinggroup/complexity-economics/topic/5cc90967a64d3e4a70584dc1) foi anunciado o início de um grupo de leitura de introdução à complexidade. Neste, será discutido uma série de textos em diferentes módulos. As apresentações se iniciarão no dia 15 de Maio entre as 5hs e 6:30, horário da Índia. As apresentações estarão disponíveis na plataforma do YSI que pode ser acessada no link anterior. Abaixo detalho a programação e os textos a serem utilizados:
+
+**WEEK 1 / 2: MODULE 1: ABMs in Economics**
+
+*WEEK 1:*
+
+ * Schelling, Thomas C. "Dynamic models of segregation." Journal of mathematical sociology 1.2 (1971): 143-186.
+ 
+ * Bouchaud, J.-P. & Mézard, M. Wealth condensation in a simple model of the economy. Physica A: Statistical Mechanics and its Applications 282, 536–545 (2000).
+ 
+*WEEK 2:*
+
+ * Inoue, H. & Todo, Y. Firm-Level Simulation of Supply Chain Disruption Triggered by Actual and Predicted Earthquakes. SSRN Electronic Journal (2017). doi:10.2139/ssrn.3074997
+ 
+ * Carvalho, V. M., Nirei, M., Saito, Y. & Tahbaz-Salehi, A. Supply Chain Disruptions: Evidence from the Great East Japan Earthquake. (Social Science Research Network, 2016).
+
+**WEEK 3 / 4: MODULE 2: ABMs in Finance**
+
+*WEEK 3:*
+
+* Chapter 5: What do dealers do? in "The New Lombard Street" by Dr. Perry Mehrling
+
+* Farmer, J. D., Patelli, P. & Zovko, I. I. The Predictive Power of Zero Intelligence in Financial Markets. arXiv:cond-mat/0309233 (2003).
+    
+*WEEK 4:*
+
+* Gai, Prasanna, Andrew Haldane, and Sujit Kapadia. "Complexity, concentration and contagion." Journal of Monetary Economics 58.5 (2011): 453-470.
+
+* Klimek, Peter, et al. "To bail-out or to bail-in? Answers from an agent-based model." Journal of Economic Dynamics and Control 50 (2015): 144-154.
+
+**WEEK 5 / 6: MODULE 3: Economic evolution**
+
+*WEEK 5:*
+
+ * Friedman, Daniel. "On economic applications of evolutionary game theory." Journal of Evolutionary Economics 8.1 (1998): 15-43.
+ 
+ * Whitley, Darrell. “A Genetic Algorithm Tutorial.” (http://cobweb.cs.uga.edu/~potter/CompIntell/ga_tutorial.pdf)
+   
+*WEEK 6:*
+
+ * Chapter 9: Reluctant Entrepreneurs in "Poor Economics" (Carolina can photocopy)
+
+ * Bullshit Jobs by David Graeber (https://strikemag.org/bullshit-jobs/)
+
+**WEEK 7: MODULE 4: Technology evolution**
+
+ * Arthur, W. Brian. "Competing technologies, increasing returns, and lock-in by historical events." The economic journal 99.394 (1989): 116-131.
+ 
+ * McNerney, James, et al. "Role of design complexity in technology improvement." Proceedings of the National Academy of Sciences 108.22 (2011): 9008-9013.
+
+**WEEK 8 / 9:MODULE 5: Economic Networks**
+
+*WEEK 8:*
+
+ * Walter W. Powell, "Neither Market nor Hierarchy: Network Forms of Organization" (1989)
+ 
+ * Lyon, F. Trust, Networks and Norms: The Creation of Social Capital in Agricultural Economies in Ghana. World Development 28, 663–681 (2000).
+   
+*WEEK 9:*
+
+ * Penny Mealy, J. Doyne Farmer and Alexander Teytelboym "Interpreting Economic Complexity" Science Advances (2019)
+   
