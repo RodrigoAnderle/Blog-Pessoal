@@ -396,19 +396,19 @@ WR1&lt;-nb2listw(R1) # ajuste necessário para utilização nas funções</code>
 <p>Para transformar os dados em painel, é necessário inserir o ano de referência, o que não constava na minha base anterior e não fazia parte do plano inicial da pesquisa. Assim, tive que readequar a base para conseguir fazer uma análise em painel.</p>
 <p>O primeiro procedimento separa as variáveis em que o ano base é 1991. Em seguida, é adicionada a variável <code>ANO</code> e ajustados os nomes das variáveis. O segundo procedimento faz a mesma coisa para as variáveis com ano base 2000.</p>
 <p>Os últimos procedimentos são para unir novamente as bases numa só, com seus respectivos anos bases. Note que o ajuste no nome das variáveis foi necessário para que essa junção fosse possível. Por fim, a <em>BASE</em> é transformada em uma <code>pdata.frame</code>, uma base em painel, em que os índices são os Municípios (<code>MUN</code>) e os anos (<code>ANO</code>).</p>
-<pre class="r"><code>SB1991 &lt;-BASE[,c(1,3,5,8,10,12,14,16,18,20,22,30:38)]
+<pre class="r"><code>SB1991 &lt;-BASE[,c(2,4,6,9,11,13,15,17,19,21,23,31:39)]
   SB1991$ANO &lt;- 1991
   colnames(SB1991)&lt;- c(&quot;MUN&quot;,&quot;TAXA&quot;,&quot;PRODUT&quot;,&quot;ESCOL&quot;,&quot;EMED&quot;,&quot;URB&quot;,
-                       &quot;ANALF&quot;,&quot;GINI&quot;,&quot;LNPOP&quot;,&quot;INDUS&quot;,&quot;SERV&quot;,
-                       &quot;MA&quot;,&quot;PI&quot;,&quot;CE&quot;,&quot;RN&quot;,&quot;PB&quot;,&quot;PE&quot;,&quot;AL&quot;,&quot;SE&quot;,&quot;BA&quot;,
-                       &quot;ANO&quot;)
+                     &quot;ANALF&quot;,&quot;GINI&quot;,&quot;LNPOP&quot;,&quot;INDUS&quot;,&quot;SERV&quot;,
+                     &quot;MA&quot;,&quot;PI&quot;,&quot;CE&quot;,&quot;RN&quot;,&quot;PB&quot;,&quot;PE&quot;,&quot;AL&quot;,&quot;SE&quot;,&quot;BA&quot;,
+                     &quot;ANO&quot;)
 
-SB2000 &lt;- BASE[,c(1,4,6,9,11,13,15,17,19,21,23,30:38)]
+SB2000 &lt;- BASE[,c(2,5,7,10,12,14,16,18,20,22,24,31:39)]
   SB2000$ANO &lt;- 2000
   colnames(SB2000)&lt;- c(&quot;MUN&quot;,&quot;TAXA&quot;,&quot;PRODUT&quot;,&quot;ESCOL&quot;,&quot;EMED&quot;,&quot;URB&quot;,
-                       &quot;ANALF&quot;,&quot;GINI&quot;,&quot;LNPOP&quot;,&quot;INDUS&quot;,&quot;SERV&quot;,
-                       &quot;MA&quot;,&quot;PI&quot;,&quot;CE&quot;,&quot;RN&quot;,&quot;PB&quot;,&quot;PE&quot;,&quot;AL&quot;,&quot;SE&quot;,&quot;BA&quot;,
-                       &quot;ANO&quot;)
+                     &quot;ANALF&quot;,&quot;GINI&quot;,&quot;LNPOP&quot;,&quot;INDUS&quot;,&quot;SERV&quot;,
+                     &quot;MA&quot;,&quot;PI&quot;,&quot;CE&quot;,&quot;RN&quot;,&quot;PB&quot;,&quot;PE&quot;,&quot;AL&quot;,&quot;SE&quot;,&quot;BA&quot;,
+                     &quot;ANO&quot;)
 
 BASE &lt;- rbind(SB1991,SB2000)
 BASE &lt;- pdata.frame(BASE, index = c(&quot;MUN&quot;, &quot;ANO&quot;))</code></pre>
@@ -432,28 +432,29 @@ summary(plm_PIB)</code></pre>
 ## 
 ## Residuals:
 ##        Min.     1st Qu.      Median     3rd Qu.        Max. 
-## -5.9290e-01 -1.1702e-02  1.1102e-16  1.1702e-02  5.9290e-01 
+## -5.0526e-01 -1.5976e-02 -5.2042e-18  1.5976e-02  5.0526e-01 
 ## 
 ## Spatial error parameter:
-##     Estimate Std. Error t-value  Pr(&gt;|t|)    
-## rho -0.59447    0.04333  -13.72 &lt; 2.2e-16 ***
+##      Estimate Std. Error t-value  Pr(&gt;|t|)    
+## rho -0.619726   0.039211 -15.805 &lt; 2.2e-16 ***
 ## 
 ## Spatial autoregressive coefficient:
 ##        Estimate Std. Error t-value  Pr(&gt;|t|)    
-## lambda 0.841910   0.015227   55.29 &lt; 2.2e-16 ***
+## lambda 0.816149   0.013182  61.913 &lt; 2.2e-16 ***
 ## 
 ## Coefficients:
-##           Estimate  Std. Error t-value  Pr(&gt;|t|)    
-## PRODUT -0.02630914  0.00416699 -6.3137 2.724e-10 ***
-## EMED    0.00040754  0.00267561  0.1523 0.8789377    
-## ANALF  -0.02510560  0.00951554 -2.6384 0.0083303 ** 
-## URB    -0.00715438  0.00991732 -0.7214 0.4706614    
-## LNPOP   0.00677257  0.00184542  3.6699 0.0002426 ***
-## INDUS  -0.00265107  0.00179655 -1.4756 0.1400382    
-## SERV    0.06315457  0.02156496  2.9286 0.0034052 ** 
-## GINI   -0.03352909  0.02893489 -1.1588 0.2465470    
+##          Estimate Std. Error  t-value  Pr(&gt;|t|)    
+## PRODUT -0.1147395  0.0066562 -17.2381 &lt; 2.2e-16 ***
+## EMED    0.1097097  0.0302151   3.6310 0.0002824 ***
+## ANALF  -0.0679559  0.0169690  -4.0047 6.210e-05 ***
+## URB     0.0059893  0.0072540   0.8256 0.4090039    
+## LNPOP   0.0087238  0.0015611   5.5884 2.292e-08 ***
+## INDUS   0.0440414  0.0171928   2.5616 0.0104184 *  
+## SERV    0.1142844  0.0139220   8.2089 2.232e-16 ***
+## GINI   -0.1579501  0.0490972  -3.2171 0.0012950 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Note que, nos resultados, o sentido do <em>rho</em> e do <em>lambda</em> estão invertidos em relação a notação que eu utilizo no artigo e nos outros textos sobre as regressões. Assim, neste modelo o <em>rho</em> é o <em>Spatial error parameter</em> e o <em>lambda</em>, o <em>Spatial autoregressive coefficient</em>.</p>
 </div>
 <div id="modelo-durbin-spatial-em-painel" class="section level2">
 <h2>Modelo <em>Durbin Spatial</em> em painel</h2>
@@ -496,34 +497,34 @@ summary(Bplm_PIB)</code></pre>
 ## 
 ## Residuals:
 ##        Min.     1st Qu.      Median     3rd Qu.        Max. 
-## -5.8543e-01 -1.3933e-02 -1.0408e-17  1.3933e-02  5.8543e-01 
+## -4.9256e-01 -1.6030e-02  1.0408e-16  1.6030e-02  4.9256e-01 
 ## 
 ## Spatial error parameter:
 ##      Estimate Std. Error t-value  Pr(&gt;|t|)    
-## rho -0.616609   0.042577 -14.482 &lt; 2.2e-16 ***
+## rho -0.608342   0.039013 -15.593 &lt; 2.2e-16 ***
 ## 
 ## Spatial autoregressive coefficient:
 ##        Estimate Std. Error t-value  Pr(&gt;|t|)    
-## lambda 0.835384   0.015159  55.109 &lt; 2.2e-16 ***
+## lambda 0.807225   0.013152  61.377 &lt; 2.2e-16 ***
 ## 
 ## Coefficients:
-##            Estimate Std. Error t-value  Pr(&gt;|t|)    
-## PRODUT   -0.0312600  0.0044750 -6.9855 2.838e-12 ***
-## EMED     -0.0081240  0.0032424 -2.5055 0.0122263 *  
-## ANALF    -0.0351255  0.0127603 -2.7527 0.0059102 ** 
-## URB       0.0071361  0.0116163  0.6143 0.5390054    
-## LNPOP     0.0113454  0.0024720  4.5896 4.440e-06 ***
-## INDUS    -0.0094059  0.0025371 -3.7074 0.0002094 ***
-## SERV      0.0926982  0.0232935  3.9796 6.904e-05 ***
-## GINI     -0.1063517  0.0425541 -2.4992 0.0124471 *  
-## W_PRODUT  0.0179062  0.0093252  1.9202 0.0548331 .  
-## W_EMED    0.0116626  0.0050415  2.3133 0.0207057 *  
-## W_ANALF   0.0535539  0.0183441  2.9194 0.0035069 ** 
-## W_URB    -0.0225675  0.0181474 -1.2436 0.2136583    
-## W_LNPOP  -0.0050401  0.0035579 -1.4166 0.1565992    
-## W_INDUS   0.0078261  0.0032658  2.3964 0.0165569 *  
-## W_SERV   -0.1155360  0.0430036 -2.6867 0.0072170 ** 
-## W_GINI    0.1359709  0.0549150  2.4760 0.0132855 *  
+##            Estimate Std. Error  t-value  Pr(&gt;|t|)    
+## PRODUT   -0.1436938  0.0077005 -18.6603 &lt; 2.2e-16 ***
+## EMED      0.1350571  0.0333658   4.0478 5.171e-05 ***
+## ANALF    -0.0155788  0.0253487  -0.6146  0.538831    
+## URB       0.0240038  0.0088884   2.7006  0.006922 ** 
+## LNPOP     0.0096959  0.0018156   5.3404 9.274e-08 ***
+## INDUS     0.0586002  0.0204855   2.8606  0.004229 ** 
+## SERV      0.0787714  0.0182440   4.3177 1.577e-05 ***
+## GINI     -0.0140869  0.0607553  -0.2319  0.816644    
+## W_PRODUT  0.0717246  0.0096072   7.4657 8.285e-14 ***
+## W_EMED   -0.0329885  0.0588687  -0.5604  0.575225    
+## W_ANALF  -0.0478223  0.0348084  -1.3739  0.169481    
+## W_URB    -0.0199880  0.0140558  -1.4220  0.155013    
+## W_LNPOP  -0.0043202  0.0024792  -1.7426  0.081406 .  
+## W_INDUS  -0.0431155  0.0322902  -1.3352  0.181795    
+## W_SERV    0.0274103  0.0266508   1.0285  0.303715    
+## W_GINI   -0.2564099  0.0922404  -2.7798  0.005439 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -532,6 +533,8 @@ summary(Bplm_PIB)</code></pre>
 <h2>Considerações</h2>
 <p>Mais uma vez faço a ressalva que não pretendo discutir os resultados neste texto. A discussão já se encontra no <a href="https://www.revistaaber.org.br/rberu/article/view/233">artigo</a>. Assim, este texto se propõe a disponibilizar a programação utilizada e a base de dados, permitindo a reprodução.</p>
 <p>Para além destes textos que fiz (ver links úteis), tenho mais um que pretendo fazer que trata da apresentação dos resultados. Na dissertação e no artigo, a escolha foi por utilizar, majoritariamente, tabelas. Como pôde ser visto nos resultados acima, isso não torna muito claro os objetivos e os resultados do artigo. Por isso que pretendo fazer outro texto tratando somente da apresentação desses resultados.</p>
+<hr />
+<p><em>Observação: fiz uma correção no dia 21/06/2019, pois a transformação da base de dados para o formato em painel estava errada. Também adicionei a explicação de que, nestes modelos da função</em> <code>spml</code> <em>, os termos rho e lambda tem sentido inverso ao que eu utilizo no artigo, apesar deles especificarem que o rho é o “Spatial error parameter” e o lambda o “Spatial autoregressive coefficient”, isto pode confundir em uma leitura rápida - ainda mais quando você não fez nenhuma anotação a respeito :(.</em></p>
 </div>
 </div>
 
