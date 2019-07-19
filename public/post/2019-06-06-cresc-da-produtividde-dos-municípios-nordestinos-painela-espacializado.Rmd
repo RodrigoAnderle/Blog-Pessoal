@@ -1,0 +1,163 @@
+---
+title: 'Cresc. da Produtividde dos Municípios Nordestinos: Painel "Espacializado"'
+author: Rodrigo Volmir Anderle
+date: '2019-06-06'
+slug: cresc-da-produtividde-dos-municípios-nordestinos-painela-espacializado
+thumbnailImagePosition: right
+autoThumbnailImage: "images/CA.png"
+coverImage: "../../../images/CA.png"
+categories:
+  - Publicacoes
+tags:
+  - Academia
+  - Artigo
+  - Base de dados
+  - Crescimento
+  - Economia
+  - Efeito Espacial
+  - Geografia
+  - Pesquisa
+  - Publicações
+  - R-Studio
+  - R-Tips
+  - revistas
+---
+
+
+Continuando, mas ainda não finalizando, a reprodução do artigo baseado em minha dissertação de mestrado. Essa última regressão utilizada no artigo não fez parte da dissertação que o originou. Ela foi sugerida por um dos revisores. Na verdade, ela já havia sido sugerida quando apresentei uma versão desse artigo no congresso da [ANPEC](http://www.anpec.org.br/novosite/br/encontros), mas, na época, acabei não fazendo.
+
+# Links úteis
+
+ * Dissertação que originou o artigo, [aqui](https://repositorio.ufpe.br/handle/123456789/13903);
+ 
+ * Artigo publicado, [aqui](https://www.revistaaber.org.br/rberu/article/view/233);
+ 
+ * Resumo do que trata o artigo, [aqui](https://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/);
+ 
+ * Reprodução das análises de convergência absoluta e condicionada,[aqui](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/).
+ 
+ * [Neste texto](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/) é apresentado e aplicado o teste para identificar a dependência espacial no modelo.
+ 
+ * [Aqui](https://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/) foram feitos os testes para identificar o modelo mais adequado para a aplicação.
+ 
+ * [Este texto](https://anderlerv.netlify.com/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/) traz  as regressões dos modelos espacializados.
+
+# Pacotes necessários
+
+Para a regressão em painel utilizei dois pacotes adicionais ao `spedp`. O `plm`, que é para dados em painel e o `splm`, que é para dados em painel espacializados (*spatial*). Um pacote adicional que não havia utilizado, mas que o próprio R solicitou, foi o `spatialreg`.
+
+```{r, message = F,error = FALSE}
+library(spdep)
+library(plm)
+library(splm)
+library(spatialreg)
+```
+
+# Base de Dados
+
+A base de dados se mantém a mesma, bem como a matriz de vizinhança utilizada.
+
+```{r, message = FALSE, error = F, warning = F}
+#Leitura da Base de Dados
+BASE <- read.csv("http://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/NE1991.csv"
+                 , header = T)
+
+#Leitura da matriz de vizinhança
+R1<-read.gal("https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Fatores%20Espaciais%20Comuns%20(RBERU)/R1.gal"
+             ,BASE$MUN) 
+WR1<-nb2listw(R1) # ajuste necessário para utilização nas funções
+```
+
+## Transformando em Painel
+
+Para transformar os dados em painel, é necessário inserir o ano de referência, o que não constava na minha base anterior e não fazia parte do plano inicial da pesquisa. Assim, tive que readequar a base para conseguir fazer uma análise em painel.
+
+O primeiro procedimento separa as variáveis em que o ano base é 1991. Em seguida, é adicionada a variável `ANO` e ajustados os nomes das variáveis. O segundo procedimento faz a mesma coisa para as variáveis com ano base 2000.
+
+Os últimos procedimentos são para unir novamente as bases numa só, com seus respectivos anos bases. Note que o ajuste no nome das variáveis foi necessário para que essa junção fosse possível. Por fim, a *BASE* é transformada em uma `pdata.frame`, uma base em painel, em que os índices são os Municípios (`MUN`) e os anos (`ANO`).
+
+```{r, message = F, error = F,  warning = F}
+SB1991 <-BASE[,c(2,4,6,9,11,13,15,17,19,21,23,31:39)]
+  SB1991$ANO <- 1991
+  colnames(SB1991)<- c("MUN","TAXA","PRODUT","ESCOL","EMED","URB",
+                     "ANALF","GINI","LNPOP","INDUS","SERV",
+                     "MA","PI","CE","RN","PB","PE","AL","SE","BA",
+                     "ANO")
+
+SB2000 <- BASE[,c(2,5,7,10,12,14,16,18,20,22,24,31:39)]
+  SB2000$ANO <- 2000
+  colnames(SB2000)<- c("MUN","TAXA","PRODUT","ESCOL","EMED","URB",
+                     "ANALF","GINI","LNPOP","INDUS","SERV",
+                     "MA","PI","CE","RN","PB","PE","AL","SE","BA",
+                     "ANO")
+
+BASE <- rbind(SB1991,SB2000)
+BASE <- pdata.frame(BASE, index = c("MUN", "ANO"))
+```
+
+## Painel com efeito espacial
+
+Seriam duas as regressões possíveis. A primeira de efeitos fixos (*fixed effects*), ou seja, são fixados os municípios, assumindo que cada município tem um impacto determinado ao longo do tempo. E, a outra, de efeitos aleatórios (*random effects*), assumindo que eles não têm esse impacto. É possível testar qual modelo é mais ajustado, mas, a partir da discussão do artigo, claramente, a hipótese de efeitos fixos é a mais adequada para o problema de interesse. De toda forma, em meus rascunhos, fiz as duas e testei a de maior ajusteque é a que foi utilizada e é a que reproduzo abaixo:
+
+
+```{r, message = F, error = F, warning = F}
+
+#Efeitos fixos
+plm_PIB<- spml(TAXA ~ PRODUT + EMED + ANALF + URB + LNPOP + INDUS +
+                 SERV + GINI,data = BASE, listw = WR1, listw2 = WR1,
+               model = "within",lag = T, effect = "twoways",
+               spatial.error = "kkp")
+summary(plm_PIB)
+  
+```
+
+Note que, nos resultados, o sentido do *rho* e do *lambda* estão invertidos em relação a notação que eu utilizo no artigo e nos outros textos sobre as regressões. Assim, neste modelo o *rho* é o *Spatial error parameter* e o *lambda*, o *Spatial autoregressive coefficient*.
+
+## Modelo *Durbin Spatial* em painel
+
+O modelo Durbin espacial não tem uma função pre-determinada no pacote `splm`. Assim, foi necessário criar as defasagens espaciais manualmente para, em seguida, fazer a regressão. Estes são os procedimentos descritos a seguir.
+
+### Defasagem das explicativas
+
+Para criar a defasagem espacial foi utilizada a função `slag` que cria um *lag*, uma defasagem da variável em questão. Isso é mais comum em modelos de séries temporais, em que esse *lag* é dado no tempo. No nosso caso, esse *lag* é "espacial", dos vizinhos, com base em nossa matriz de vizinhança `WR1`.
+
+```{r, warning = F}
+### Inserindo defasagem espacial nas explicativas
+BASE$W_PRODUT <- slag(BASE$PRODUT,WR1)
+BASE$W_ESCOL <- slag(BASE$ESCOL,WR1)
+BASE$W_EMED <- slag(BASE$EMED,WR1)
+BASE$W_URB <- slag(BASE$URB,WR1)
+BASE$W_ANALF <- slag(BASE$ANALF,WR1)
+BASE$W_GINI <- slag(BASE$GINI,WR1)
+BASE$W_LNPOP <- slag(BASE$LNPOP,WR1)
+BASE$W_INDUS <- slag(BASE$INDUS,WR1)
+BASE$W_SERV <- slag(BASE$SERV,WR1)
+```
+
+### Modelo *Durbin Spatial* em painel
+
+A regressão em si é análoga a anterior do painel espacializado com efeito fixo.A exceção são os *lags* da vizinhança. 
+
+```{r, message = F, warning = F, error = F}
+
+#Efeitos Fixos
+Bplm_PIB<- spml(TAXA ~ PRODUT + EMED + ANALF + URB + LNPOP + INDUS +
+                 SERV + GINI + W_PRODUT + W_EMED + W_ANALF + W_URB +
+                  W_LNPOP + W_INDUS + W_SERV + W_GINI + W_PRODUT
+                ,data = BASE, listw = WR1, listw2 = WR1,
+               model = "within",lag = T, effect = "twoways",
+               spatial.error = "kkp")
+
+summary(Bplm_PIB)
+```
+
+## Considerações
+
+Mais uma vez faço a ressalva que não pretendo discutir os resultados neste texto. A discussão já se encontra no [artigo](https://www.revistaaber.org.br/rberu/article/view/233). Assim, este texto se propõe a disponibilizar a programação utilizada e a base de dados, permitindo a reprodução.
+
+Para além destes textos que fiz (ver links úteis), tenho mais um que pretendo fazer que trata da apresentação dos resultados. Na dissertação e no artigo, a escolha foi por utilizar, majoritariamente, tabelas. Como pôde ser visto nos resultados acima, isso não torna muito claro os objetivos e os resultados do artigo. Por isso que pretendo fazer outro texto tratando somente da apresentação desses resultados.
+
+
+***
+
+*Observação: fiz uma correção no dia 21/06/2019, pois a transformação da base de dados para o formato em painel estava errada. Também adicionei a explicação de que, nestes modelos da função* `spml` *, os termos rho e lambda tem sentido inverso ao que eu utilizo no artigo, apesar deles especificarem que o rho é o "Spatial error parameter" e o lambda o "Spatial autoregressive coefficient", isto pode confundir em uma leitura rápida  - ainda mais quando você não fez nenhuma anotação a respeito :(.*
