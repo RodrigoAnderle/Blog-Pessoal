@@ -4,37 +4,96 @@
   
   <url>
     <loc>/tags/academia/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/artigo/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/base-de-dados/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/crescimento/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/economia/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/efeito-espacial/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/geografia/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pesquisa/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/publicacoes/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/publica%C3%A7%C3%B5es/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/crescimento/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -49,48 +108,6 @@
   </url>
   
   <url>
-    <loc>/tags/economia/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/efeito-espacial/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/geografia/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pesquisa/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/publicacoes/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/publica%C3%A7%C3%B5es/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/r-studio/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -98,18 +115,6 @@
   
   <url>
     <loc>/tags/r-tips/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

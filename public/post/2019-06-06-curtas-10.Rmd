@@ -1,0 +1,34 @@
+---
+title: 'Curtas #10 - Chamada para congressos, revista e seleção para mestrao e doutorado acadêmico'
+author: Rodrigo Volmir Anderle
+date: '2019-06-06'
+slug: curtas-10
+thumbnailImage: "images/Curtas.jpg"
+thumbnailImagePosition: left
+coverImage: "../../../images/Curtas.jpg"
+categories:
+  - Curtas
+tags:
+  - Academia
+  - congressos
+  - Economia
+  - Publicações
+---
+
+Repassando alguns eventos e editais de que tive notícia.
+
+# Congressos
+
+[**41st Meeting of the Brazialian Econometric Society**](https://www.sbe.org.br/cpia-de-submisso-40ebe). Acontecerá entre os dias 10 e 13 de Dezembro em São Paulo (capital). O período de submissão de artigos se encerra no dia 22 de Julho.
+
+[**IV Encontro Nacional de Economia Industrial e Inovação - IV ENEI**](http://www.abein.org/iv-enei) acontecerá entre os dias 10 e 12 de Setembro em Campinas, São Paulo. O evento prorrogou o período de submissão de artigos para até o dia 10 de Junho. Em paralelo, também está aberto a submissão de pesquisas de "jovens" estudantes (incluindo doutorandos). Iniciativa promovida em parceria com o *Young Scholars Initiative (YSI)*. Mais detalhes [aqui](http://www.abein.org/iv-enei-young-scholars-iniciative-ysis).
+
+[**XI CONGRESSO ANUAL DA ABDE**](https://xicongressoabde.eventize.com.br/index.php?pagina=1). O congresso que abrange áreas do direito, economia e instituições, ocorrerá nos dias 13 e 14 de Setembro em Florianópolis e já conta com sua programação definida.
+
+# Revista
+
+A [**Revista Brasileira de Inteligência**](http://www.abin.gov.br/revista-brasileira-de-inteligencia/) abre o período para submissão de artigos para a sua 14º edição. O período se extende até o dia 27 de Julho. Mais informações no link.
+
+# Edital de Seleção para Mestrado e Doutorado Acadêmico
+
+O [**Programa de Pós-Graduação em Economia da UFBA**](https://ppgeconomia.ufba.br/editais-publicados), abriu edital de seleção para candidatos a mestrado e doutorado acadêmico nas áreas de Desenvolvimento e de Econommia Aplicada. As inscrições se encerram dia 4 de Outubro.
