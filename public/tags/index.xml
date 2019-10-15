@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,135 +14,153 @@
     <item>
       <title>Academia</title>
       <link>/tags/academia/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/academia/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Artigo</title>
-      <link>/tags/artigo/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/artigo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Base De Dados</title>
-      <link>/tags/base-de-dados/</link>
-      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/base-de-dados/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bolsas</title>
-      <link>/tags/bolsas/</link>
-      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/bolsas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Classes</title>
-      <link>/tags/classes/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/classes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Complexidade</title>
-      <link>/tags/complexidade/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/complexidade/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Congressos</title>
-      <link>/tags/congressos/</link>
-      <pubDate>Thu, 14 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/congressos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Crescimento</title>
-      <link>/tags/crescimento/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/crescimento/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Desigualdade</title>
-      <link>/tags/desigualdade/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/desigualdade/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Diversos</title>
-      <link>/tags/diversos/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/diversos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Economia</title>
       <link>/tags/economia/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/economia/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>R-Studio</title>
+      <link>/tags/r-studio/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-studio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebScraping</title>
+      <link>/tags/webscraping/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/webscraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rstats</title>
+      <link>/tags/rstats/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Artigo</title>
+      <link>/tags/artigo/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/artigo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Base de dados</title>
+      <link>/tags/base-de-dados/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/base-de-dados/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Crescimento</title>
+      <link>/tags/crescimento/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/crescimento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Efeito Espacial</title>
       <link>/tags/efeito-espacial/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/efeito-espacial/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Empregos</title>
-      <link>/tags/empregos/</link>
-      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/empregos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Financiamento</title>
-      <link>/tags/financiamento/</link>
-      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/financiamento/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Geografia</title>
       <link>/tags/geografia/</link>
-      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/geografia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pesquisa</title>
+      <link>/tags/pesquisa/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pesquisa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publicações</title>
+      <link>/tags/publica%C3%A7%C3%B5es/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/publica%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R-Tips</title>
+      <link>/tags/r-tips/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>congressos</title>
+      <link>/tags/congressos/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/congressos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>revistas</title>
+      <link>/tags/revistas/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/revistas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Complexidade</title>
+      <link>/tags/complexidade/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/complexidade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diversos</title>
+      <link>/tags/diversos/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/diversos/</guid>
       <description></description>
     </item>
     
@@ -156,74 +174,47 @@
     </item>
     
     <item>
-      <title>Pesquisa</title>
-      <link>/tags/pesquisa/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Financiamento</title>
+      <link>/tags/financiamento/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/pesquisa/</guid>
+      <guid>/tags/financiamento/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Pessoal</title>
-      <link>/tags/pessoal/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <title>bolsas</title>
+      <link>/tags/bolsas/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/pessoal/</guid>
+      <guid>/tags/bolsas/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Publicações</title>
-      <link>/tags/publica%C3%A7%C3%B5es/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Empregos</title>
+      <link>/tags/empregos/</link>
+      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/publica%C3%A7%C3%B5es/</guid>
+      <guid>/tags/empregos/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R Studio</title>
-      <link>/tags/r-studio/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      <title>Violência</title>
+      <link>/tags/viol%C3%AAncia/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-studio/</guid>
+      <guid>/tags/viol%C3%AAncia/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R Tips</title>
-      <link>/tags/r-tips/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      <title>desigualdade</title>
+      <link>/tags/desigualdade/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reportagens</title>
-      <link>/tags/reportagens/</link>
-      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/reportagens/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Revistas</title>
-      <link>/tags/revistas/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/revistas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rstats</title>
-      <link>/tags/rstats/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rstats/</guid>
+      <guid>/tags/desigualdade/</guid>
       <description></description>
     </item>
     
@@ -237,11 +228,29 @@
     </item>
     
     <item>
-      <title>Violência</title>
-      <link>/tags/viol%C3%AAncia/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Reportagens</title>
+      <link>/tags/reportagens/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/viol%C3%AAncia/</guid>
+      <guid>/tags/reportagens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pessoal</title>
+      <link>/tags/pessoal/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pessoal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>classes</title>
+      <link>/tags/classes/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/classes/</guid>
       <description></description>
     </item>
     
