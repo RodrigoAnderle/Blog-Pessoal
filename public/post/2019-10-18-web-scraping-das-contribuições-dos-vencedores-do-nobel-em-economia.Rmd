@@ -1,0 +1,148 @@
+---
+title: '"Web Scraping" das contribuições dos vencedores do Nobel em economia'
+author: Rodrigo Volmir Anderle
+date: '2019-10-18'
+slug: web-scraping-das-contribuições-dos-vencedores-do-nobel-em-economia
+thumbnailImage: "images/Rlogo.png"
+thumbnailImagePosition: right
+coverImage: "../../../images/Rlogo.png"
+categories:
+  - R
+tags:
+  - Academia
+  - Economia
+  - rstats
+  - R-Studio
+  - WebScraping
+keywords:
+  - tech
+---
+
+Então esse texto é um exercício, uma brincadeira, que havia feito um tempo atrás, mas acabei não disponibilizando. Assim, aproveitando os anúncios do Prêmio Nobel, resolvi colocar no ar, mesmo sem estar com o acabamento que eu gostaria. 
+
+Explicando do que se trata. Todo ano é anunciado um vencedor do prêmio Nobel em diversas categorias da ciência. Um prêmio pela sua produção científica, ou contribuição para a humanidade, nos casos da literatura e da paz. Mais informações podem ser encontradas em https://www.nobelprize.org/. Nesse mesmo site, é possível encontrar os vencedores de cada categoria ao longo dos anos. É aí que está o interesse deste texto. A ideia é olhar a lista de vencedores de [economia](https://www.nobelprize.org/prizes/lists/all-prizes-in-economic-sciences/) e fazer uma nuvem de palavras (*wordcloud*) do texto que traz a contribuição pela qual o pesquisador foi premiado. 
+
+# Referências
+
+Pois bem, não sou nenhuma assumidade em muitas das funções que utilizei aqui. Grande parte do que fiz foi baseado neste [guia para iniciantes em *Web Scraping*](https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/). É importante acessar esse site para entender o que vai ser fazeito. Inclusive, seria interessante instalar a extensão que ele utiliza. Além dele, utilizei [estas instruções](http://rstudio-pubs-static.s3.amazonaws.com/256588_57b585da6c054349825cba46685d8464.html#building-a-corpus) para "limpar" os dados. E, obviamente, utilizei o site do [Prêmio Nobel](https://www.nobelprize.org/prizes/lists/all-prizes-in-economic-sciences/) onde aparecem os vencedores das "Ciências" Econômicas.
+
+# Pacotes
+
+Os pacotes utilizados foram o `rvest` para a extração das informações em html. O `tidyverse` só para facilitar a vida. Para o *text mining* é necessário o pacote `tm` e, para agumas funções especiais de limpeza, o `qdapRegex`. Por fim, o `wordCloud` foi utilizado para produzir a "nuvem de palavras". Lembrando que, caso não tenha esses pacotes instalados é necessário fazê-lo com o `install.packages`.
+
+```{r, message=F, error=FALSE, warning=FALSE}
+require(rvest)
+require(tidyverse)
+require(tm)
+require(qdapRegex)
+require(wordcloud)
+```
+
+# Aplicação
+
+Primeiro é necessário fazer a leitura do caminho do site. Sugiro dar uma olhada antes no site que vamos carregar e explorar com a extensão sugerida no site referenciado, será mais fácil de entender.
+
+```{r}
+NOBEL <- read_html(
+  "https://www.nobelprize.org/prizes/lists/all-prizes-in-economic-sciences/")
+```
+
+Dessa parte é só isso! :)
+
+## Vencedores
+
+Agora, vamos separar os vencedores. Note que foi utilizado a página lida (`NOBEL`) que foi separada por categorias: Primeiro, *".by_year"*, depois *"p"*, depois *"a"*. Essas são as categorias (*nodes*) da página em html. Encontrei essas informações utilizando o *plugin* do site de referência. Também é possível chegar a esses termos utilizando a tecla *F12* e procurando, mas é mais complicado.
+
+```{r}
+Ganhadores <- NOBEL %>%
+  html_nodes(".by_year") %>%
+  html_nodes("p") %>%
+  html_nodes("a") %>%
+  html_text()
+```
+
+Assim, temos os ganhadores. Abaixo visualizamos os 40 últimos.
+
+```{r}
+Ganhadores[1:40]
+```
+
+A utilidade deles para nossa "análise" será para remover os seus nomes da descrição, pois eles podem contagiar a nuvem de palavras. Por exemplo, numa primeira tentativa que fiz, uma das palavras mais usadas era *Robert*.
+
+## Nuvem de Palavras
+
+Separei essa parte em três etapas:
+
+### Leitura dos dados
+
+Abaixo, para obter a descrição é o mesmo código dos ganhadores, com exceção do `html_nodes("a")` que corresponde a separação dos vencedores. No caso, essa separação é possível por que os vencedores estão linkados para outra página e por isso eles estão separados pelo nó `"a"`.
+
+```{r}
+DESC <- NOBEL %>%
+          html_nodes(".by_year") %>%
+            html_nodes("p") %>%
+              html_text()
+```
+
+Você pode dar uma olhada nas descrições abaixo:
+
+```{r}
+head(DESC)
+```
+
+Como você pode observar há uma série de informações que não são relevantes para uma nuvem de palavras, como as ditas *stop words*, os nomes dos autores, vírgulas, aspas e assim por diante...
+
+### Limpeza dos dados
+
+Para a retirada desses termos "desnecessários" para nossa análise, devem ser feitos os seguintes procedimentos.
+
+```{r}
+#removendo nome dos ganhadores
+DESC <- removeWords(DESC,Ganhadores) 
+# do pacote qdap
+DESC <- rm_bracket_multiple(DESC, replacement = "") #retira parênteses
+DESC <- rm_abbreviation(DESC) # retira abreviação (não era muito necessário)
+DESC <- rm_non_words(DESC) # retira aquilo que não são palavras
+# do pacote tm
+DESC <- tolower(DESC) # coloca tudo em minusculo
+DESC <- removePunctuation(DESC) # remove a pontuação
+DESC <- removeNumbers(DESC) # retira números
+# Remover nome dos ganhadores e conectores
+DESC <- removeWords(DESC,c(stopwords("en"), 
+                           "economic", "analysis", "theory",
+                           "economics", "analyses", "research",
+                           "contributions", "analyzing")) # retirando stopwords
+DESC <- stripWhitespace(DESC) #retirando espaços em branco
+```
+
+Acho que preciso estender um pouco mais as explicações. Aqui, a sequência dos procedimentos interfere no resultados. Por exemplo, no meu rascunho, havia começado pela remoção de espaços em branco e retirava o restante das "coisas" depois. Acontecia que chegava ao final da rotina cheio de espaços em branco. A saber, isso interfere no resultado, pois cada dois espaços em branco definem um objeto, assim três espaços em branco, contabilizaria um espaço em branco como uma palavra.
+
+Em seguida, utilizei algumas funções do `qdap` que fiquei sabendo em uma das referências que citei lá no começo. Entretanto, se você reparar, o pacote que carregado é o `qdapRegex` que é outro. Não sei exatamente qual a relação deles, só busquei as funções de que precisava de forma um tanto acrítica (sempre questionável). Tive que encontrar uma função que não era sugerida na referência que consultei, a `rm_non_words`. Isso por que os dados que carreguei possuíam uma aspa que não era removida nas outras funções. 
+
+Acredito que o uso dessa função praticamente torna desnecessárias as funções de remover pontuação e números, mas deixei ali para lembrar dessas funções quando for necessário. 
+
+Por fim, removi, além das *stop words* (conectores como *and, to, however...*) e a expressão *economic*, *analysis* e *theory* (e suas variações) que eram bastante citadas, mas que não querem dizer muita coisa nesse caso.
+
+### O gráfico!
+
+Enfim, o gráfico. Receio que não seja nada muito empolgante. É um claro caso de que a jornada é mais interessante que o destino final.
+
+```{r, error=FALSE, warning=FALSE}
+wordcloud(DESC)
+```
+
+Daí concluímos que os vencedores do Nobel em economia, segundo seus organizadores, possuem trabalhos pioneiros, grande parte em desenvolvimento, mas também interessados em métodos, trabalhos empíricos, políticas e macroeconomia. Nenhum grande achado aqui.
+
+Enfim, isso foi um exercício. Abaixo eu listo algumas das coisas que podem ser feitas a mais e que eu gostaria de fazer, mas vai ficar para o ano que vem.
+
+# Futuros desenvolvimentos
+
+Parte do por que não tinha disponibilizado isso ainda é que é meio sem graça. Com essa constatação em mente, comecei a buscar coisas mais elaboradas. Por exemplo, gostaria de relacionar os autores com os anos que foram nominados, mas há uma dificuldade nisso, pois não consigo automatizar esse processo. Teria que olhar e colocar os anos na mão, o que me desmotivou um pouco. 
+
+Outra coisa seria relacionar os autores, os anos e a descrição. Tudo isso para poder gerar uma nuvem ao longo do tempo, com uma animação. Afinal, tudo fica mais legal se for no formato de um *GIF*. Além do problema do ano, essa formulação ficou complicada por que, em alguns anos, as descrições também são quebradas, o que demanda mais esforço manual.
+
+Uma alternativa seria pegar as informações no Wikipédia que estão tabeladas, mas não consegui encontrar o nó para ler a tabela da versão em inglês. Não consultei a versão em português, pois não sei se as funções de limpeza de dados tem extenção para lidar com o nosso idioma.
+
+Outra coisa que ficou por ser feita é de atribuir palavras compostas, como *economic theory*, *economic analysis*. Eu disse antes que elas não significam muita coisa, mas de fato significam sim. Além disso, faltou uma função para normalizar as palavras, pois nós temos *economic*, *economics*... Ela existe, ou existia, mas não consegui aplicar aqui. Alguma coisa relacionada com a versão do R.
+
+É isso, caso tenha alguma ideia para ajudar na elaboração, envia por email, ou escreve nos comentários. Além disso, sinta-se a vontade para explorar essas tentativas, só lembra de me referênciar também né ;)
