@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>Distribuição dos Parques Brasileiros para Fase de Instalação</title>
-      <link>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</link>
-      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</guid>
-      <description>Este texto apresenta um mapa dos parques tecnológicos brasileiros por fase de atividade, registrada até o ano de 2016, de acordo com o relatório disponibilizado via CGU e lei de acesso à informação. São três mapas classificados por fase de atividade em que cada ponto representa um parque tecnológico. A coloração reflete o ano de fundação declarado no relatório mencionado, mais avermelhada, mais antigo e, mais azulada, mais recente. O mapa foi gerado utilizando o pacote Plotly do R, o que possibilita alguma interação.</description>
-    </item>
-    
-    <item>
       <title>&#34;Web Scraping&#34; das contribuições dos vencedores do Nobel em economia</title>
       <link>/web-scraping-das-contribui%C3%A7%C3%B5es-dos-vencedores-do-nobel-em-economia/10/2019/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
