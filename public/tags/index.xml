@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Rodrigo Volmir Anderle</title>
@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Economia</title>
+      <link>/tags/economia/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/economia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geografia</title>
+      <link>/tags/geografia/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geografia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapas</title>
+      <link>/tags/mapas/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/mapas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plotly</title>
+      <link>/tags/plotly/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/plotly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R-Studio</title>
+      <link>/tags/r-studio/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-studio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rstats</title>
+      <link>/tags/rstats/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstats/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Academia</title>
@@ -21,38 +75,11 @@
     </item>
     
     <item>
-      <title>Economia</title>
-      <link>/tags/economia/</link>
-      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/economia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R-Studio</title>
-      <link>/tags/r-studio/</link>
-      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-studio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>WebScraping</title>
       <link>/tags/webscraping/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/webscraping/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rstats</title>
-      <link>/tags/rstats/</link>
-      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rstats/</guid>
       <description></description>
     </item>
     
@@ -93,15 +120,6 @@
     </item>
     
     <item>
-      <title>Geografia</title>
-      <link>/tags/geografia/</link>
-      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/geografia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Pesquisa</title>
       <link>/tags/pesquisa/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
@@ -120,20 +138,20 @@
     </item>
     
     <item>
-      <title>R-Tips</title>
-      <link>/tags/r-tips/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>congressos</title>
       <link>/tags/congressos/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/congressos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R-Tips</title>
+      <link>/tags/r-tips/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-tips/</guid>
       <description></description>
     </item>
     
@@ -165,11 +183,11 @@
     </item>
     
     <item>
-      <title>Mapas</title>
-      <link>/tags/mapas/</link>
-      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      <title>bolsas</title>
+      <link>/tags/bolsas/</link>
+      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/mapas/</guid>
+      <guid>/tags/bolsas/</guid>
       <description></description>
     </item>
     
@@ -183,15 +201,6 @@
     </item>
     
     <item>
-      <title>bolsas</title>
-      <link>/tags/bolsas/</link>
-      <pubDate>Thu, 06 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/bolsas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Empregos</title>
       <link>/tags/empregos/</link>
       <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
@@ -201,20 +210,20 @@
     </item>
     
     <item>
-      <title>Violência</title>
-      <link>/tags/viol%C3%AAncia/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/viol%C3%AAncia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>desigualdade</title>
       <link>/tags/desigualdade/</link>
       <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/desigualdade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Violência</title>
+      <link>/tags/viol%C3%AAncia/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/viol%C3%AAncia/</guid>
       <description></description>
     </item>
     
@@ -239,7 +248,7 @@
     <item>
       <title>Pessoal</title>
       <link>/tags/pessoal/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/pessoal/</guid>
       <description></description>

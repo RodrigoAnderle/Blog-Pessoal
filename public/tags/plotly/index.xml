@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plotly on Rodrigo Volmir Anderle</title>
+    <link>/tags/plotly/</link>
+    <description>Recent content in Plotly on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/plotly/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Distribuição dos Parques Brasileiros para Fase de Instalação</title>
+      <link>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</guid>
+      <description>Este texto apresenta um mapa dos parques tecnológicos brasileiros por fase de atividade, registrada até o ano de 2016, de acordo com o relatório disponibilizado via CGU e lei de acesso à informação. São três mapas classificados por fase de atividade em que cada ponto representa um parque tecnológico. A coloração reflete o ano de fundação declarado no relatório mencionado, mais avermelhada, mais antigo e, mais azulada, mais recente.</description>
+    </item>
+    
+    <item>
+      <title>Distribuição dos Parques Brasileiros para Fase de Instalação</title>
+      <link>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</guid>
+      <description>Este texto apresenta um mapa dos parques tecnológicos brasileiros por fase de atividade, registrada até o ano de 2016, de acordo com o relatório disponibilizado via CGU e lei de acesso à informação. São três mapas classificados por fase de atividade em que cada ponto representa um parque tecnológico. A coloração reflete o ano de fundação declarado no relatório mencionado, mais avermelhada, mais antigo e, mais azulada, mais recente. O mapa foi gerado utilizando o pacote Plotly do R, o que possibilita alguma interação.</description>
+    </item>
+    
+  </channel>
+</rss>
