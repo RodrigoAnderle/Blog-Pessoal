@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Base de Dados on Rodrigo Volmir Anderle</title>
-    <link>/categories/base-de-dados/</link>
+    <link>http://anderlerv.netlify.com/categories/base-de-dados/</link>
     <description>Recent content in Base de Dados on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/base-de-dados/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://anderlerv.netlify.com/categories/base-de-dados/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Base de dados: Homicídios</title>
-      <link>/base-de-dados-homic%C3%ADdios/10/2018/</link>
+      <link>http://anderlerv.netlify.com/base-de-dados-homic%C3%ADdios/10/2018/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/base-de-dados-homic%C3%ADdios/10/2018/</guid>
+      <guid>http://anderlerv.netlify.com/base-de-dados-homic%C3%ADdios/10/2018/</guid>
       <description>Este post é na verdade parte de um post que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse.
 Neste post específico está a construção da base de dados.</description>
     </item>
