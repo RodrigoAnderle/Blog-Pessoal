@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publicacoes on Rodrigo Volmir Anderle</title>
-    <link>http://anderlerv.netlify.com/categories/publicacoes/</link>
+    <link>/categories/publicacoes/</link>
     <description>Recent content in Publicacoes on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://anderlerv.netlify.com/categories/publicacoes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/publicacoes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Apresentação de Resultados</title>
-      <link>http://anderlerv.netlify.com/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</link>
+      <link>/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</guid>
+      <guid>/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</guid>
       <description>Este texto finaliza a série de textos que objetivava a reprodução dos resultados do artigo publicado, baseado em minha dissertação de mestrado.Entretanto,este texto não faz parte, nem da dissertação, nem do artigo. É um complemento que faço como sugestão para melhorar a apresentação dos resultados.
 Links úteisComo aqui só apresentarei os resultados, sem muita discussão, seguem os links do que já foi apresentado.
 Dissertação que originou o artigo, aqui;</description>
@@ -24,10 +24,10 @@ Links úteisComo aqui só apresentarei os resultados, sem muita discussão, seg
     
     <item>
       <title>Cresc. da Produtividde dos Municípios Nordestinos: Painel &#34;Espacializado&#34;</title>
-      <link>http://anderlerv.netlify.com/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</link>
+      <link>/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</guid>
+      <guid>/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</guid>
       <description>Continuando, mas ainda não finalizando, a reprodução do artigo baseado em minha dissertação de mestrado. Essa última regressão utilizada no artigo não fez parte da dissertação que o originou. Ela foi sugerida por um dos revisores. Na verdade, ela já havia sido sugerida quando apresentei uma versão desse artigo no congresso da ANPEC, mas, na época, acabei não fazendo.
 Links úteisDissertação que originou o artigo, aqui;
 Artigo publicado, aqui;</description>
@@ -35,10 +35,10 @@ Links úteisDissertação que originou o artigo, aqui;
     
     <item>
       <title>Cresc. da Produtividade dos Municípios Nordestinos: modelos defasados espacialmente</title>
-      <link>http://anderlerv.netlify.com/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/</link>
+      <link>/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/</link>
       <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/</guid>
+      <guid>/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/</guid>
       <description>Este texto pretendia ser o último de uma série de textos que venho publicando para possibilitar a reprodução dos resultados do artigo baseado em minha dissertação de mestrado.
 Digo pretendia, pois lembrei que tem mais uma aplicação, um painel, que foi solicitada pelos revisores da revista. Além disso, pretendo fazer outra postagem só sobre apresentação dos resultados e a sua representação com tabelas e gráficos.
 Links úteisDissertação que originou o artigo, aqui;</description>
@@ -46,10 +46,10 @@ Links úteisDissertação que originou o artigo, aqui;</description>
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: Modelos para Dependência Espacial</title>
-      <link>http://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</link>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</link>
       <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</guid>
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-para-depend%C3%AAncia-espacial/03/2019/</guid>
       <description>Sigo a reprodução do artigo baseado em minha dissertação de mestrado. Acredito que, além deste, irei publicar só mais um texto e encerro esta série. Adianto um ensinamento desta experiência que é já deixar o material em um formato de fácil reprodução, pois tem sido trabalhoso todo esse esforço.
 Recapitulando o que já foi discutido, segue uma série de links:
  Dissertação que originou o artigo, aqui;
@@ -58,10 +58,10 @@ Recapitulando o que já foi discutido, segue uma série de links:
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: dependência espacial</title>
-      <link>http://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</link>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</link>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</guid>
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-depend%C3%AAncia-espacial/12/2018/</guid>
       <description>Continuando a reprodução do artigo. No último texto que fiz a respeito, mostrei as regressões para identificar convergência absoluta e condicionada. Neste texto pretendo demonstrar como proceder para realizar os testes de identificação da dependência espacial nessas convergências.
 Antes de continuar, vou deixar uma sequência de links para facilitar o acompanhamento do que está sendo feito.
  Dissertação que originou o artigo, aqui;
@@ -71,20 +71,20 @@ Antes de continuar, vou deixar uma sequência de links para facilitar o acompanh
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: Convergência Absoluta  e Condicionada</title>
-      <link>http://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</link>
+      <link>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</link>
       <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</guid>
+      <guid>/crescimento-da-produtividade-dos-munic%C3%ADpios-nordestinos-converg%C3%AAncia-absoluta-e-condicionada/10/2018/</guid>
       <description>Apresentação Estou prometendo disponibilizar os scripts para reprodução do artigo baseado em minha dissertação, mas tem sido complicado. Decidi que para conseguir cumprir esse objetivo terei que dividir a tarefa. Assim, serão três posts contando este. Os próximos apresentarão os testes para dependência espacial e os modelos e o último tratará dos efeitos espaciais comuns. Um resumo do que trata o artigo pode ser encontrado aqui.
 Base de dados Para fazer a dissertação e, consequentemente, o artigo, utilizei dados dos municípios nordestinos dos Censos de 1991, 2000 e 2010.</description>
     </item>
     
     <item>
       <title>Uma discussão a respeito do crescimento econômico dos municípios do Nordeste brasileiro</title>
-      <link>http://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/</link>
+      <link>/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/</link>
       <pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/</guid>
+      <guid>/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/</guid>
       <description>Contextualizando Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja aqui). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação.
 Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes insights.</description>
     </item>

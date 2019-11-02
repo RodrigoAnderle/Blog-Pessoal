@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Rodrigo Volmir Anderle</title>
-    <link>http://anderlerv.netlify.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 02 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://anderlerv.netlify.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tese</title>
-      <link>http://anderlerv.netlify.com/categories/tese/</link>
+      <link>/categories/tese/</link>
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/tese/</guid>
+      <guid>/categories/tese/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>http://anderlerv.netlify.com/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Publicacoes</title>
-      <link>http://anderlerv.netlify.com/categories/publicacoes/</link>
+      <link>/categories/publicacoes/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/publicacoes/</guid>
+      <guid>/categories/publicacoes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Curtas</title>
-      <link>http://anderlerv.netlify.com/categories/curtas/</link>
+      <link>/categories/curtas/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/curtas/</guid>
+      <guid>/categories/curtas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fichamentos</title>
-      <link>http://anderlerv.netlify.com/categories/fichamentos/</link>
+      <link>/categories/fichamentos/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/fichamentos/</guid>
+      <guid>/categories/fichamentos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exercicios</title>
-      <link>http://anderlerv.netlify.com/categories/exercicios/</link>
+      <link>/categories/exercicios/</link>
       <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/exercicios/</guid>
+      <guid>/categories/exercicios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Base de Dados</title>
-      <link>http://anderlerv.netlify.com/categories/base-de-dados/</link>
+      <link>/categories/base-de-dados/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/base-de-dados/</guid>
+      <guid>/categories/base-de-dados/</guid>
       <description></description>
     </item>
     
     <item>
       <title>economiaSG</title>
-      <link>http://anderlerv.netlify.com/categories/economiasg/</link>
+      <link>/categories/economiasg/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/economiasg/</guid>
+      <guid>/categories/economiasg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blog</title>
-      <link>http://anderlerv.netlify.com/categories/blog/</link>
+      <link>/categories/blog/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/categories/blog/</guid>
+      <guid>/categories/blog/</guid>
       <description></description>
     </item>
     

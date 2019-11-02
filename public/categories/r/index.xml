@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Rodrigo Volmir Anderle</title>
-    <link>http://anderlerv.netlify.com/categories/r/</link>
+    <link>/categories/r/</link>
     <description>Recent content in R on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://anderlerv.netlify.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>&#34;Web Scraping&#34; das contribuições dos vencedores do Nobel em economia</title>
-      <link>http://anderlerv.netlify.com/web-scraping-das-contribui%C3%A7%C3%B5es-dos-vencedores-do-nobel-em-economia/10/2019/</link>
+      <link>/web-scraping-das-contribui%C3%A7%C3%B5es-dos-vencedores-do-nobel-em-economia/10/2019/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/web-scraping-das-contribui%C3%A7%C3%B5es-dos-vencedores-do-nobel-em-economia/10/2019/</guid>
+      <guid>/web-scraping-das-contribui%C3%A7%C3%B5es-dos-vencedores-do-nobel-em-economia/10/2019/</guid>
       <description>Então esse texto é um exercício, uma brincadeira, que havia feito um tempo atrás, mas acabei não disponibilizando. Assim, aproveitando os anúncios do Prêmio Nobel, resolvi colocar no ar, mesmo sem estar com o acabamento que eu gostaria.
 Explicando do que se trata. Todo ano é anunciado um vencedor do prêmio Nobel em diversas categorias da ciência. Um prêmio pela sua produção científica, ou contribuição para a humanidade, nos casos da literatura e da paz.</description>
     </item>
     
     <item>
       <title>Mapas com &#39;brazilmaps&#39;</title>
-      <link>http://anderlerv.netlify.com/mapas-com-brazilmaps/01/2019/</link>
+      <link>/mapas-com-brazilmaps/01/2019/</link>
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/mapas-com-brazilmaps/01/2019/</guid>
+      <guid>/mapas-com-brazilmaps/01/2019/</guid>
       <description>O objetivo deste texto é buscar um shapfile do mapa do brazil com os municípios e descobrir como vincular dados para exposição gráfica.
 Após uma rápida pesquisa, encontrei, no google, o pacote brazilmaps com mapas do Brasil de 2016, disponibilizados pelo IBGE.
 São três funções que parecem ser as mais utilizáveis: get_brmap, join_data e plot_brmap. Junto com o pacote, existem alguns dados em formato facilitado para vincular ao mapa.</description>
@@ -34,10 +34,10 @@ São três funções que parecem ser as mais utilizáveis: get_brmap, join_data 
     
     <item>
       <title>Tabelas com &#34;Stargazer&#34;</title>
-      <link>http://anderlerv.netlify.com/tabelas-com-stargazer/10/2018/</link>
+      <link>/tabelas-com-stargazer/10/2018/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://anderlerv.netlify.com/tabelas-com-stargazer/10/2018/</guid>
+      <guid>/tabelas-com-stargazer/10/2018/</guid>
       <description>Após minha última publicação apressada, percebi que precisava parar para dar uma estudada melhor na produção de tabelas no R. Assim, este texto pretente apresentar o pacote stargazer do R, que foi elaborado para disponibilizar a formulação de tabelas. Tanto de estatísticas descritivas, quanto de resultados de regressões.
 Partindo para as aplicações, primeiro é necessário instalar e carregar o pacote.
 #install.packages(&amp;quot;stargazer&amp;quot;) library(stargazer)  ## ## Please cite as:  ## Hlavac, Marek (2018).</description>
