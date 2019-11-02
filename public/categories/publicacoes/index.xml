@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publicacoes on Rodrigo Volmir Anderle</title>
@@ -6,10 +6,43 @@
     <description>Recent content in Publicacoes on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/publicacoes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apresentação de Resultados</title>
+      <link>/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/apresenta%C3%A7%C3%A3o-de-resultados/07/2019/</guid>
+      <description>Este texto finaliza a série de textos que objetivava a reprodução dos resultados do artigo publicado, baseado em minha dissertação de mestrado.Entretanto,este texto não faz parte, nem da dissertação, nem do artigo. É um complemento que faço como sugestão para melhorar a apresentação dos resultados.
+Links úteisComo aqui só apresentarei os resultados, sem muita discussão, seguem os links do que já foi apresentado.
+Dissertação que originou o artigo, aqui;</description>
+    </item>
+    
+    <item>
+      <title>Cresc. da Produtividde dos Municípios Nordestinos: Painel &#34;Espacializado&#34;</title>
+      <link>/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/cresc-da-produtividde-dos-munic%C3%ADpios-nordestinos-painela-espacializado/06/2019/</guid>
+      <description>Continuando, mas ainda não finalizando, a reprodução do artigo baseado em minha dissertação de mestrado. Essa última regressão utilizada no artigo não fez parte da dissertação que o originou. Ela foi sugerida por um dos revisores. Na verdade, ela já havia sido sugerida quando apresentei uma versão desse artigo no congresso da ANPEC, mas, na época, acabei não fazendo.
+Links úteisDissertação que originou o artigo, aqui;
+Artigo publicado, aqui;</description>
+    </item>
+    
+    <item>
+      <title>Cresc. da Produtividade dos Municípios Nordestinos: modelos defasados espacialmente</title>
+      <link>/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/</link>
+      <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/cresc-da-produtividade-dos-munic%C3%ADpios-nordestinos-modelos-defasados-espacialmente/04/2019/</guid>
+      <description>Este texto pretendia ser o último de uma série de textos que venho publicando para possibilitar a reprodução dos resultados do artigo baseado em minha dissertação de mestrado.
+Digo pretendia, pois lembrei que tem mais uma aplicação, um painel, que foi solicitada pelos revisores da revista. Além disso, pretendo fazer outra postagem só sobre apresentação dos resultados e a sua representação com tabelas e gráficos.
+Links úteisDissertação que originou o artigo, aqui;</description>
+    </item>
     
     <item>
       <title>Crescimento da Produtividade dos Municípios Nordestinos: Modelos para Dependência Espacial</title>
@@ -54,15 +87,6 @@ Base de dados Para fazer a dissertação e, consequentemente, o artigo, utilizei
       <guid>/uma-discuss%C3%A3o-a-respeito-do-crescimento-econ%C3%B4mico-dos-munic%C3%ADpios-do-nordeste-brasileiro/08/2018/</guid>
       <description>Contextualizando Este texto pretende explicar melhor o artigo que publiquei recentemente em parceria com meus orientadores (Veja aqui). Além de motivar a sua leitura, também pretendo fazer essa discussão como uma forma de divulgação.
 Uma ressalva Inicialmente preciso chamar a atenção sobre a fundamentação do artigo que é neoclássica. Isso significa que os modelos teóricos partem de uma série de pressupostos simplificadores. Hoje já não sou um entusiasta dessa visão, mas acredito que é um ponto de vista que permite alguns importantes insights.</description>
-    </item>
-    
-    <item>
-      <title>Minha primeira publicação e uma série de agradecimentos</title>
-      <link>/minha-primeira-publica%C3%A7%C3%A3o-e-uma-s%C3%A9rie-de-agradecimentos/07/2018/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/minha-primeira-publica%C3%A7%C3%A3o-e-uma-s%C3%A9rie-de-agradecimentos/07/2018/</guid>
-      <description>Minha primeira publicação Recentemente tive um artigo aceito para publicação na Revista Brasileira de Estudos Regionais e Urbanos e por acaso hoje saiu esta publicação da revista. Como deixei claro no título e no subtítulo deste post se trata da minha primeira publicação em revista/periódico científica (Veja aqui). Por enquanto estou a um abismo de distância de uma segunda publicação, mas o momento é de reconhecer o esforço feito e agradecer o auxílio e apoio de muitos.</description>
     </item>
     
   </channel>

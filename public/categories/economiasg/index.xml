@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Economiasg on Rodrigo Volmir Anderle</title>
+    <title>economiaSG on Rodrigo Volmir Anderle</title>
     <link>/categories/economiasg/</link>
-    <description>Recent content in Economiasg on Rodrigo Volmir Anderle</description>
+    <description>Recent content in economiaSG on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 Aug 2018 00:00:00 +0000</lastBuildDate>
@@ -37,8 +37,13 @@ Em uma manhã destas estava em uma aula e meu professor fez uma pergunta que res
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/sobre-abelhas-e-classes/06/2018/</guid>
-      <description>Sobre Abelhas e ClassesEste texto foi originalmente publicado em meu blog anterior &amp;quot;economiaSG&amp;quot;, no dia 3 de Dezembro de 2016. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria &amp;quot;economiaSG&amp;quot;
-Tenho tido um interesse na criação de abelhas. Na verdade, faz tempo que tenho este interesse, em particular nas abelhas nativas sem ferrão. Sempre fui um biólogo frustrado, então estes interesses excêntricos fazem parte do meu dia a dia.</description>
+      <description>
+
+
+&lt;div id=&#34;sobre-abelhas-e-classes&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Sobre Abelhas e Classes&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Este texto foi originalmente publicado em meu blog anterior &#34;economiaSG&#34;, no dia 3 de Dezembro de 2016. Alguns textos desta primeira experiência com blogs foram republicados aqui e podem ser encontrados na categoria &#34;economiaSG&#34;&lt;/code&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

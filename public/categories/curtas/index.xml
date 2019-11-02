@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Curtas on Rodrigo Volmir Anderle</title>
@@ -6,10 +6,41 @@
     <description>Recent content in Curtas on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/curtas/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Curtas #10 - Chamada para congressos, revista e seleção para mestrao e doutorado acadêmico</title>
+      <link>/curtas-10/06/2019/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/curtas-10/06/2019/</guid>
+      <description>Repassando alguns eventos e editais de que tive notícia.
+Congressos41st Meeting of the Brazialian Econometric Society. Acontecerá entre os dias 10 e 13 de Dezembro em São Paulo (capital). O período de submissão de artigos se encerra no dia 22 de Julho.
+IV Encontro Nacional de Economia Industrial e Inovação - IV ENEI acontecerá entre os dias 10 e 12 de Setembro em Campinas, São Paulo. O evento prorrogou o período de submissão de artigos para até o dia 10 de Junho.</description>
+    </item>
+    
+    <item>
+      <title>Curtas #9 - Congressos, Revistas e Grupo de Leitura em Complexidade</title>
+      <link>/curtas-9-congressos-revistas-e-grupo-de-leitura-em-complexidade/05/2019/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/curtas-9-congressos-revistas-e-grupo-de-leitura-em-complexidade/05/2019/</guid>
+      <description>Rotmando as publicações, trago algumas chamadas para trabalhos para congressos e uma revista, além de uma interessante iniciativa de um grupo de leitura em Complexidade.
+CongressosXXI Congresso Brasileiro de Economia: O congresso acontecerá nos dias 16, 17 e 18 de Outubro de 2019 na cidade de Florianópolis. O prazo final para submissão de trabalhos vai até o dia 1º de Julho. As área temáticas estão divididas em quatro blocos: Políticas Macroeconômicas, Desenvolvimento, Políticas Públicas e Relações e Inserção Internacional.</description>
+    </item>
+    
+    <item>
+      <title>Curtas #8 - Congressos e workshops, entre outras coisas</title>
+      <link>/curtas-8-congressos-e-workshops/04/2019/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/curtas-8-congressos-e-workshops/04/2019/</guid>
+      <description>Uma série de eventos no Brasil, Argentina, Espanha, Áustria e Itália, a serem realizados no segundo semestre estão com submissão ainda aberta. Além disso, há uma vaga de trabalho no Santa Fé Institute e um edital aberto para oferta de recursos.
+EmpregosO Instituto Santa Fé, localizado no Novo México, EUA, tem uma vaga para chefe de educação. Eles estão aceitando candidaturas até o dia 29 de Abril. Mais informações no link.</description>
+    </item>
     
     <item>
       <title>Curtas #7</title>
@@ -70,17 +101,6 @@ Revistas  CEPAL: Duas publicações que recebi por email, confesso que não as l
       
       <guid>/curtas-31-08-2018/08/2018/</guid>
       <description>Congressos  XL SODEBRAS (Soluções para o Desenvolvimento do País). Congresso acontecerá em Vitória-ES, entre os dias 10 e 12 de Dezembro. A submissão do resumo se encerra hoje, dia 31 de Agosto (foi mal, hehe), mas ainda dá para se inscrever como ouvinte. Os artigos aprovados comporão uma edição especial da revista SODEBRAS. Particularmente achei as taxas de inscrição e submissão proibitivas.   Chamada para Artigos  Revista de Estudos Sociais.</description>
-    </item>
-    
-    <item>
-      <title>Curtas - 24/08/2018</title>
-      <link>/curtas-24-08-2018/08/2018/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/curtas-24-08-2018/08/2018/</guid>
-      <description>Bolsas  Bolsa de Pós-Doutorado na UFRN, até 31/08/2018.  Textos  Interessante texto sobre a importância da clareza nas ideias para desenvolver melhor os pensamentos. De Paul Romer.
- Já este texto é de um colega de pós-graduação na UFBA em que faz uma discussão sobre o papel dos bancos como criadores de moeda, endividamento e estratégias de combate à crise financeira de 2007. Acesse aqui.
- Já neste texto de Paulo Gala trata das economias de aglomeração e dos efeitos de especialização.</description>
     </item>
     
   </channel>

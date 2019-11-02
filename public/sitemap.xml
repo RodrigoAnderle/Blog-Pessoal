@@ -1,6 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/distribui%C3%A7%C3%A3o-dos-parques-brasileiros-para-fase-de-instala%C3%A7%C3%A3o/11/2019/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/economia/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/geografia/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mapas/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/plotly/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-studio/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstats/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/tese/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>/web-scraping-das-contribui%C3%A7%C3%B5es-dos-vencedores-do-nobel-em-economia/10/2019/</loc>
@@ -10,61 +75,16 @@
   <url>
     <loc>/tags/academia/</loc>
     <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/economia/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
     <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-studio/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/webscraping/</loc>
     <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/rstats/</loc>
-    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -75,49 +95,41 @@
   <url>
     <loc>/tags/artigo/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/base-de-dados/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/crescimento/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/efeito-espacial/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/geografia/</loc>
-    <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/pesquisa/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/publicacoes/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/publica%C3%A7%C3%B5es/</loc>
     <lastmod>2019-07-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/congressos/</loc>
+    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -128,7 +140,6 @@
   <url>
     <loc>/categories/curtas/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -139,25 +150,16 @@
   <url>
     <loc>/tags/r-tips/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/congressos/</loc>
-    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/revistas/</loc>
     <lastmod>2019-06-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/complexidade/</loc>
     <lastmod>2019-05-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -173,7 +175,6 @@
   <url>
     <loc>/tags/diversos/</loc>
     <lastmod>2019-04-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -189,7 +190,6 @@
   <url>
     <loc>/categories/fichamentos/</loc>
     <lastmod>2019-03-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -208,12 +208,6 @@
   </url>
   
   <url>
-    <loc>/tags/mapas/</loc>
-    <lastmod>2019-01-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/mapas-com-brazilmaps/01/2019/</loc>
     <lastmod>2019-01-17T00:00:00+00:00</lastmod>
   </url>
@@ -224,6 +218,11 @@
   </url>
   
   <url>
+    <loc>/tags/bolsas/</loc>
+    <lastmod>2018-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/curtas-5-bolsa-financiamento-de-pesquisas-revistas-e-sele%C3%A7%C3%B5es-de-p%C3%B3s-gradua%C3%A7%C3%A3o/12/2018/</loc>
     <lastmod>2018-12-06T00:00:00+00:00</lastmod>
   </url>
@@ -231,13 +230,6 @@
   <url>
     <loc>/tags/financiamento/</loc>
     <lastmod>2018-12-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/bolsas/</loc>
-    <lastmod>2018-12-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -248,7 +240,6 @@
   <url>
     <loc>/tags/empregos/</loc>
     <lastmod>2018-11-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -257,38 +248,23 @@
   </url>
   
   <url>
+    <loc>/tags/desigualdade/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/exercicios/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/viol%C3%AAncia/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/desigualdade/</loc>
-    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/base-de-dados/</loc>
-    <lastmod>2018-10-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/base-de-dados-homic%C3%ADdios/10/2018/</loc>
-    <lastmod>2018-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/tabelas/</loc>
     <lastmod>2018-10-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -312,6 +288,11 @@
   </url>
   
   <url>
+    <loc>/categories/economiasg/</loc>
+    <lastmod>2018-08-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/por-que-a-solu%C3%A7%C3%A3o-%C3%A9-empreender/08/2018/</loc>
     <lastmod>2018-08-31T00:00:00+00:00</lastmod>
   </url>
@@ -319,18 +300,6 @@
   <url>
     <loc>/tags/reportagens/</loc>
     <lastmod>2018-08-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/economiasg/</loc>
-    <lastmod>2018-08-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/curtas-24-08-2018/08/2018/</loc>
-    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -344,20 +313,13 @@
   </url>
   
   <url>
-    <loc>/minha-primeira-publica%C3%A7%C3%A3o-e-uma-s%C3%A9rie-de-agradecimentos/07/2018/</loc>
-    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+    <loc>/categories/blog/</loc>
+    <lastmod>2018-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/pessoal/</loc>
-    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/blog/</loc>
     <lastmod>2018-07-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -371,19 +333,17 @@
   </url>
   
   <url>
+    <loc>/tags/classes/</loc>
+    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/sobre-abelhas-e-classes/06/2018/</loc>
     <lastmod>2018-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/classes/</loc>
-    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/archives/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
