@@ -1,0 +1,198 @@
+---
+title: 'Base de dados: Homicídios'
+author: Rodrigo Volmir Anderle
+date: '2018-10-25'
+thumbnailImage: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Postgres_Query.jpg/1024px-Postgres_Query.jpg
+thumbnailImagePosition: left
+coverImage: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Postgres_Query.jpg/1024px-Postgres_Query.jpg
+slug: base-de-dados-homicídios
+categories:
+  - Base de Dados
+tags:
+  - R-Studio
+  - Tabelas
+  - Base de dados
+  - Violência
+---
+
+Este *post* é na verdade parte de um *post* que, por sua vez, é parte de uma ideia. Tudo começou com discussões políticas a respeito da violência. Então resolvi dar uma olhada nos dados. No final das contas não encontrei as correlações que imaginava. De toda forma, como tive todo o trabalho de pesquisa e produção, vou deixar disponível para quem tiver interesse. 
+
+Neste *post* específico está a construção da base de dados. Os gráficos estão no outro [*post*](https://anderlerv.netlify.com/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/).
+
+Inicialmente é necessário carregar os seguintes pacotes:
+
+
+```{r, message=FALSE}
+library(tidyverse)
+library(reshape2)
+library(openxlsx)
+library(stargazer)
+```
+
+
+A base de dados que estou utilizando é a de homicídios por municípios, disponível no [atlas da violência](http://www.ipea.gov.br/atlasviolencia/). Escolhi a variável homicídios, pois era a única disponível por municípios. Além disso, é uma importante *proxy* para violência.
+
+
+```{r, results = 'asis'}
+HOM <- read.csv2(
+  "../../Municípios/Violência/homicidios-1996-01-15-2016-01-15.csv",
+  encoding = "UTF-8")
+stargazer(HOM, type = "html", digit.separator = "", digits = 0)
+```
+
+
+## População
+
+Em seguida, fui atrás dos dados populacionais, pois no atlas só tinham as opções de homicídios e taxa de homicídios. Pensando em retrospectiva, poderia ter calculado a população com essas informações, ao invés de ter feito todo o trabalho que vou mostrar em seguida. O consolo é que o burro é o que aprende mais. :-(
+
+De toda forma, foi o que fiz. Busquei as informações populacionais no [ipeadata](http://www.ipeadata.gov.br/Default.aspx).
+
+
+```{r, results='asis'}
+POP <- read.csv2("../../Municípios/População/ipeadata[11-10-2018-07-17].csv",
+                 skip = 1, encoding = "UTF-8")
+POP <- POP[,1:21]
+stargazer(POP[1:5,], type = "html", summary = F,
+          digit.separator = "", digits = 0)
+```
+
+
+Mais uma vez, pensando em retrospectiva, foi um trabalho desnecessário, mas seguimos. A base importada do ipeadata vem com os anos em colunas, isso não ajuda, pois na base *HOM*, os anos são uma variável só. Assim, tive que utilizar a função `melt` do pacote `reshape2` que faz esse trabalho de transformar colunas em uma única coluna. Infelizmente, também tive que inserir os anos em número, pois eles ficaram com o formato tipo: *X1998*.
+
+
+```{r, results = 'asis'}
+POP2 <- melt(POP, variable.name =  "Ano",
+              id.vars = c("Sigla", "Código", "Município"))
+POP2$Ano <- c(rep(1998,5596),rep(1999,5596),rep(2000,5596),
+              rep(2001,5596),rep(2002,5596),rep(2003,5596),
+              rep(2004,5596),rep(2005,5596),rep(2006,5596),
+              rep(2008,5596),rep(2009,5596),rep(2011,5596),
+              rep(2012,5596),rep(2013,5596),rep(2014,5596),
+              rep(2015,5596),rep(2016,5596),rep(2017,5596))
+stargazer(POP2[1:5,], summary = F,
+          type = "html", digit.separator = "", digits = 0)
+```
+
+
+Outro problema é que a base do IPEA não possui dados dos anos de 2007 e 2010. Para simplificar inseri a média aritimética dos anos de 2006 e 2008 no ano de 2007. Embora reconheça que isso está longe de ser uma metodologia adequada, acredito que ela gere poucos problemas.
+
+
+```{r, results='asis'}
+POPtemp <- POP2 %>% 
+  filter( Ano == 2006) %>%
+  select("Sigla","Código","Município")
+POPtemp$Ano <- 2007
+POPtemp$value <-  as.integer(
+  as.matrix((POP2 %>% filter(Ano == 2006) %>% select(value) +
+               POP2 %>% filter(Ano == 2008) %>% select(value))/2
+    ))
+  
+POP2 <- rbind(POP2,POPtemp)
+stargazer(POP2, type = "html", digit.separator = "", digits = 0)
+```
+
+
+Já para o ano de 2010, existe o censo de 2010. Assim, por mais que acredite que a média aritmética seja uma substituição simplificada que gere poucos prejuízos à análise, se existem dados censitários, é sempre melhor utilizá-los.
+
+Estes dados peguei no [atlas do desenvolvimento humano no Brasil](http://atlasbrasil.org.br/2013/). Haviam outras bases, como a do IBGE, mas meu problema era que precisava que a base viesse com os códigos dos municípios. Do contrário daria ainda mais trabalho para conseguir juntar tudo.
+
+Como importei os dados em formato Excel, utilizei a função `read.xlsx`, mas sinceramente é melhor transformar em "csv", pois a leitura é muito lenta.
+
+
+```{r, results='asis'}
+Pop2010 <- read.xlsx("../../Municípios/População/AtlasBrasil_Consulta.xlsx",
+                     sheet = 1)
+Pop2010 <- Pop2010 %>% 
+  filter( Código %in% POP2$Código) %>% 
+  mutate(Ano = 2010)
+
+colnames(Pop2010) <- c("Código", "Município", "value","Ano")
+
+POP2 <- select(POP2, Código, Município, Ano, value)
+Pop2010 <- select(Pop2010, Código, Município, Ano, value)
+POPtemp <- rbind(POP2,Pop2010)
+stargazer(POPtemp[1:5,], summary = F,
+          type = "html", digit.separator = "", digits = 0)
+```
+
+
+Agora é inserir os dados populacionais na tabela de homicídios.
+
+
+```{r}
+HOM <- merge(HOM, 
+             select(POPtemp, Código, Ano, value), 
+             by.x = c("cod","período"), 
+             by.y = c("Código", "Ano"), 
+             all.x = T, all.y = F)
+
+names(HOM) <- c("cod", "Ano","Município","Homicídios","População")
+```
+
+
+Para gerar a taxa de homicídios é necessário dividir os homicídios pela população e multiplicar por 100 mil. Assim a taxa representa a quantidade de homicídios por município a cada mil habitantes.
+
+
+```{r}
+HOM <- mutate(HOM, TaxaHom = (Homicídios / População)*100000)
+```
+
+
+## Estados
+
+
+  Outra informação que percebi que seria útil e estava faltando na base eram os estados dos municípios. Pensei em utilizar um *for loop*, mas ouvi dizer que o R não é adequado para tal utilização. Como já estava meio cansado, resolvi simplificar escrevendo um monte de linhas.
+
+  
+```{r}
+HOM$UF <- NA
+HOM$UF[HOM$cod < 1200000] <- "RO"         
+HOM$UF[HOM$cod < 1300000 & HOM$cod > 1200000] <- "AC"
+HOM$UF[HOM$cod < 1400000 & HOM$cod > 1300000] <- "AM"
+HOM$UF[HOM$cod < 1500000 & HOM$cod > 1400000] <- "RR"
+HOM$UF[HOM$cod < 1600000 & HOM$cod > 1500000] <- "PA"
+HOM$UF[HOM$cod < 1700000 & HOM$cod > 1600000] <- "AP"
+HOM$UF[HOM$cod < 1800000 & HOM$cod > 1700000] <- "TO"
+
+HOM$UF[HOM$cod < 2200000 & HOM$cod > 2100000] <- "MA"
+HOM$UF[HOM$cod < 2300000 & HOM$cod > 2200000] <- "PI"
+HOM$UF[HOM$cod < 2400000 & HOM$cod > 2300000] <- "CE"
+HOM$UF[HOM$cod < 2500000 & HOM$cod > 2400000] <- "RN"
+HOM$UF[HOM$cod < 2600000 & HOM$cod > 2500000] <- "PB"
+HOM$UF[HOM$cod < 2700000 & HOM$cod > 2600000] <- "PE"
+HOM$UF[HOM$cod < 2800000 & HOM$cod > 2700000] <- "AL"
+HOM$UF[HOM$cod < 2900000 & HOM$cod > 2800000] <- "SE"
+HOM$UF[HOM$cod < 3000000 & HOM$cod > 2900000] <- "BA"
+
+HOM$UF[HOM$cod < 3200000 & HOM$cod > 3100000] <- "MG"
+HOM$UF[HOM$cod < 3300000 & HOM$cod > 3200000] <- "ES"
+HOM$UF[HOM$cod < 3400000 & HOM$cod > 3300000] <- "RJ"
+HOM$UF[HOM$cod < 3600000 & HOM$cod > 3400000] <- "SP"
+
+HOM$UF[HOM$cod < 4200000 & HOM$cod > 4100000] <- "PR"
+HOM$UF[HOM$cod < 4300000 & HOM$cod > 4200000] <- "SC"
+HOM$UF[HOM$cod < 4400000 & HOM$cod > 4300000] <- "RS"
+
+HOM$UF[HOM$cod < 5100000 & HOM$cod > 5000000] <- "MS"
+HOM$UF[HOM$cod < 5200000 & HOM$cod > 5100000] <- "MT"
+HOM$UF[HOM$cod < 5300000 & HOM$cod > 5200000] <- "GO"
+HOM$UF[HOM$cod < 5400000 & HOM$cod > 5300000] <- "DF"
+  
+```
+  
+  
+E o mesmo para as regiões.
+
+
+```{r}
+HOM$Região <- NA
+HOM$Região[HOM$cod <2000000] <- "NORTE"
+HOM$Região[HOM$cod >2000000 & HOM$cod <3000000] <- "NORDESTE"
+HOM$Região[HOM$cod >3000000 & HOM$cod <4000000] <- "SUDESTE"
+HOM$Região[HOM$cod >4000000 & HOM$cod <5000000] <- "SUL"
+HOM$Região[HOM$cod >5000000 & HOM$cod <6000000] <- "CENTRO-OESTE"
+```
+
+Em seguida gerei a base de dados com a função `write.csv2` e a deixei disponível no meu [github](https://raw.githubusercontent.com/RodrigoAnderle/Artigos-Reproduz-veis/master/Homic%C3%ADdios1996-2016.csv).
+
+A leitura e alguns gráficos estão no outro [*post*](https://anderlerv.netlify.com/correla%C3%A7%C3%A3o-n%C3%A3o-%C3%A9-causalidade-mas-homic%C3%ADdios/10/2018/).

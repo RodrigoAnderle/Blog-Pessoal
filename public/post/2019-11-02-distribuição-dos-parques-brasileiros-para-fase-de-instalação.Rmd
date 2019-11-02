@@ -1,0 +1,166 @@
+---
+title: Distribuição dos Parques Brasileiros para Fase de Instalação
+author: Rodrigo Volmir Anderle
+date: '2019-11-02'
+slug: distribuição-dos-parques-brasileiros-para-fase-de-instalação
+categories: 
+- Tese
+thumbnailImage: "images/Rlogo.png"
+thumbnailImagePosition: left
+coverImage: "../../../images/Rlogo.png"
+tags:
+  - R-Studio
+  - Plotly
+  - rstats
+  - Mapas
+  - Economia
+  - Geografia
+keywords:
+  - tech
+---
+Este texto apresenta um mapa dos parques tecnológicos brasileiros por fase de atividade, registrada até o ano de 2016, de acordo com o relatório disponibilizado via [CGU e lei de acesso à informação](http://www.consultaesic.cgu.gov.br/busca/dados/Lists/Pedido/Attachments/516215/RESPOSTA_PEDIDO_Resposta%20PI%200904-2016%20PARQUES%20TECNOLGICOS-OUT2016%20-%20M%20V%20S.xls). São três mapas classificados por fase de atividade em que cada ponto representa um parque tecnológico. A coloração reflete o ano de fundação declarado no relatório mencionado, mais avermelhada, mais antigo e, mais azulada, mais recente. O mapa foi gerado utilizando o pacote *Plotly* do R, o que possibilita alguma interação. Assim, para obter mais informações a respeito de algum parque específico, basta passar o mouse em cima da figura, além das opções disponíveis na parte superior, ele contém informações específicas para cada ponto do mapa.
+
+```{r, error=FALSE, message=FALSE, warning=FALSE, echo=FALSE}
+
+require(brazilmaps)
+require(ggplot2)
+require(sf)
+require(tidyverse)
+require(sp)
+require(plotly)
+
+BR <- get_brmap("City")
+BRuf <- get_brmap("State")
+PT <- read.csv2("https://raw.githubusercontent.com/RodrigoAnderle/Tese/master/ParquesGeral2016-%20Vers%C3%A3o%20Editada.csv"
+, header = T)
+PT<- merge(PT, BR, by.x = "MUN", by.y = "City")
+PT$Fase <- factor(PT$Fase, levels = c("Projeto", "Implantação", 
+                                      "Indefinido","Operação"))
+PT <- PT[PT$Fase != "Indefinido",]
+st_geometry(PT) <- PT$geometry
+PT <- st_centroid(PT)
+
+#https://www.littlemissdata.com/blog/interactiveplots
+#https://plot.ly/ggplot2/getting-started/#special-instructions-for-chart-studio-enterprise-users
+
+Mapa <- ggplot() + 
+  geom_sf(data = BRuf, fill = "white", na.rm = T) +
+  geom_sf(data = PT, na.rm = T,size = 1,
+          aes(fill = NULL, color = Ano, 
+              text = paste("\n","Parque: ", Nome,"\n",
+                           "\n", "Cidade: ", Cidade,"-",UF,"\n",
+                           "\n","Fase: ", Fase, "\n",
+                           "\n","Site: ",Site, sep = " ")),
+          show.legend = F) +
+  facet_wrap(~ Fase) +
+  theme_bw() +
+  scale_color_gradient(low = "red", high = "blue")
+
+ggplotly(Mapa)
+```
+
+
+Esse gráfico é um complemento ao gráfico estático que coloquei em minha tese (ainda em elaboração). A seguir, explico um pouco da minha proposta dessa categoria do blog e da minha tese. Para saber como o gráfico foi feito, basta pular para a seção *Replicando*.
+
+# Sobre essa categoria do Blog
+
+Este texto inicia uma nova categoria do blog, a categoria "Tese". Aqui, pretendo ir compartilhando algumas coisas que tenho feito para a minha tese de doutorado, ainda inacabada. Faço isso para exercitar algumas aplicações e para divulgar e tornar público meus resultados. Faço doutorado em uma universidade pública, a [UFBA](https://ppgeconomia.ufba.br/), e recebo bolsa [FAPESB](http://www.fapesb.ba.gov.br/) desde o início do curso. Estou realizando parte do curso como visitante na [Scuola Superiori Sant'Anna](https://www.santannapisa.it/it/istituto/economia/istituto-di-economia), em Pisa, na Itália, com recursos do programa de bolsas Sanduíche [CAPES-PRINT](https://capesprint.ufba.br/). Assim, entendo que o mínimo que posso fazer é tentar disponibilizar da melhor forma possível os meus "achados" e como cheguei neles, na expectativa de produzir uma [ciência aberta](https://pt.wikipedia.org/wiki/Ci%C3%AAncia_aberta).
+
+# Sobre minha tese
+
+Falando rapidamente, minha tese se propõe a avaliar a experiência brasileira com parques tecnológicos. Parques tecnológicos são iniciativas que tentam emular regiões de alto desempenho tecnológico, como o [Vale do Silício](https://pt.wikipedia.org/wiki/Vale_do_Sil%C3%ADcio). Com a justificativa da busca pelo desenvolvimento tecnológico, governos de diferentes esferas (federal, estadual e municipal) tentaram (e tentam) criar fenômenos parecidos através de políticas públicas. Isso aconteceu tanto no Brasil quanto no resto do mundo. A proposta é avaliar a experiência brasileira de maneira a conseguir contribuir para aperfeiçoamento de políticas futuras e das práticas correntes.
+
+# Replicando
+
+## Pacotes
+
+Para fazer o mapa, precisei de diversos pacotes. Os mapas retirei do `brazilmaps`, do qual já falei um pouco [aqui](https://anderlerv.netlify.com/mapas-com-brazilmaps/01/2019/). Os pacotes `sp` e `sf` são para análise espacial/geográfica. O `ggplot2` e o `tidyverse` são, respectivamente, para gerar os gráficos e para manipular os dados. Por fim, o `plotly` é o que faz a "magia" da interatividade acontecer.
+
+```{r, message=FALSE, warning=FALSE}
+require(brazilmaps)
+require(sp)
+require(sf)
+require(ggplot2)
+require(tidyverse)
+require(plotly)
+```
+
+## Base de dados
+
+São três bases que precisaremos para gerar esses mapas. Duas delas são informações referêntes aos mapas e são extraídas do pacote `brazilmaps`. A outra é uma versão editada da relação da CGU que deixei disponível no [github](https://github.com/RodrigoAnderle/Tese). 
+
+```{r}
+BR <- get_brmap("City")
+
+BRuf <- get_brmap("State")
+
+PT <- read.csv2("https://raw.githubusercontent.com/RodrigoAnderle/Tese/master/ParquesGeral2016-%20Vers%C3%A3o%20Editada.csv"
+, header = T)
+```
+
+Note que são dois mapas diferentes que vamos utilizar. Um contém a informação dos estados brasileiros, o outro dos municípios. Isso é necessário, pois, de um, vamos extrair o plano de fundo, o mapa do Brasil, enquanto que o outro será utilizado para fixar os pontos, os municípios que possuem parques.
+
+## Ajustando bases
+
+Para fazer esse ajuste, foi feito um `merge` do mapa com os municípios com a relação dos parques tecnológicos. Assim, ao invés de todos os municípios, agora só temos os municípios que constam na relação. Ou seja, os municípios que possuem parques tecnológicos.
+
+Um pequeno detalhe é que ajustei a sequência com os *levels* da Fase de atividade dos parques. Isso vai afetar a sequência que os mapas aparecem, pois, do contrário, apareceriam em ordem alfabética. Outro detalhe, é que exclui os parques descritos como indefinidos, pois se tratavam de quatro parques que são, exatamente isso, indefinidos, não encontrei muitas informações sobre eles, além de algumas notícias. De toda forma, é possível gerar os mapas com eles também, basta não removê-los.
+
+```{r, warning=F}
+PT<- merge(PT, BR, by.x = "MUN", by.y = "City")
+
+PT$Fase <- factor(PT$Fase, levels = c("Projeto", "Implantação", 
+                                      "Indefinido","Operação"))
+PT <- PT[PT$Fase != "Indefinido",]
+
+st_geometry(PT) <- PT$geometry
+PT <- st_centroid(PT)
+```
+
+Um último procedimento é feito para adicionar a "geometria" a base de dados dos parques, transformando-a em um formato `sf`. Isso é necessário, pois, do contrário, ela não é reconhecida pelas funções que geram mapas. Em seguida, é definido que, ao invés do mapa dos municípios, vamos utilizar os centróides, um ponto, aproximadamente, central de onde está o município.Isso torna a visualização melhor e evita confusão, pois um parque tecnológico não corresponde a um município, mas um ponto.
+
+## Gerando mapa
+
+Esse é o mapa gerado pelo `ggplot2`. Note que as informações são geradas em diferentes funções `geom_sf`. A primeria, gera o mapa do Brasil, a segunda, os pontos de onde estão os parques. A função `facet_wrap` cria mapas distintos e a função `scale_color_gradient` é a que estabelece como serão distribuídas as cores da legenda.
+
+```{r, warning=FALSE}
+(Mapa <- ggplot() + 
+  geom_sf(data = BRuf, fill = "white", na.rm = T) +
+  geom_sf(data = PT, na.rm = T,size = 1,
+          aes(fill = NULL, color = Ano),
+          show.legend = T) +
+  facet_wrap(~ Fase) +
+  theme_bw() +
+  scale_color_gradient(low = "red", high = "blue"))
+```
+
+## Gerando Plotly
+
+O plotly não é muito diferente do que foi feito. Basta reproduzir o mapa com a função `ggplotly`. Entretanto, para aproveitar melhor a função é possível inserir informações adicionais no `aes` (estética) do `geom_sf` dos parques. Para fazer isso me basiei em dois textos que achei na internet, [este](https://www.littlemissdata.com/blog/interactiveplots) e [este](https://plot.ly/ggplot2/getting-started/#special-instructions-for-chart-studio-enterprise-users). Note que os termos `"\n"` inserem quebra de páginas no texto, possibilitanto uma informação mais clara, sem que ela fique toda contida em uma linha. Ah! É importante dar uma olhada na função `?paste`, caso ela não lhe seja muito familhar.
+
+
+```{r, warning = F}
+Mapa <- ggplot() + 
+  geom_sf(data = BRuf, fill = "white", na.rm = T) +
+  geom_sf(data = PT, na.rm = T,size = 1,
+          aes(fill = NULL, color = Ano, 
+              text = paste("\n","Parque: ", Nome,"\n",
+                           "\n", "Cidade: ", Cidade,"-",UF,"\n",
+                           "\n","Fase: ", Fase, "\n",
+                           "\n","Site: ",Site, sep = " ")),
+          show.legend = F) +
+  facet_wrap(~ Fase) +
+  theme_bw() +
+  scale_color_gradient(low = "red", high = "blue")
+
+Sys.setenv("plotly_username"="rodrigoanderle")
+Sys.setenv("plotly_api_key"="mkK4Tkjc!C!wf3C")
+ggplotly(Mapa)
+```
+
+
+# Encerrando
+
+Este foi um primeiro esforço que fiz para disponibilizar um pouco do que tenho feito. Tudo isso foi só para gerar um gráfico que facilita um entendimento. Há outros elementos que pretendo ir apresentando aqui no blog. De certa forma, isso me dá até alguma motivação, pois consigo entregar pequenos resultados de um trabalho lento e demorado.
+
+Importante dizer também que nada do que está aqui é definitivo. A ideia de disponibilizar essas informações e procedimentos carrega consigo a possibilidade de discutir, revisar e corrigir tudo o que é exposto. Assim, deixo disponível meu email e redes sociais para eventuais esclarecimentos, dúvidas, ou críticas.
