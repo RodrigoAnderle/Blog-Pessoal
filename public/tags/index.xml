@@ -6,17 +6,71 @@
     <description>Recent content in Tags on Rodrigo Volmir Anderle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Complexidade</title>
+      <link>/tags/complexidade/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/complexidade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Crescimento</title>
+      <link>/tags/crescimento/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/crescimento/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Economia</title>
       <link>/tags/economia/</link>
-      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/economia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Economia Evolucionária</title>
+      <link>/tags/economia-evolucion%C3%A1ria/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/economia-evolucion%C3%A1ria/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inovação</title>
+      <link>/tags/inova%C3%A7%C3%A3o/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/inova%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publicações</title>
+      <link>/tags/publica%C3%A7%C3%B5es/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/publica%C3%A7%C3%B5es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resenha</title>
+      <link>/tags/resenha/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/resenha/</guid>
       <description></description>
     </item>
     
@@ -102,15 +156,6 @@
     </item>
     
     <item>
-      <title>Crescimento</title>
-      <link>/tags/crescimento/</link>
-      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/crescimento/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Efeito Espacial</title>
       <link>/tags/efeito-espacial/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
@@ -125,15 +170,6 @@
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/pesquisa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Publicações</title>
-      <link>/tags/publica%C3%A7%C3%B5es/</link>
-      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/publica%C3%A7%C3%B5es/</guid>
       <description></description>
     </item>
     
@@ -161,15 +197,6 @@
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/revistas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Complexidade</title>
-      <link>/tags/complexidade/</link>
-      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/complexidade/</guid>
       <description></description>
     </item>
     
