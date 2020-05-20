@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resenha on Rodrigo Volmir Anderle</title>
+    <link>/tags/resenha/</link>
+    <description>Recent content in Resenha on Rodrigo Volmir Anderle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/resenha/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Resenha do livro Modern Evolutionary Economics</title>
+      <link>/resenha-sobre-livro-modern-evolutionaru-economis/05/2020/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/resenha-sobre-livro-modern-evolutionaru-economis/05/2020/</guid>
+      <description>Recentemente, tive uma resenha publicada pela Revista Brasileira de Inovação. A resenha trata do livro Modern Evolutionary Economics: An Overview que é organizado pelo Richard Nelson. Fiquei bastate feliz pela publicação, embora tenho que reconhecer as limitações da resenha que fiz. Contudo, seu principal objetivo era difundir tanto o livro, quanto essa abordagem econômica. A meu ver, é mais preocupada em entender a realidade do que moldar a mesma para que caiba na teoria.</description>
+    </item>
+    
+  </channel>
+</rss>
